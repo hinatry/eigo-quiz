@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Office × TOEIC Study</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;height:100vh;overflow:hidden;background:#0a0a14;font-family:'Segoe UI',sans-serif}
+
+/* ===== LEFT PANEL (Office) ===== */
+#left-panel{width:460px;min-width:460px;display:flex;flex-direction:column;background:#0d0d1a;border-right:2px solid #2d2d4d;overflow:hidden}
+#office-header{padding:6px 8px;background:#1a1a2e;border-bottom:1px solid #2d2d4d;display:flex;align-items:center;gap:8px}
+#office-header h2{font-size:12px;color:#58a6ff;flex:1}
+#clock{font-size:11px;color:#8b8fa8;font-family:'Courier New',monospace}
+#office-wrap{flex:0 0 auto;display:flex;justify-content:center;align-items:center;padding:4px;background:#111}
+#office-canvas{image-rendering:pixelated;display:block}
+#controls{display:flex;gap:4px;padding:4px 6px;background:#1a1a2e;border-top:1px solid #2d2d4d;border-bottom:1px solid #2d2d4d;flex-wrap:wrap}
+.ctrl-btn{padding:3px 8px;font-size:11px;border:none;border-radius:4px;cursor:pointer;font-weight:bold}
+#btn-start{background:#238636;color:#fff}
+#btn-stop{background:#da3633;color:#fff}
+#btn-reset{background:#444;color:#ccc}
+#btn-mtg{background:#6e40c9;color:#fff}
+#side-panel{flex:1;overflow-y:auto;padding:6px;display:flex;flex-direction:column;gap:4px}
+#approval-queue{display:flex;flex-direction:column;gap:3px}
+.approval-card{background:#1a1a2e;border:1px solid #e94560;border-radius:6px;padding:6px;font-size:10px}
+.approval-card h4{color:#e94560;margin-bottom:2px}
+.approval-card p{color:#8b8fa8;margin-bottom:4px;white-space:pre-line}
+.approval-btns{display:flex;gap:4px}
+.btn-approve{background:#238636;color:#fff;border:none;border-radius:3px;padding:2px 8px;cursor:pointer;font-size:10px}
+.btn-reject{background:#da3633;color:#fff;border:none;border-radius:3px;padding:2px 8px;cursor:pointer;font-size:10px}
+#task-list-wrap{flex:1}
+#task-list-wrap h3{font-size:10px;color:#58a6ff;margin-bottom:3px}
+#task-list{display:flex;flex-direction:column;gap:2px}
+.task-item{background:#1a1a2e;border:1px solid #2d2d4d;border-radius:4px;padding:4px 6px;cursor:pointer;font-size:10px;display:flex;align-items:center;gap:4px}
+.task-item.done{border-color:#238636;opacity:.7}
+.task-item.running{border-color:#e3b341;animation:pulse 1s infinite}
+.task-item.waiting{border-color:#6e40c9}
+.task-item.error{border-color:#da3633}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.task-status{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.task-title{flex:1;color:#eae0d5}
+.task-emp{color:#8b8fa8}
+#emp-panel{background:#1a1a2e;border-radius:6px;padding:6px;border:1px solid #2d2d4d;font-size:10px}
+#emp-panel h3{color:#58a6ff;margin-bottom:4px}
+.emp-row{display:flex;align-items:center;gap:4px;padding:2px 0;border-bottom:1px solid #1e2030}
+.emp-emoji{font-size:12px}
+.emp-info{flex:1}
+.emp-name{color:#eae0d5;font-size:9px}
+.emp-state{color:#8b8fa8;font-size:9px}
+.emp-state.working{color:#e3b341}
+.emp-state.done{color:#4caf50}
+#log-area{background:#0d0d1a;border-radius:4px;border:1px solid #2d2d4d;font-size:9px;padding:4px;max-height:80px;overflow-y:auto}
+.log-line{padding:1px 0;font-family:'Courier New',monospace;color:#8b8fa8}
+.log-line.human{color:#e3b341}
+.log-line.system{color:#58a6ff}
+.log-line.ai{color:#58a6ff}
+
+/* ===== RIGHT PANEL ===== */
+#right-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
+
+/* Build Log Strip */
+#build-log-strip-wrap{height:90px;background:#0d0d1a;border-bottom:2px solid #2d2d4d;display:flex;flex-direction:column}
+#build-log-header{padding:3px 8px;background:#1a1a2e;font-size:10px;color:#d2a8ff;display:flex;align-items:center;gap:6px}
+#build-phase-badge{background:#2d2d4d;color:#58a6ff;padding:1px 6px;border-radius:8px;font-size:9px}
+#build-log-strip{flex:1;overflow-y:auto;padding:2px 8px;display:flex;flex-direction:column}
+
+/* TOEIC Area */
+#toeic-area{flex:1;overflow:hidden;display:flex;flex-direction:column}
+
+/* Under Construction */
+#uc-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0e17,#1a1a2e);gap:12px}
+#uc-area .uc-icon{font-size:48px;animation:spin 3s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+#uc-area h2{color:#e94560;font-size:20px}
+#uc-area p{color:#8b8fa8;font-size:13px;text-align:center;max-width:300px}
+.uc-progress{width:300px;height:8px;background:#2d2d4d;border-radius:4px;overflow:hidden}
+.uc-progress-bar{height:100%;background:linear-gradient(90deg,#e94560,#d2a8ff);border-radius:4px;transition:width .5s ease;width:0%}
+#uc-phase-text{color:#58a6ff;font-size:11px}
+
+/* TOEIC App (hidden until BUILD.phase>=1) */
+#toeic-app{flex:1;overflow:hidden;display:none;flex-direction:column}
+:root{
+  --bg:#0f0e17;--card:#1a1a2e;--card2:#16213e;
+  --accent:#e94560;--gold:#ffd700;--green:#4caf50;--red:#f44336;
+  --text:#eae0d5;--sub:#8b8fa8;--border:#2d2d4d;
+  --500:#4ecdc4;--650:#45b7d1;--700:#96ceb4;--900:#dda0dd;
+}
+.screen{display:none;flex:1;overflow-y:auto;padding:12px;flex-direction:column;gap:10px}
+.screen.active{display:flex}
+
+/* Home Screen */
+.player-card{background:var(--card);border-radius:10px;padding:12px;border:1px solid var(--border)}
+.player-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.level-badge{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#6e40c9);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:16px;color:#fff}
+.player-info{flex:1}
+.player-name{color:var(--text);font-size:14px;font-weight:bold}
+.player-sub{color:var(--sub);font-size:11px}
+.xp-bar-wrap{margin-top:4px}
+.xp-label{font-size:9px;color:var(--sub);display:flex;justify-content:space-between;margin-bottom:2px}
+.xp-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:4px;transition:width .5s}
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.course-card{background:var(--card);border-radius:10px;padding:12px;cursor:pointer;border:2px solid var(--border);position:relative;overflow:hidden;transition:all .2s}
+.course-card:hover:not(.locked){transform:translateY(-2px);border-color:var(--accent)}
+.course-card.locked{opacity:.6;cursor:not-allowed}
+.lock-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:8px}
+.lock-overlay .lock-icon{font-size:22px}
+.lock-overlay .lock-msg{font-size:9px;color:#8b8fa8;text-align:center}
+.c-score{font-size:20px;font-weight:bold}
+.c-label{font-size:10px;color:var(--sub);margin-bottom:6px}
+.c-prog{font-size:10px;color:var(--sub)}
+.c-bar{height:4px;background:var(--border);border-radius:2px;margin-top:4px}
+.c-bar-fill{height:100%;border-radius:2px;transition:width .5s}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.stat-card{background:var(--card);border-radius:8px;padding:8px;text-align:center}
+.stat-val{font-size:16px;font-weight:bold;color:var(--accent)}
+.stat-label{font-size:9px;color:var(--sub)}
+.section-title{font-size:12px;color:var(--sub);padding:2px 0;border-bottom:1px solid var(--border)}
+.weak-panel,.achieve-panel{background:var(--card);border-radius:8px;padding:10px}
+.weak-row{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:11px}
+.weak-cat{flex:1;color:var(--text)}
+.weak-rate{color:var(--sub);font-size:10px}
+.weak-bar{width:60px;height:5px;background:var(--border);border-radius:2px;overflow:hidden}
+.weak-bar-fill{height:100%;border-radius:2px;background:var(--accent)}
+.ach-row{display:flex;align-items:center;gap:8px;padding:3px 0}
+.ach-icon{font-size:16px}
+.ach-name{font-size:11px;color:var(--text)}
+.ach-desc{font-size:9px;color:var(--sub)}
+
+/* Quiz Screen */
+.quiz-top{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.back-btn{background:var(--border);color:var(--sub);border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:11px}
+.q-count{font-size:11px;color:var(--sub);flex:1}
+.q-course-label{font-size:11px;color:var(--accent);font-weight:bold}
+.streak-badge{background:var(--accent);color:#fff;border-radius:12px;padding:2px 8px;font-size:10px;display:none}
+.timer-bar{height:5px;background:var(--border);border-radius:2px;overflow:hidden;flex-shrink:0}
+.timer-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 1s linear}
+.q-card{background:var(--card);border-radius:10px;padding:14px;flex-shrink:0}
+.q-cat{font-size:9px;color:var(--sub);margin-bottom:6px}
+.q-text{font-size:13px;color:var(--text);line-height:1.6}
+.options{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.opt{background:var(--card);border:2px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;font-size:12px;color:var(--text);text-align:left;transition:all .15s}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--card2)}
+.opt.correct{border-color:var(--green);background:#1a2e1a;color:var(--green)}
+.opt.wrong{border-color:var(--red);background:#2e1a1a;color:var(--red)}
+.explanation-area{display:none;background:var(--card2);border-radius:8px;padding:10px;font-size:11px;border-left:3px solid var(--accent);flex-shrink:0}
+.exp-label{color:var(--accent);font-weight:bold;margin-bottom:4px}
+.exp-text{color:var(--sub);line-height:1.5}
+.next-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;font-size:13px;display:none;flex-shrink:0}
+
+/* Result Screen */
+.result-card{background:var(--card);border-radius:12px;padding:16px;text-align:center}
+.result-rank{font-size:44px;margin-bottom:6px}
+.result-score{font-size:28px;font-weight:bold;color:var(--accent)}
+.result-sub{font-size:12px;color:var(--sub);margin-top:4px}
+.result-streak{font-size:12px;color:var(--gold);margin-top:4px}
+.xp-gained{font-size:16px;color:var(--gold);margin-top:8px}
+.review-panel{background:var(--card);border-radius:10px;padding:12px}
+.review-item{padding:6px 0;border-bottom:1px solid var(--border);font-size:11px}
+.review-item:last-child{border-bottom:none}
+.rv-q{color:var(--sub);margin-bottom:2px}
+.rv-ans{color:var(--red)}
+.rv-correct{color:var(--green)}
+.action-btns{display:flex;flex-direction:column;gap:8px}
+.action-btn{padding:12px;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:bold}
+.btn-retry{background:var(--card);color:var(--accent);border:2px solid var(--accent)}
+.btn-review{background:var(--card);color:var(--sub);border:2px solid var(--border)}
+.btn-home{background:var(--accent);color:#fff}
+
+/* Review Screen */
+.review-options{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.review-explanation-area{display:none;background:var(--card2);border-radius:8px;padding:10px;font-size:11px;border-left:3px solid #45b7d1;flex-shrink:0}
+.review-next-btn{background:#45b7d1;color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;font-size:13px;display:none;flex-shrink:0}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:#0d0d1a}
+::-webkit-scrollbar-thumb{background:#2d2d4d;border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- ===== LEFT: OFFICE ===== -->
+<div id="left-panel">
+  <div id="office-header">
+    <h2>🏢 AI Office Simulation</h2>
+    <span id="clock"></span>
+  </div>
+  <div id="office-wrap">
+    <canvas id="office-canvas"></canvas>
+  </div>
+  <div id="controls">
+    <button class="ctrl-btn" id="btn-start">▶ スタート</button>
+    <button class="ctrl-btn" id="btn-stop">⏸ 停止</button>
+    <button class="ctrl-btn" id="btn-reset">🔄 リセット</button>
+    <button class="ctrl-btn" id="btn-mtg">📊 MTG</button>
+  </div>
+  <div id="side-panel">
+    <div id="approval-queue"></div>
+    <div id="task-list-wrap">
+      <h3>📋 タスク一覧</h3>
+      <div id="task-list"></div>
+    </div>
+    <div id="emp-panel">
+      <h3>👥 チームメンバー</h3>
+      <div id="emp-list"></div>
+    </div>
+    <div id="log-area"></div>
+  </div>
+</div>
+
+<!-- ===== RIGHT PANEL ===== -->
+<div id="right-panel">
+  <!-- Build Log Strip -->
+  <div id="build-log-strip-wrap">
+    <div id="build-log-header">
+      🔨 BUILD LOG
+      <span id="build-phase-badge">Phase 0</span>
+    </div>
+    <div id="build-log-strip"></div>
+  </div>
+
+  <!-- TOEIC Area -->
+  <div id="toeic-area">
+    <!-- Under Construction (shown until BUILD.phase >= 1) -->
+    <div id="uc-area">
+      <div class="uc-icon">⚙️</div>
+      <h2>アプリ開発中...</h2>
+      <p>左のOfficeでAI社員がTOEICアプリを構築しています。<br>▶ スタートを押してください！</p>
+      <div class="uc-progress"><div class="uc-progress-bar" id="uc-progress-bar"></div></div>
+      <div id="uc-phase-text" style="color:#8b8fa8;font-size:11px">作業待機中</div>
+    </div>
+
+    <!-- TOEIC App (hidden until BUILD) -->
+    <div id="toeic-app">
+      <!-- Home Screen -->
+      <div class="screen active" id="screen-home">
+        <div class="player-card">
+          <div class="player-top">
+            <div class="level-badge" id="level-badge">1</div>
+            <div class="player-info">
+              <div class="player-name">hinata</div>
+              <div class="player-sub" id="player-sub">Level 1 — TOEIC学習者</div>
+            </div>
+          </div>
+          <div class="xp-bar-wrap">
+            <div class="xp-label">
+              <span>XP</span>
+              <span id="xp-label-val">0 / 100</span>
+            </div>
+            <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="course-grid" id="course-grid">
+          <div class="course-card" id="card-500" data-course="500" onclick="startCourse(500)">
+            <div class="c-score" style="color:var(--500)">500</div>
+            <div class="c-label">点コース</div>
+            <div class="c-prog" id="prog-500">0 / 0問完了</div>
+            <div class="c-bar"><div class="c-bar-fill" id="bar-500" style="background:var(--500);width:0%"></div></div>
+            <div class="lock-overlay" id="lock-500"><div class="lock-icon">🔒</div><div class="lock-msg">開発中...</div></div>
+          </div>
+          <div class="course-card" id="card-650" data-course="650" onclick="startCourse(650)">
+            <div class="c-score" style="color:var(--650)">650</div>
+            <div class="c-label">点コース</div>
+            <div class="c-prog" id="prog-650">0 / 0問完了</div>
+            <div class="c-bar"><div class="c-bar-fill" id="bar-650" style="background:var(--650);width:0%"></div></div>
+            <div class="lock-overlay" id="lock-650"><div class="lock-icon">🔒</div><div class="lock-msg">開発中...</div></div>
+          </div>
+          <div class="course-card" id="card-700" data-course="700" onclick="startCourse(700)">
+            <div class="c-score" style="color:var(--700)">700</div>
+            <div class="c-label">点コース</div>
+            <div class="c-prog" id="prog-700">0 / 0問完了</div>
+            <div class="c-bar"><div class="c-bar-fill" id="bar-700" style="background:var(--700);width:0%"></div></div>
+            <div class="lock-overlay" id="lock-700"><div class="lock-icon">🔒</div><div class="lock-msg">開発中...</div></div>
+          </div>
+          <div class="course-card" id="card-900" data-course="900" onclick="startCourse(900)">
+            <div class="c-score" style="color:var(--900)">900</div>
+            <div class="c-label">点コース</div>
+            <div class="c-prog" id="prog-900">0 / 0問完了</div>
+            <div class="c-bar"><div class="c-bar-fill" id="bar-900" style="background:var(--900);width:0%"></div></div>
+            <div class="lock-overlay" id="lock-900"><div class="lock-icon">🔒</div><div class="lock-msg">開発中...</div></div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card"><div class="stat-val" id="stat-total">0</div><div class="stat-label">総回答数</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-acc">-</div><div class="stat-label">正解率</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-rank">-</div><div class="stat-label">推定スコア</div></div>
+        </div>
+        <div class="section-title">弱点分析</div>
+        <div class="weak-panel" id="weak-panel"><div style="color:var(--sub);font-size:11px">問題を解くと分析が表示されます</div></div>
+        <div class="section-title">実績</div>
+        <div class="achieve-panel" id="achieve-panel"><div style="color:var(--sub);font-size:11px">まだ実績がありません</div></div>
+      </div>
+
+      <!-- Quiz Screen -->
+      <div class="screen" id="screen-quiz">
+        <div class="quiz-top">
+          <button class="back-btn" onclick="goHome()">← ホーム</button>
+          <span class="q-count" id="q-count">1 / 10</span>
+          <span class="q-course-label" id="q-course-label">500点コース</span>
+          <span class="streak-badge" id="streak-badge">🔥 0</span>
+        </div>
+        <div class="timer-bar"><div class="timer-fill" id="timer-fill" style="width:100%"></div></div>
+        <div class="q-card">
+          <div class="q-cat" id="q-cat"></div>
+          <div class="q-text" id="q-text"></div>
+        </div>
+        <div class="options" id="options"></div>
+        <div class="explanation-area" id="explanation-area">
+          <div class="exp-label">💡 解説</div>
+          <div class="exp-text" id="exp-text"></div>
+        </div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">次へ →</button>
+      </div>
+
+      <!-- Result Screen -->
+      <div class="screen" id="screen-result">
+        <div class="result-card">
+          <div class="result-rank" id="result-rank">🥉</div>
+          <div class="result-score" id="result-score">0 / 10</div>
+          <div class="result-sub" id="result-sub">正解率 0%</div>
+          <div class="result-streak" id="result-streak"></div>
+          <div class="xp-gained" id="xp-gained">+0 XP</div>
+        </div>
+        <div class="review-panel" id="review-panel"></div>
+        <div class="action-btns">
+          <button class="action-btn btn-retry" onclick="retryQuiz()">🔄 もう一度</button>
+          <button class="action-btn btn-review" id="btn-review" onclick="startReview()" style="display:none">📖 間違えた問題を復習</button>
+          <button class="action-btn btn-home" onclick="goHome()">🏠 ホームへ</button>
+        </div>
+      </div>
+
+      <!-- Review Screen -->
+      <div class="screen" id="screen-review">
+        <div class="quiz-top">
+          <button class="back-btn" onclick="goHome()">← ホーム</button>
+          <span class="q-count" id="rv-count">1 / 0</span>
+          <span class="q-course-label">復習モード</span>
+        </div>
+        <div class="timer-bar"><div class="timer-fill" id="rv-timer-fill" style="width:100%"></div></div>
+        <div class="q-card">
+          <div class="q-cat" id="rv-q-cat"></div>
+          <div class="q-text" id="rv-q-text"></div>
+        </div>
+        <div class="review-options" id="rv-options"></div>
+        <div class="review-explanation-area" id="rv-explanation-area">
+          <div class="exp-label">💡 解説</div>
+          <div class="exp-text" id="rv-exp-text"></div>
+        </div>
+        <button class="review-next-btn" id="rv-next-btn" onclick="nextReviewQuestion()">次へ →</button>
+      </div>
+    </div><!-- #toeic-app -->
+  </div><!-- #toeic-area -->
+</div><!-- #right-panel -->
+
+<script>
+// ============================================================
+// BUILD BRIDGE
+// ============================================================
+const BUILD = {
+  phase: 0, courses: new Set(), qbReady: new Set(),
+  features: { xp:false, timer:false, explain:false, review:false }, log: []
+};
+
+function buildLog(msg, type='ai'){
+  const time = new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  BUILD.log.push({msg, type, time});
+  const strip = document.getElementById('build-log-strip');
+  if(!strip) return;
+  const color = type==='human'?'#e3b341':type==='deploy'?'#d2a8ff':'#58a6ff';
+  const d = document.createElement('div');
+  d.style.cssText = `font-size:10px;color:${color};padding:1px 0;font-family:'Courier New',monospace`;
+  d.textContent = `[${time}] ${msg}`;
+  strip.insertBefore(d, strip.firstChild);
+  // update phase badge
+  const badge = document.getElementById('build-phase-badge');
+  if(badge) badge.textContent = `Phase ${BUILD.phase}`;
+  // update uc progress
+  const pct = Math.min(100, BUILD.phase * 20);
+  const pb = document.getElementById('uc-progress-bar');
+  if(pb) pb.style.width = pct + '%';
+  const pt = document.getElementById('uc-phase-text');
+  const phaseNames = ['作業待機中','設計完了','問題生成中','QAレビュー中','実装中','🎉 デプロイ完了！'];
+  if(pt) pt.textContent = phaseNames[BUILD.phase] || '';
+}
+
+function applyBuildEffect(tid){
+  const effects = {
+    t1:  ()=>{ BUILD.phase=1; buildLog('📋 設計書完成 — アプリ構造が確定！'); refreshToeicHome(); },
+    t2:  ()=>{ buildLog('🔍 TOEIC分析完了 — 10カテゴリー特定'); },
+    t3:  ()=>{ BUILD.qbReady.add(500); BUILD.phase=2; buildLog('📝 500点問題(25問)生成完了'); refreshToeicHome(); },
+    t4:  ()=>{ BUILD.features.xp=true; buildLog('⚡ XP/レベルシステム実装完了'); refreshToeicHome(); },
+    t5:  ()=>{ buildLog('🎨 UIデザイン草案完成'); },
+    t6:  ()=>{ BUILD.courses.add(500); BUILD.phase=3; buildLog('✅ QAレビューOK → 500点コース解放！','human'); refreshToeicHome(); },
+    t7:  ()=>{ buildLog('📌 開発方針確定 — 4コース構成','human'); },
+    t8:  ()=>{ BUILD.qbReady.add(650); BUILD.qbReady.add(700); BUILD.qbReady.add(900); BUILD.phase=4; buildLog('📝 650/700/900点問題生成完了'); refreshToeicHome(); },
+    t9:  ()=>{ BUILD.features.timer=true; BUILD.features.explain=true; BUILD.features.review=true; buildLog('💻 クイズ実装完了 — タイマー+解説+復習機能'); refreshToeicHome(); },
+    t10: ()=>{ buildLog('🎨 ドット絵スプライト完成'); },
+    t11: ()=>{ [650,700,900].forEach(c=>BUILD.courses.add(c)); BUILD.phase=5; buildLog('🚀 本番デプロイ完了！全コース解放！🎉','deploy'); refreshToeicHome(); },
+  };
+  if(effects[tid]) effects[tid]();
+}
+
+function refreshToeicHome(){
+  if(BUILD.phase >= 1){
+    document.getElementById('uc-area').style.display = 'none';
+    document.getElementById('toeic-app').style.display = 'flex';
+  }
+  [500,650,700,900].forEach(c=>{
+    const lock = document.getElementById('lock-'+c);
+    if(lock) lock.style.display = BUILD.courses.has(c) ? 'none' : 'flex';
+  });
+  if(typeof renderHome === 'function') renderHome();
+}
+
+function showLockMessage(course){
+  buildLog(`🔒 ${course}点コースはまだ開発中です...`,'ai');
+}
+
+// ============================================================
+// TOEIC STATE
+// ============================================================
+let state = {
+  xp:0, level:1, totalAns:0, totalCorrect:0, bestRank:null,
+  history:{500:{done:0,correct:0},650:{done:0,correct:0},700:{done:0,correct:0},900:{done:0,correct:0}},
+  catStats:{}, achievements:[]
+};
+try{ const s=JSON.parse(localStorage.getItem('toeic5_state')||'null'); if(s) state=s; }catch(e){}
+let quiz={course:500,qs:[],qi:0,correct:0,streak:0,cats:{},timer:null,answered:false,wrongQs:[]};
+let reviewQuiz={qs:[],qi:0,correct:0,streak:0,timer:null,answered:false};
+
+// ============================================================
+// QUESTION BANK
+// ============================================================
+const QB = {
+  500:[
+    {q:"She ___ to the office every day by train.",opts:["go","goes","going","gone"],ans:1,cat:"動詞時制",exp:"三人称単数現在形。She = 三人称単数 → goes"},
+    {q:"The meeting will start ___ 9 AM.",opts:["in","at","on","for"],ans:1,cat:"前置詞",exp:"時刻には前置詞 at を使う。at 9 AM"},
+    {q:"Please send ___ email to all staff.",opts:["a","an","the","—"],ans:0,cat:"冠詞",exp:"emailは母音で始まらないため a email ではなく a email。ただし 'an email' が正解でないか？ここでは a。"},
+    {q:"They ___ the project last week.",opts:["finish","finishes","finished","finishing"],ans:2,cat:"動詞時制",exp:"last week は過去を示す → finished（過去形）"},
+    {q:"The store is ___ Monday to Friday.",opts:["open","opens","opened","opening"],ans:0,cat:"形容詞",exp:"is open = 形容詞として使う。is opened は受動態で文脈に合わない"},
+    {q:"We need ___ more information about this.",opts:["a","an","some","any"],ans:2,cat:"数量詞",exp:"不可算名詞 information には some を使う"},
+    {q:"___ is the deadline for this report?",opts:["What","When","Who","Where"],ans:1,cat:"疑問詞",exp:"締め切りは時間を聞く → When"},
+    {q:"The manager ___ a decision tomorrow.",opts:["make","will make","made","making"],ans:1,cat:"動詞時制",exp:"tomorrow は未来 → will make"},
+    {q:"Please fill ___ this form completely.",opts:["in","out","up","on"],ans:0,cat:"句動詞",exp:"fill in = （フォームに）記入する"},
+    {q:"The conference room ___ for three hours.",opts:["book","booked","is booked","booking"],ans:2,cat:"受動態",exp:"部屋が予約される → is booked（受動態）"},
+    {q:"She has ___ experience in marketing.",opts:["many","much","few","little"],ans:1,cat:"数量詞",exp:"experience は不可算名詞 → much experience"},
+    {q:"The report must be submitted ___ Friday.",opts:["in","at","by","on"],ans:2,cat:"前置詞",exp:"期限には by を使う。by Friday = 金曜日までに"},
+    {q:"All employees ___ wear ID badges.",opts:["can","must","might","could"],ans:1,cat:"助動詞",exp:"義務を表す → must"},
+    {q:"The price ___ by 10% last month.",opts:["increase","increases","increased","increasing"],ans:2,cat:"動詞時制",exp:"last month → 過去形 increased"},
+    {q:"He ___ the company for 10 years.",opts:["works","worked","has worked","working"],ans:2,cat:"現在完了",exp:"for + 期間 → 現在完了形 has worked"},
+    {q:"Could you please ___ the window?",opts:["close","closing","closed","closes"],ans:0,cat:"動詞原形",exp:"Could you please + 動詞原形 → close"},
+    {q:"The new ___ will be announced next week.",opts:["policy","policies","policys","policing"],ans:0,cat:"名詞",exp:"単数形 policy が文脈に合う。the new policy"},
+    {q:"I am ___ in attending the workshop.",opts:["interest","interests","interested","interesting"],ans:2,cat:"形容詞",exp:"人が興味を持つ → interested in"},
+    {q:"The product is available ___ all major stores.",opts:["at","in","on","by"],ans:0,cat:"前置詞",exp:"store（店）には at を使う。available at stores"},
+    {q:"We appreciate ___ feedback from customers.",opts:["receive","receiving","to receive","received"],ans:1,cat:"動名詞",exp:"appreciate + 動名詞 → receiving"},
+    {q:"The budget ___ been approved by the board.",opts:["has","have","had","having"],ans:0,cat:"現在完了",exp:"The budget（単数）→ has been approved"},
+    {q:"Please ___ me know if you have any questions.",opts:["let","make","have","do"],ans:0,cat:"使役動詞",exp:"let + 人 + 動詞原形 = 〜させる。let me know"},
+    {q:"The office will be ___ on national holidays.",opts:["close","closed","closing","closes"],ans:1,cat:"受動態",exp:"be + 過去分詞 → be closed（閉まっている）"},
+    {q:"She is ___ of the quality of her work.",opts:["pride","proud","proudly","priding"],ans:1,cat:"形容詞",exp:"be proud of = 〜を誇りに思う。形容詞 proud"},
+    {q:"The company ___ new employees every spring.",opts:["hire","hires","hired","hiring"],ans:1,cat:"動詞時制",exp:"三人称単数現在 → hires"},
+  ],
+  650:[
+    {q:"The company's revenue ___ significantly over the past year.",opts:["grow","grew","has grown","had grown"],ans:2,cat:"現在完了",exp:"過去から現在への変化 → has grown（現在完了）"},
+    {q:"Employees are ___ to submit expense reports by the end of the month.",opts:["require","requires","required","requiring"],ans:2,cat:"受動態",exp:"be required to = 〜することが求められている"},
+    {q:"The budget proposal was ___ by the board of directors.",opts:["approve","approves","approved","approving"],ans:2,cat:"受動態",exp:"was + 過去分詞 → was approved（承認された）"},
+    {q:"Please ensure that all documents are filed ___.",opts:["appropriate","appropriately","inappropriately","inappropriate"],ans:1,cat:"副詞",exp:"動詞 filed を修飾する → 副詞 appropriately"},
+    {q:"The new regulations ___ effect next quarter.",opts:["take","takes","took","taken"],ans:0,cat:"句動詞",exp:"take effect = 効力を発する。主語が複数 → take"},
+    {q:"We are looking for candidates ___ have strong communication skills.",opts:["who","which","what","whom"],ans:0,cat:"関係代名詞",exp:"人（candidates）を修飾する関係代名詞 → who"},
+    {q:"The merger ___ announced after months of negotiation.",opts:["is","was","has been","had been"],ans:1,cat:"受動態",exp:"過去の出来事 → was announced"},
+    {q:"All staff members are ___ to complete the training by Friday.",opts:["expected","expecting","expect","expects"],ans:0,cat:"受動態",exp:"be expected to = 〜することが期待されている"},
+    {q:"The committee will ___ the proposal at the next meeting.",opts:["discuss","discussion","discussing","discussed"],ans:0,cat:"動詞",exp:"will + 動詞原形 → discuss"},
+    {q:"Sales figures for Q3 ___ our initial projections.",opts:["exceed","exceeded","exceeding","exceedance"],ans:1,cat:"動詞時制",exp:"過去の結果 → exceeded（超えた）"},
+    {q:"The marketing team is responsible ___ promoting new products.",opts:["of","for","to","in"],ans:1,cat:"前置詞",exp:"be responsible for = 〜の責任がある"},
+    {q:"___ the rain, the outdoor event was a success.",opts:["Despite","Although","However","Nevertheless"],ans:0,cat:"接続詞",exp:"Despite + 名詞句 = 〜にもかかわらず。Although は節が続く"},
+    {q:"The company has been ___ new markets in Asia.",opts:["explore","explores","explored","exploring"],ans:3,cat:"現在進行形",exp:"has been + 現在分詞 → exploring（現在完了進行形）"},
+    {q:"Please ___ to our newsletter for weekly updates.",opts:["subscribe","subscription","subscribed","subscribing"],ans:0,cat:"動詞",exp:"Please + 動詞原形 → subscribe（登録する）"},
+    {q:"The report concludes that additional funding ___ necessary.",opts:["be","is","are","were"],ans:1,cat:"動詞",exp:"funding は不可算名詞・単数扱い → is necessary"},
+    {q:"He was ___ for his outstanding contributions to the project.",opts:["recognize","recognizes","recognized","recognizing"],ans:2,cat:"受動態",exp:"was + 過去分詞 → was recognized（表彰された）"},
+    {q:"The conference has been ___ to next month due to scheduling conflicts.",opts:["postpone","postponed","postponing","postpones"],ans:1,cat:"受動態",exp:"has been postponed = 延期された（現在完了受動態）"},
+    {q:"Customers are ___ to contact our support team with any concerns.",opts:["encourage","encouraged","encouraging","encourages"],ans:1,cat:"受動態",exp:"are encouraged to = 〜するよう促されている"},
+    {q:"The new policy aims to ___ employee productivity.",opts:["enhance","enhances","enhanced","enhancement"],ans:0,cat:"動詞",exp:"aims to + 動詞原形 → enhance（向上させる）"},
+    {q:"We need to complete the project ___ schedule.",opts:["in","on","at","by"],ans:1,cat:"前置詞",exp:"on schedule = 予定通りに"},
+    {q:"The factory ___ over 10,000 units per day.",opts:["produce","produces","produced","production"],ans:1,cat:"動詞時制",exp:"三人称単数現在 → produces"},
+    {q:"She was promoted ___ her excellent performance.",opts:["because","because of","although","however"],ans:1,cat:"接続詞",exp:"because of + 名詞句 = 〜のために。because は節が続く"},
+    {q:"The training session will last ___ three hours.",opts:["since","for","during","while"],ans:1,cat:"前置詞",exp:"期間には for を使う。for three hours"},
+    {q:"All applicants ___ submit their portfolios by the deadline.",opts:["should","shall","must","might"],ans:2,cat:"助動詞",exp:"義務・必须 → must submit（提出しなければならない）"},
+    {q:"The client was ___ with the presentation we delivered.",opts:["impress","impresses","impressed","impressive"],ans:2,cat:"形容詞",exp:"be impressed with = 〜に感銘を受ける"},
+  ],
+  700:[
+    {q:"The CEO suggested that the team ___ a new approach to the problem.",opts:["consider","considers","considered","considering"],ans:0,cat:"仮定法",exp:"suggest that + S + 動詞原形（仮定法現在）→ consider"},
+    {q:"Had the manager been informed earlier, she ___ a different decision.",opts:["make","makes","would make","would have made"],ans:3,cat:"仮定法",exp:"Had + S + pp = 仮定法過去完了 → would have made"},
+    {q:"The regulations require that all contractors ___ adequate insurance.",opts:["carry","carries","carried","carrying"],ans:0,cat:"仮定法",exp:"require that + S + 動詞原形（仮定法現在）→ carry"},
+    {q:"___ the complexity of the situation, a quick solution seems unlikely.",opts:["Given","Giving","Gave","Given that"],ans:0,cat:"分詞構文",exp:"Given the complexity = 〜の複雑さを考えると（独立分詞構文）"},
+    {q:"The proposal, ___ the team had worked on for months, was rejected.",opts:["that","which","who","what"],ans:1,cat:"関係代名詞",exp:"先行詞 proposal（物）に関係代名詞 which（非制限用法）"},
+    {q:"Not until the audit was completed ___ the extent of the losses.",opts:["the company realized","did the company realize","had the company realized","the company had realized"],ans:1,cat:"倒置",exp:"Not until ~ の後は倒置（did + S + 動詞原形）→ did the company realize"},
+    {q:"The consultant recommended ___ the current pricing strategy.",opts:["to revise","revising","revised","that revise"],ans:1,cat:"動名詞",exp:"recommend + 動名詞 → revising（改訂すること）"},
+    {q:"It is essential that every team member ___ the new guidelines.",opts:["follow","follows","followed","following"],ans:0,cat:"仮定法",exp:"It is essential that + S + 動詞原形 → follow"},
+    {q:"The acquisition, ___ completed last month, has already improved margins.",opts:["having been","being","to be","have been"],ans:0,cat:"分詞構文",exp:"Having been + pp = 〜されたので（完了の分詞構文・受動態）"},
+    {q:"The board will not approve the expansion ___ a detailed financial analysis is provided.",opts:["unless","until","while","since"],ans:0,cat:"接続詞",exp:"unless = 〜しない限り（条件の否定）→ unless a detailed analysis is provided"},
+    {q:"She is widely regarded ___ one of the most innovative leaders in the industry.",opts:["as","by","for","to"],ans:0,cat:"前置詞",exp:"be regarded as = 〜とみなされる"},
+    {q:"The new policy will be implemented ___ a pilot program in three departments.",opts:["as","like","for","by"],ans:0,cat:"前置詞",exp:"as a pilot program = 試験的プログラムとして"},
+    {q:"Management has yet ___ a final decision on the restructuring plan.",opts:["make","to make","making","made"],ans:1,cat:"不定詞",exp:"have yet to + 動詞原形 = まだ〜していない → to make"},
+    {q:"The legal team advises ___ any binding agreements without thorough review.",opts:["not signing","not to sign","signing not","to not sign"],ans:1,cat:"不定詞",exp:"advise + 不定詞 (not to do) → not to sign"},
+    {q:"___ to the new branch office, she will be overseeing regional operations.",opts:["Transferred","Transferring","Having transfer","Transfer"],ans:0,cat:"分詞構文",exp:"Transferred to ... = 異動させられて（受動・分詞構文）"},
+    {q:"The quarterly results fell short ___ analysts' expectations.",opts:["of","from","in","for"],ans:0,cat:"前置詞",exp:"fall short of = 〜に届かない"},
+    {q:"Only by ___ costs can the company remain competitive.",opts:["reduce","reduces","reducing","reduced"],ans:2,cat:"動名詞",exp:"by + 動名詞 → by reducing（〜することによって）"},
+    {q:"No sooner ___ the announcement than the stock price surged.",opts:["had they made","they had made","have they made","they made"],ans:0,cat:"倒置",exp:"No sooner had + S + pp = 〜するやいなや（倒置）→ had they made"},
+    {q:"The project timeline is contingent ___ receiving approval from all stakeholders.",opts:["on","in","at","by"],ans:0,cat:"前置詞",exp:"be contingent on = 〜次第である"},
+    {q:"The firm has adopted a strategy ___ maximizing short-term profitability.",opts:["aimed at","aims at","aim at","aiming"],ans:0,cat:"分詞",exp:"a strategy aimed at doing = 〜を目的とした戦略"},
+    {q:"She attributed the project's success ___ the team's exceptional coordination.",opts:["to","for","by","with"],ans:0,cat:"前置詞",exp:"attribute A to B = AをBのおかげと考える → attributed ... to"},
+    {q:"The contract stipulates that payment ___ within 30 days of delivery.",opts:["be made","is made","makes","made"],ans:0,cat:"仮定法",exp:"stipulate that + S + 動詞原形 → be made（仮定法現在）"},
+    {q:"___ the report had been submitted on time, the delay would have been avoided.",opts:["Had","If","Unless","Should"],ans:0,cat:"仮定法",exp:"Had + S + pp = if 節の倒置（仮定法過去完了）"},
+    {q:"The efficiency gains are largely ___ to the new automation system.",opts:["attribute","attributable","attributed","attributing"],ans:1,cat:"形容詞",exp:"be attributable to = 〜に起因する（形容詞 attributable）"},
+    {q:"The training program is designed with a view to ___ employee retention.",opts:["improve","improves","improving","improved"],ans:2,cat:"動名詞",exp:"with a view to + 動名詞 = 〜するために → improving"},
+  ],
+  900:[
+    {q:"The merger, ___ initially opposed by shareholders, ultimately proved beneficial.",opts:["which was","that was","which has been","that has been"],ans:0,cat:"関係代名詞",exp:"非制限用法 which was（先行詞 merger は物）→ which was"},
+    {q:"Only by restructuring its supply chain ___ the firm able to restore profitability.",opts:["was","is","has been","had been"],ans:0,cat:"倒置",exp:"Only by doing 〜 の後は倒置 → was the firm able to"},
+    {q:"The arbitration clause ___ in the contract precludes litigation in domestic courts.",opts:["contained","containing","contains","contain"],ans:0,cat:"分詞",exp:"The clause (that is) contained in ... → 過去分詞 contained"},
+    {q:"Management's reluctance to disclose financial data has ___ eroded investor confidence.",opts:["progressive","progressively","progression","progress"],ans:1,cat:"副詞",exp:"動詞 eroded を修飾 → 副詞 progressively（徐々に）"},
+    {q:"Notwithstanding the regulatory hurdles, the company ___ with its expansion plans.",opts:["proceeded","has proceeded","had proceeded","proceeds"],ans:0,cat:"動詞時制",exp:"過去の完了した行動 → proceeded（過去形）"},
+    {q:"The directive mandates that all subsidiaries ___ uniform accounting standards.",opts:["adopt","adopts","adopted","adopting"],ans:0,cat:"仮定法",exp:"mandate that + S + 動詞原形 → adopt（仮定法現在）"},
+    {q:"___ the magnitude of the losses become apparent, heads of department convened.",opts:["Once","No sooner","Scarcely had","Hardly had"],ans:0,cat:"接続詞",exp:"Once = 〜するとすぐに・〜になったとき。文脈上 once が最適"},
+    {q:"The CFO's projections are predicated ___ steady consumer demand.",opts:["on","upon","by","in"],ans:0,cat:"前置詞",exp:"be predicated on/upon = 〜を前提とする。on または upon"},
+    {q:"The proposed amendment would render the existing safeguards ___ obsolete.",opts:["virtually","virtual","virtue","virtuous"],ans:0,cat:"副詞",exp:"would render ~ obsolete を修飾 → 副詞 virtually（事実上）"},
+    {q:"It was not until auditors flagged the discrepancy ___ corrective action was taken.",opts:["when","that","which","what"],ans:1,cat:"強調構文",exp:"It was not until ~ that ... = 〜して初めて...（強調構文）"},
+    {q:"The board remains ___ to the proposition that short-term gains justify long-term risks.",opts:["opposed","opposing","oppose","opposition"],ans:0,cat:"形容詞",exp:"remain opposed to = 〜に反対し続ける（形容詞 opposed）"},
+    {q:"Shareholders are increasingly ___ of the company's environmental commitments.",opts:["skeptical","skeptically","skepticism","skeptic"],ans:0,cat:"形容詞",exp:"be skeptical of = 〜に懐疑的（形容詞 skeptical）"},
+    {q:"___ more resources allocated to R&D, the product would have reached market sooner.",opts:["With","Had","Were","Should"],ans:0,cat:"仮定法",exp:"With + 名詞 + pp = もし〜があったなら（仮定条件）→ With more resources allocated"},
+    {q:"The court ruled that the non-compete clause was ___ enforceable in this jurisdiction.",opts:["not","no","none","nothing"],ans:0,cat:"副詞",exp:"was not enforceable = 執行不可能であった"},
+    {q:"His remarks were construed as ___ undermining confidence in the regulatory framework.",opts:["inadvertently","inadvertent","inadvertence","inadvertently to"],ans:0,cat:"副詞",exp:"分詞 undermining を修飾する副詞 → inadvertently（意図せず）"},
+    {q:"___ the policy be revised, it would significantly alter the competitive landscape.",opts:["Should","Had","Were","If"],ans:0,cat:"仮定法",exp:"Should + S + 動詞原形 = if 節の倒置（将来の仮定）→ Should the policy be revised"},
+    {q:"The liability ___ upon the contractor extends beyond the completion of the project.",opts:["incumbent","imposed","imputed","implicated"],ans:1,cat:"語彙",exp:"liability imposed upon = 〜に課せられた責任（imposed = 課せられた）"},
+    {q:"The report casts doubt ___ the efficacy of the proposed interventions.",opts:["on","upon","about","over"],ans:0,cat:"前置詞",exp:"cast doubt on = 〜に疑問を投げかける"},
+    {q:"Pursuant ___ the agreement, both parties must provide 30 days' notice.",opts:["to","of","by","with"],ans:0,cat:"前置詞",exp:"pursuant to = 〜に従って（法律・契約用語）"},
+    {q:"The company's valuation is contingent ___ the successful completion of due diligence.",opts:["upon","for","by","about"],ans:0,cat:"前置詞",exp:"contingent upon = 〜次第（upon は on と同義、フォーマル）"},
+    {q:"___ the evidence presented, the tribunal found no grounds for the appeal.",opts:["Absent","Despite","Given","Notwithstanding"],ans:0,cat:"前置詞",exp:"Absent = 〜がない場合（法律・フォーマル用語）→ Absent the evidence"},
+    {q:"The directive was issued with the express ___ of limiting executive compensation.",opts:["intend","intention","intentional","intentionally"],ans:1,cat:"名詞",exp:"with the express intention of = 〜という明確な意図をもって（名詞 intention）"},
+    {q:"Any amendments to the charter must be ratified by a ___ majority.",opts:["qualified","qualifying","qualify","qualification"],ans:0,cat:"形容詞",exp:"a qualified majority = 特定多数（形容詞として名詞を修飾）"},
+    {q:"The acquisition was structured so as ___ regulatory scrutiny.",opts:["to minimize","minimizing","minimize","minimized"],ans:0,cat:"不定詞",exp:"so as to = 〜するために（不定詞）→ so as to minimize"},
+    {q:"The findings ___ that existing frameworks are inadequate to address emerging risks.",opts:["suggest","suggests","suggested","are suggesting"],ans:0,cat:"動詞",exp:"主語 The findings（複数）→ suggest（三単現 s なし）"},
+  ]
+};
+
+// ============================================================
+// TOEIC FUNCTIONS
+// ============================================================
+function saveState(){ try{ localStorage.setItem('toeic5_state',JSON.stringify(state)); }catch(e){} }
+function xpForLevel(lv){ return lv*100; }
+function addXP(amt){
+  state.xp+=amt;
+  while(state.xp>=xpForLevel(state.level)){
+    state.xp-=xpForLevel(state.level);
+    state.level++;
+    buildLog(`🎉 Level UP! → Lv.${state.level}！`,'deploy');
+  }
+  saveState();
+}
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+}
+function goHome(){ if(quiz.timer) clearInterval(quiz.timer); if(reviewQuiz.timer) clearInterval(reviewQuiz.timer); showScreen('home'); renderHome(); }
+
+function renderHome(){
+  // Level / XP
+  document.getElementById('level-badge').textContent=state.level;
+  document.getElementById('player-sub').textContent=`Level ${state.level} — TOEIC学習者`;
+  const xpMax=xpForLevel(state.level);
+  document.getElementById('xp-label-val').textContent=`${state.xp} / ${xpMax}`;
+  document.getElementById('xp-fill').style.width=(state.xp/xpMax*100)+'%';
+  // Stats
+  document.getElementById('stat-total').textContent=state.totalAns;
+  const acc=state.totalAns>0?Math.round(state.totalCorrect/state.totalAns*100):0;
+  document.getElementById('stat-acc').textContent=state.totalAns>0?acc+'%':'-';
+  const rank=acc>=90?'900':acc>=75?'700':acc>=60?'650':acc>=45?'500':'-';
+  document.getElementById('stat-rank').textContent=state.totalAns>0?rank:'-';
+  // Course progress
+  [500,650,700,900].forEach(c=>{
+    const h=state.history[c];
+    document.getElementById('prog-'+c).textContent=`${h.done} / ${h.done||0}問完了`;
+    const pct=h.done>0?Math.round(h.correct/h.done*100):0;
+    document.getElementById('bar-'+c).style.width=pct+'%';
+  });
+  // Weak analysis
+  renderWeakAnalysis();
+  renderAchievements();
+}
+
+function renderWeakAnalysis(){
+  const panel=document.getElementById('weak-panel');
+  if(Object.keys(state.catStats).length===0){ panel.innerHTML='<div style="color:var(--sub);font-size:11px">問題を解くと分析が表示されます</div>'; return; }
+  const cats=Object.entries(state.catStats).sort((a,b)=>(a[1].c/a[1].t)-(b[1].c/b[1].t)).slice(0,5);
+  panel.innerHTML=cats.map(([cat,s])=>{
+    const rate=Math.round(s.c/s.t*100);
+    return `<div class="weak-row"><span class="weak-cat">${cat}</span><span class="weak-rate">${rate}%</span><div class="weak-bar"><div class="weak-bar-fill" style="width:${rate}%"></div></div></div>`;
+  }).join('');
+}
+
+function renderAchievements(){
+  const panel=document.getElementById('achieve-panel');
+  if(state.achievements.length===0){ panel.innerHTML='<div style="color:var(--sub);font-size:11px">まだ実績がありません</div>'; return; }
+  panel.innerHTML=state.achievements.map(a=>`<div class="ach-row"><span class="ach-icon">${a.icon}</span><div><div class="ach-name">${a.name}</div><div class="ach-desc">${a.desc}</div></div></div>`).join('');
+}
+
+function startCourse(course){
+  if(typeof BUILD!=='undefined'&&!BUILD.courses.has(course)){ showLockMessage(course); return; }
+  quiz.course=course; quiz.qs=shuffle([...QB[course]]).slice(0,10);
+  quiz.qi=0; quiz.correct=0; quiz.streak=0; quiz.cats={}; quiz.wrongQs=[];
+  showScreen('quiz');
+  document.getElementById('q-course-label').textContent=`${course}点コース`;
+  showQuestion();
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function showQuestion(){
+  const q=quiz.qs[quiz.qi]; quiz.answered=false;
+  document.getElementById('q-count').textContent=`${quiz.qi+1} / ${quiz.qs.length}`;
+  document.getElementById('q-cat').textContent=q.cat;
+  document.getElementById('q-text').textContent=q.q;
+  document.getElementById('explanation-area').style.display='none';
+  document.getElementById('next-btn').style.display='none';
+  const sb=document.getElementById('streak-badge');
+  if(quiz.streak>=3){ sb.style.display='inline'; sb.textContent=`🔥 ${quiz.streak}`; }else{ sb.style.display='none'; }
+  const opts=document.getElementById('options');
+  opts.innerHTML=q.opts.map((o,i)=>`<button class="opt" onclick="answer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('');
+  // Timer
+  if(quiz.timer) clearInterval(quiz.timer);
+  const fill=document.getElementById('timer-fill');
+  fill.style.width='100%'; fill.style.transition='none';
+  let t=30;
+  setTimeout(()=>{ fill.style.transition='width 1s linear'; fill.style.width='0%'; },50);
+  quiz.timer=setInterval(()=>{ t--; if(t<=0){ clearInterval(quiz.timer); if(!quiz.answered) answer(-1); } },1000);
+}
+
+function answer(idx){
+  if(quiz.answered) return; quiz.answered=true;
+  if(quiz.timer) clearInterval(quiz.timer);
+  const q=quiz.qs[quiz.qi];
+  const correct=idx===q.ans;
+  const btns=document.querySelectorAll('.opt');
+  btns.forEach((b,i)=>{ b.disabled=true; if(i===q.ans) b.classList.add('correct'); else if(i===idx) b.classList.add('wrong'); });
+  if(correct){ quiz.correct++; quiz.streak++; }
+  else{ quiz.streak=0; quiz.wrongQs.push(q); }
+  if(!quiz.cats[q.cat]) quiz.cats[q.cat]={c:0,t:0};
+  quiz.cats[q.cat].t++; if(correct) quiz.cats[q.cat].c++;
+  if(!state.catStats[q.cat]) state.catStats[q.cat]={c:0,t:0};
+  state.catStats[q.cat].t++; if(correct) state.catStats[q.cat].c++;
+  state.totalAns++; if(correct) state.totalCorrect++;
+  if(BUILD.features.explain){
+    document.getElementById('exp-text').textContent=q.exp;
+    document.getElementById('explanation-area').style.display='block';
+  }
+  document.getElementById('next-btn').style.display='block';
+}
+
+function nextQuestion(){
+  quiz.qi++;
+  if(quiz.qi>=quiz.qs.length) showResult();
+  else showQuestion();
+}
+
+function showResult(){
+  const pct=Math.round(quiz.correct/quiz.qs.length*100);
+  const rank=pct>=90?'🥇':pct>=70?'🥈':'🥉';
+  document.getElementById('result-rank').textContent=rank;
+  document.getElementById('result-score').textContent=`${quiz.correct} / ${quiz.qs.length}`;
+  document.getElementById('result-sub').textContent=`正解率 ${pct}%`;
+  const maxStreak=quiz.qs.reduce((m,_,i)=>{ return m; },0); // placeholder
+  document.getElementById('result-streak').textContent=quiz.streak>=3?`🔥 最大連続正解: ${quiz.streak}`:'';
+  const xpGain=quiz.correct*10+(pct>=80?20:0);
+  document.getElementById('xp-gained').textContent=`+${xpGain} XP`;
+  addXP(xpGain);
+  const h=state.history[quiz.course];
+  h.done+=quiz.qs.length; h.correct+=quiz.correct;
+  // Achievements
+  if(!state.achievements.find(a=>a.name==='初回クリア')&&state.totalAns>=10){
+    state.achievements.push({icon:'🎖️',name:'初回クリア',desc:'10問以上解いた'});
+  }
+  if(!state.achievements.find(a=>a.name==='パーフェクト')&&pct===100){
+    state.achievements.push({icon:'💎',name:'パーフェクト',desc:'10問全問正解'});
+  }
+  saveState();
+  // Review panel
+  const rp=document.getElementById('review-panel');
+  if(quiz.wrongQs.length>0){
+    rp.innerHTML='<div style="color:var(--sub);font-size:11px;margin-bottom:6px">間違えた問題:</div>'+quiz.wrongQs.map(q=>`<div class="review-item"><div class="rv-q">${q.q}</div><div class="rv-ans">あなた: — / <span class="rv-correct">正解: ${q.opts[q.ans]}</span></div></div>`).join('');
+    document.getElementById('btn-review').style.display=BUILD.features.review?'block':'none';
+  } else { rp.innerHTML='<div style="color:var(--green);font-size:12px;text-align:center">✅ 全問正解！素晴らしい！</div>'; document.getElementById('btn-review').style.display='none'; }
+  showScreen('result');
+}
+
+function retryQuiz(){ startCourse(quiz.course); }
+
+function startReview(){
+  reviewQuiz.qs=[...quiz.wrongQs]; reviewQuiz.qi=0; reviewQuiz.correct=0; reviewQuiz.streak=0;
+  showScreen('review');
+  document.getElementById('rv-count').textContent=`1 / ${reviewQuiz.qs.length}`;
+  showReviewQuestion();
+}
+
+function showReviewQuestion(){
+  const q=reviewQuiz.qs[reviewQuiz.qi]; reviewQuiz.answered=false;
+  document.getElementById('rv-count').textContent=`${reviewQuiz.qi+1} / ${reviewQuiz.qs.length}`;
+  document.getElementById('rv-q-cat').textContent=q.cat;
+  document.getElementById('rv-q-text').textContent=q.q;
+  document.getElementById('rv-explanation-area').style.display='none';
+  document.getElementById('rv-next-btn').style.display='none';
+  const opts=document.getElementById('rv-options');
+  opts.innerHTML=q.opts.map((o,i)=>`<button class="opt" onclick="reviewAnswer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('');
+  if(reviewQuiz.timer) clearInterval(reviewQuiz.timer);
+  const fill=document.getElementById('rv-timer-fill');
+  fill.style.width='100%'; fill.style.transition='none';
+  let t=40;
+  setTimeout(()=>{ fill.style.transition='width 1s linear'; fill.style.width='0%'; },50);
+  reviewQuiz.timer=setInterval(()=>{ t--; if(t<=0){ clearInterval(reviewQuiz.timer); if(!reviewQuiz.answered) reviewAnswer(-1); } },1000);
+}
+
+function reviewAnswer(idx){
+  if(reviewQuiz.answered) return; reviewQuiz.answered=true;
+  if(reviewQuiz.timer) clearInterval(reviewQuiz.timer);
+  const q=reviewQuiz.qs[reviewQuiz.qi];
+  const correct=idx===q.ans;
+  const btns=document.querySelectorAll('.review-options .opt');
+  btns.forEach((b,i)=>{ b.disabled=true; if(i===q.ans) b.classList.add('correct'); else if(i===idx) b.classList.add('wrong'); });
+  if(correct){ reviewQuiz.correct++; reviewQuiz.streak++; }else{ reviewQuiz.streak=0; }
+  document.getElementById('rv-exp-text').textContent=q.exp;
+  document.getElementById('rv-explanation-area').style.display='block';
+  document.getElementById('rv-next-btn').style.display='block';
+}
+
+function nextReviewQuestion(){
+  reviewQuiz.qi++;
+  if(reviewQuiz.qi>=reviewQuiz.qs.length){ showReviewResult(); }
+  else showReviewQuestion();
+}
+
+function showReviewResult(){
+  const pct=Math.round(reviewQuiz.correct/reviewQuiz.qs.length*100);
+  buildLog(`📖 復習完了: ${reviewQuiz.correct}/${reviewQuiz.qs.length} 正解 (${pct}%)`);
+  goHome();
+}
+
+// Init TOEIC
+renderHome();
+
+// ============================================================
+// OFFICE SIMULATION
+// ============================================================
+const canvas = document.getElementById('office-canvas');
+const ctx = canvas.getContext('2d');
+const S = 2;
+const VW = 224;
+const VH = 176;
+canvas.width = VW * S;
+canvas.height = VH * S;
+
+const P = {
+  fl1:'#d4b896', fl2:'#c9a97e',
+  wall:'#7a6248', wallD:'#5c4a35', wallL:'#9b7d5f',
+  desk:'#8b6914', deskL:'#a07d20', deskD:'#6b500f',
+  chair:'#4a4a6a', chairD:'#32324f',
+  mon:'#1a1a2e', monS:'#00ff88', monF:'#2d2d50',
+  kb:'#4a4a6a',
+  wb:'#f2f0e8', wbF:'#7a6248',
+  bs:'#6b5a42', b1:'#c0392b', b2:'#2980b9', b3:'#27ae60', b4:'#e67e22', b5:'#9b59b6',
+  mt:'#8b6914', mtL:'#a07d20',
+  pot:'#8b4513', plt:'#27ae60', pltD:'#1a7a3a',
+  sf:'#2c3e50', sfL:'#34495e',
+};
+
+const CHARS = {
+  pm:         {skin:'#fdbcb4',hair:'#1a1a1a',body:'#1a237e',bodyB:'#283593',pants:'#37474f',shoes:'#111',acc:'#ffd700',emoji:'👔',name:'田中 アレックス',role:'プロジェクトマネージャー',short:'PM'},
+  researcher: {skin:'#fdbcb4',hair:'#c0392b',body:'#f5f5f5',bodyB:'#ddd',pants:'#5c6bc0',shoes:'#3949ab',acc:'#ff4081',emoji:'📚',name:'鈴木 ミア',role:'TOEIC教材研究員',short:'研究'},
+  creator:    {skin:'#c68642',hair:'#1c1c1c',body:'#7b1fa2',bodyB:'#8e24aa',pants:'#4a148c',shoes:'#212121',acc:'#ff6f00',emoji:'✏️',name:'山田 リオ',role:'問題作成担当',short:'作成'},
+  engineer:   {skin:'#fdbcb4',hair:'#4a148c',body:'#1b5e20',bodyB:'#2e7d32',pants:'#212121',shoes:'#37474f',acc:'#4caf50',emoji:'💻',name:'佐藤 カイ',role:'Webエンジニア',short:'Dev'},
+  designer:   {skin:'#fdbcb4',hair:'#e91e63',body:'#f06292',bodyB:'#e91e63',pants:'#f8bbd0',shoes:'#ad1457',acc:'#fff',emoji:'🎨',name:'高橋 ルナ',role:'UI/UXデザイナー',short:'UI'},
+  qa:         {skin:'#c68642',hair:'#795548',body:'#455a64',bodyB:'#546e7a',pants:'#263238',shoes:'#1a237e',acc:'#ff9800',emoji:'🔍',name:'伊藤 サム',role:'品質保証担当',short:'QA'},
+};
+
+const LAYOUT = {
+  pm:         {dx:7,  dy:20, cx:18, cy:40},
+  researcher: {dx:80, dy:20, cx:91, cy:40},
+  creator:    {dx:153,dy:20, cx:164,cy:40},
+  engineer:   {dx:7,  dy:95, cx:18, cy:115},
+  designer:   {dx:80, dy:95, cx:91, cy:115},
+  qa:         {dx:153,dy:95, cx:164,cy:115},
+};
+
+const MTG_POS = {
+  pm:{x:84,y:148}, researcher:{x:97,y:145}, creator:{x:110,y:148},
+  engineer:{x:84,y:163}, designer:{x:97,y:166}, qa:{x:110,y:163},
+};
+
+const TASK_DEFS = [
+  {id:'t1',  emp:'pm',         dur:8000,  state:'planning',  dep:null,  file:'architecture.md',
+   title:'プロジェクト計画作成',  desc:'システムアーキテクチャをAIが自動設計',
+   human:false, reason:'過去の仕様書から構成を自動生成できます'},
+  {id:'t2',  emp:'researcher', dur:10000, state:'working',   dep:null,  file:'toeic_analysis.md',
+   title:'TOEIC Part5 出題分析',  desc:'公開データから出題パターンをAI分析',
+   human:false, reason:'公開されたTOEIC情報を自動収集・分析できます'},
+  {id:'t10', emp:'designer',   dur:8000,  state:'working',   dep:null,  file:'pixel_sprites.png',
+   title:'ドット絵スプライト生成', desc:'AIがドット絵キャラを自動制作',
+   human:false, reason:'デザインルールに従い自動生成できます'},
+  {id:'t3',  emp:'creator',    dur:9000,  state:'working',   dep:'t2',  file:'questions_500.json',
+   title:'問題生成 500点コース',   desc:'分析結果から500点問題をAI生成（30問）',
+   human:false, reason:'分析データに基づき問題を自動生成できます'},
+  {id:'t4',  emp:'engineer',   dur:7000,  state:'working',   dep:'t1',  file:'package.json',
+   title:'Reactプロジェクト構築',  desc:'テンプレートから環境を自動セットアップ',
+   human:false, reason:'標準テンプレートを使い自動構築できます'},
+  {id:'t5',  emp:'designer',   dur:8000,  state:'working',   dep:'t1',  file:'ui_draft.fig',
+   title:'UIデザイン草案作成',     desc:'デザインシステムからコンポーネントを自動生成',
+   human:false, reason:'既存デザインシステムから自動生成できます'},
+  {id:'t6',  emp:'qa',         dur:6000,  state:'reviewing', dep:'t3',  file:'qa_report_500.md',
+   title:'問題品質レビュー 500点',  desc:'AI生成問題の誤答・偏りを人間が確認',
+   human:true, needsApproval:true,
+   approvalReason:'AIが生成した500点問題セット(30問)の品質確認が必要です。\n\n確認ポイント:\n・英文の文法的正確性\n・答えの一意性（2つ以上正解がないか）\n・難易度の適切さ\n・文化的偏りがないか\n\n承認すると次の問題生成に進みます。'},
+  {id:'t7',  emp:'pm',         dur:5000,  state:'meeting',   dep:'t2',  file:'meeting_notes.md',
+   title:'開発方針確認MTG',         desc:'コース構成と優先度を人間チームで決定',
+   human:true, needsApproval:true,
+   approvalReason:'プロジェクトの重要方針を決定する必要があります。\n\n議題:\n1. コース数の確定（4コース or 6コース？）\n2. 問題数の優先度（500点 or 900点 先行？）\n3. Phase 2 AIエージェント統合の範囲\n\n承認 = 議題の方針で開発続行。'},
+  {id:'t8',  emp:'creator',    dur:9000,  state:'working',   dep:'t6',  file:'questions_650.json',
+   title:'問題生成 650点コース',   desc:'承認済み基準で650点問題をAI生成',
+   human:false, reason:'承認されたフォーマットで自動生成できます'},
+  {id:'t9',  emp:'engineer',   dur:10000, state:'working',   dep:'t5',  file:'QuizScreen.tsx',
+   title:'クイズ画面実装',          desc:'仕様書から4択UIを自動実装',
+   human:false, reason:'確定した仕様書から自動実装できます'},
+  {id:'t11', emp:'engineer',   dur:3000,  state:'working',   dep:'t9',  file:'deploy.log',
+   title:'🔒 本番デプロイ実行',      desc:'Cloudflare Pages へのデプロイ',
+   human:true, needsApproval:true, critical:true,
+   approvalReason:'⚠ 本番環境への変更です。\n\n対象: toeic-app.pages.dev\n変更内容: アプリ v1.0 全公開\n影響: 全ユーザーに即座に反映\n課金: Cloudflare 従量課金が開始\n\n「AIには判断させない操作」の典型例です。\n承認する場合のみ本番反映されます。'},
+];
+
+let emps = Object.entries(CHARS).map(([id,c])=>({
+  id, ...c, state:'idle', task:null, taskStart:null,
+  done:0, totalSec:0, files:[], log:[], err:null
+}));
+let tasks = TASK_DEFS.map(t=>({...t,status:'pending',start:null,end:null}));
+let running=false, frame=0, selId=null, mtgMode=false, totalDone=0;
+let taskTimings=[];
+
+const emp=id=>emps.find(e=>e.id===id);
+const task=id=>tasks.find(t=>t.id===id);
+function canRun(t){ return !t.dep||tasks.find(t2=>t2.id===t.dep)?.status==='done'; }
+function px(x,y,w,h,c){ ctx.fillStyle=c; ctx.fillRect(x*S,y*S,w*S,h*S); }
+
+// ---- Draw functions ----
+function drawFloor(){
+  for(let y=0;y<VH;y++) for(let x=0;x<VW;x++) px(x,y,1,1,(x+y)%2===0?P.fl1:P.fl2);
+}
+function drawWalls(){
+  px(0,0,VW,8,P.wall);
+  for(let x=0;x<VW;x+=3){ px(x,0,2,8,P.wallL); px(x+2,0,1,8,P.wallD); }
+  px(0,0,4,VH,P.wall);
+  px(VW-4,0,4,VH,P.wall);
+  px(0,VH-4,VW,4,P.wall);
+}
+function drawDesk(dx,dy){
+  px(dx,dy,60,4,P.deskD);
+  px(dx,dy+4,60,22,P.desk);
+  px(dx+1,dy+5,58,20,P.deskL);
+  px(dx,dy+26,4,8,P.deskD);
+  px(dx+56,dy+26,4,8,P.deskD);
+  // Monitor
+  px(dx+10,dy+2,20,16,P.monF);
+  px(dx+11,dy+3,18,13,P.mon);
+  if(frame%120<60) px(dx+14,dy+6,3,3,P.monS);
+  px(dx+19,dy+16,2,3,P.deskL);
+  px(dx+16,dy+18,8,2,P.deskD);
+  // Keyboard
+  px(dx+35,dy+20,14,5,P.kb);
+  px(dx+36,dy+21,12,3,'#6a6a8a');
+}
+function drawChair(cx,cy,active){
+  px(cx-6,cy+8,14,3,P.chairD);
+  px(cx-5,cy+9,12,2,active?'#e94560':P.chair);
+  px(cx-3,cy+3,8,8,P.chairD);
+  px(cx-2,cy+4,6,6,active?'#e94560':P.chair);
+  px(cx-1,cy+11,4,5,P.chairD);
+}
+function drawWhiteboard(){
+  px(50,1,60,30,P.wbF);
+  px(51,2,58,27,P.wb);
+  for(let i=0;i<5;i++) px(54,8+i*4,30+Math.sin(i*2)*10,1,'#aaa');
+}
+function drawBookshelf(){
+  px(140,1,40,35,P.bs);
+  [[P.b1,4],[P.b2,10],[P.b3,17],[P.b4,23],[P.b5,29]].forEach(([c,x])=>{ px(x+140,3,5,30,c); px(x+141,4,3,28,'rgba(255,255,255,.15)'); });
+}
+function drawMeetingTable(){
+  px(72,140,56,20,P.mtL);
+  px(73,141,54,18,P.mt);
+  px(76,144,48,12,'#a07d20');
+}
+function drawPlant(){
+  px(VW-20,VH-35,12,25,P.pot);
+  px(VW-18,VH-60,8,28,P.plt);
+  for(let i=0;i<6;i++) px(VW-22+i*2,VH-55-i,4,6,i%2===0?P.plt:P.pltD);
+}
+function drawSofa(){
+  px(5,VH-35,30,20,P.sfL);
+  px(6,VH-34,28,18,P.sf);
+  px(5,VH-40,30,6,P.sfL);
+}
+
+function drawChar(id, cx, cy, st, fr){
+  const c = CHARS[id];
+  const bob = (st==='working'||st==='planning')?Math.sin(fr*0.15)*1:0;
+  const by = cy + Math.round(bob);
+  // Shadow
+  ctx.fillStyle='rgba(0,0,0,.15)'; ctx.fillRect((cx-4)*S,(by+14)*S,10*S,2*S);
+  // Shoes
+  px(cx-3,by+12,4,2,c.shoes); px(cx+1,by+12,4,2,c.shoes);
+  // Pants
+  px(cx-2,by+7,6,6,c.pants);
+  // Body
+  px(cx-3,by+1,8,7,c.bodyB); px(cx-2,by+2,6,5,c.body);
+  // Acc (tie/badge/etc)
+  px(cx,by+2,2,4,c.acc);
+  // Arms
+  px(cx-5,by+2,3,5,c.body);
+  if(st==='working'||st==='planning'){
+    const wave=Math.sin(fr*0.2)*2;
+    px(cx+4,by+2,3,3+Math.round(wave),c.body);
+  } else { px(cx+4,by+2,3,5,c.body); }
+  // Head
+  px(cx-2,by-6,6,7,c.skin);
+  px(cx-2,by-7,6,2,c.hair);
+  px(cx-2,by-6,6,1,c.hair);
+  // Eyes
+  px(cx-1,by-5,1,1,'#333'); px(cx+2,by-5,1,1,'#333');
+  // Mouth
+  if(st==='completed') px(cx-1,by-3,3,1,'#e94560');
+  else if(st==='error') px(cx,by-3,1,1,'#333');
+  else px(cx-1,by-3,2,1,'#333');
+  // State badge
+  const badges={idle:'💤',working:'⚡',planning:'💭',reviewing:'🔍',meeting:'📊',completed:'✅',error:'❌',waiting_approval:'⏳'};
+  if(badges[st]){
+    ctx.font=`${6*S}px serif`;
+    ctx.fillText(badges[st],(cx-2)*S,(by-8)*S);
+  }
+  // Name tag
+  ctx.fillStyle='rgba(0,0,0,.6)';
+  ctx.fillRect((cx-8)*S,(by+15)*S,18*S,7*S);
+  ctx.fillStyle='#eae0d5';
+  ctx.font=`${4*S}px 'Courier New'`;
+  ctx.textAlign='center';
+  ctx.fillText(c.short,(cx+1)*S,(by+20)*S);
+  ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawFloor(); drawWalls();
+  drawWhiteboard(); drawBookshelf(); drawMeetingTable(); drawPlant(); drawSofa();
+  // Desks
+  ['pm','researcher','creator','engineer','designer','qa'].forEach(id=>{
+    const l=LAYOUT[id]; drawDesk(l.dx,l.dy); drawChair(l.cx,l.cy,false);
+  });
+  // Characters
+  emps.forEach(e=>{
+    if(e.state==='meeting'){
+      const mp=MTG_POS[e.id];
+      drawChar(e.id,mp.x,mp.y,e.state,frame);
+    } else {
+      const l=LAYOUT[e.id];
+      drawChar(e.id,l.cx,l.cy,e.state,frame);
+    }
+  });
+  // Task progress bars
+  tasks.filter(t=>t.status==='running').forEach(t=>{
+    const l=LAYOUT[t.emp];
+    if(!t.start) return;
+    const pct=Math.min(1,(Date.now()-t.start)/t.dur);
+    const bx=(l.dx+1)*S, by=(l.dy+28)*S, bw=58*S, bh=3*S;
+    ctx.fillStyle='#2d2d4d'; ctx.fillRect(bx,by,bw,bh);
+    ctx.fillStyle=t.human?'#e3b341':'#58a6ff';
+    ctx.fillRect(bx,by,bw*pct,bh);
+  });
+}
+
+// ---- Office logic ----
+function addLog(msg,type='system'){
+  const area=document.getElementById('log-area');
+  if(!area) return;
+  const d=document.createElement('div');
+  d.className=`log-line ${type}`;
+  d.textContent=msg;
+  area.insertBefore(d,area.firstChild);
+  if(area.children.length>50) area.removeChild(area.lastChild);
+}
+
+function setState(id,st){ const e=emp(id); if(e) e.state=st; }
+
+function renderTaskList(){
+  const el=document.getElementById('task-list'); if(!el) return;
+  const statusColor={pending:'#444',running:'#e3b341',done:'#238636',error:'#da3633',waiting_approval:'#6e40c9'};
+  el.innerHTML=tasks.map(t=>{
+    const e=emp(t.emp);
+    const sc=statusColor[t.status]||'#444';
+    const cls=t.status==='running'?'running':t.status==='done'?'done':t.status==='error'?'error':t.status==='waiting_approval'?'waiting':'';
+    return `<div class="task-item ${cls}" title="${t.desc}"><div class="task-status" style="background:${sc}"></div><span class="task-title">${t.title}</span><span class="task-emp">${e?e.emoji:''}</span></div>`;
+  }).join('');
+}
+
+function updateSidePanel(){
+  const el=document.getElementById('emp-list'); if(!el) return;
+  const stLabel={idle:'待機中',working:'作業中',planning:'計画中',reviewing:'レビュー中',meeting:'MTG中',completed:'完了！',error:'エラー',waiting_approval:'承認待ち'};
+  el.innerHTML=emps.map(e=>`<div class="emp-row"><span class="emp-emoji">${e.emoji}</span><div class="emp-info"><div class="emp-name">${e.short}</div><div class="emp-state ${e.state==='working'||e.state==='planning'?'working':e.state==='completed'?'done':''}">${stLabel[e.state]||e.state}</div></div></div>`).join('');
+}
+
+function renderApprovalQueue(){
+  const el=document.getElementById('approval-queue'); if(!el) return;
+  const waiting=tasks.filter(t=>t.status==='waiting_approval');
+  el.innerHTML=waiting.map(t=>`
+    <div class="approval-card">
+      <h4>${t.human?'👤':'🤖'} 承認待ち: ${t.title}</h4>
+      <p>${t.approvalReason}</p>
+      <div class="approval-btns">
+        <button class="btn-approve" onclick="approveTask('${t.id}')">✅ 承認</button>
+        <button class="btn-reject" onclick="rejectTask('${t.id}')">❌ 却下</button>
+      </div>
+    </div>`).join('');
+}
+
+function approveTask(tid){
+  const t=task(tid); if(!t) return;
+  t.status='running'; t.start=Date.now();
+  const e=emp(t.emp); if(e){ e.task=tid; }
+  setState(t.emp,t.state);
+  addLog(`✅ 承認: ${t.title}`,'human');
+  buildLog(`✅ 承認済み: ${t.title}`,'human');
+  renderApprovalQueue();
+  renderTaskList();
+  setTimeout(()=>finishTask(t),t.dur);
+}
+
+function rejectTask(tid){
+  const t=task(tid); if(!t) return;
+  t.status='error';
+  setState(t.emp,'error');
+  addLog(`❌ 却下: ${t.title}`,'human');
+  buildLog(`❌ 却下: ${t.title}`,'human');
+  renderApprovalQueue();
+  renderTaskList();
+}
+
+function tryQueue(){
+  if(!running) return;
+  tasks.filter(t=>t.status==='pending'&&canRun(t)).forEach(t=>{
+    const e=emp(t.emp);
+    if(e&&!e.task){
+      if(t.needsApproval&&t.human){
+        t.status='waiting_approval';
+        addLog(`⏳ 承認待ち: ${t.title}`,'human');
+        buildLog(`⏳ 承認が必要: ${t.title}`,'human');
+        renderApprovalQueue();
+        renderTaskList();
+      } else {
+        t.status='running'; t.start=Date.now();
+        e.task=t.id;
+        setState(t.emp,t.state);
+        addLog(`${t.human?'👤':'🤖'} 開始: ${t.title}`,'ai');
+        renderTaskList();
+        setTimeout(()=>finishTask(t),t.dur);
+      }
+    }
+  });
+}
+
+function finishTask(t){
+  const e=emp(t.emp); if(!e) return;
+  t.status='done'; t.end=Date.now();
+  const elapsed=t.start?Math.round((t.end-t.start)/1000):Math.round(t.dur/1000);
+  e.task=null; e.done++; e.totalSec+=elapsed; totalDone++;
+  taskTimings.push(elapsed);
+  if(t.file) e.files.push(t.file);
+  setState(t.emp,'completed');
+  if(mtgMode&&t.state==='meeting'){ mtgMode=false; emps.forEach(em=>{ if(em.state==='meeting') setState(em.id,'idle'); }); }
+  e.log.unshift(`✅ 完了: ${t.title}`);
+  const icon=t.human?'👤':'🤖';
+  addLog(`${icon}[${e.emoji} ${e.short}] ${t.title} ✅ 完了！`,t.human?'human':'ai');
+  setTimeout(()=>{ if(e.state==='completed') setState(t.emp,'idle'); updateSidePanel(); },2500);
+  if(running) setTimeout(tryQueue,600);
+  renderApprovalQueue();
+  renderTaskList();
+  updateSidePanel();
+  const allDone=tasks.every(t2=>t2.status==='done'||t2.status==='error');
+  if(allDone) setTimeout(showProjectComplete,800);
+  applyBuildEffect(t.id);
+}
+
+function showProjectComplete(){
+  addLog('🎉 プロジェクト完了！全タスク完了しました！','system');
+  buildLog('🎉 全タスク完了！TOEICアプリ完成！','deploy');
+}
+
+document.getElementById('btn-start').onclick=()=>{
+  if(running) return;
+  running=true;
+  addLog('▶ シミュレーション開始','system');
+  buildLog('▶ AIオフィス稼働開始');
+  tryQueue();
+};
+
+document.getElementById('btn-stop').onclick=()=>{
+  running=false;
+  addLog('⏸ 停止','system');
+};
+
+document.getElementById('btn-reset').onclick=()=>{
+  running=false; mtgMode=false; totalDone=0; selId=null;
+  tasks.forEach(t=>{ t.status='pending'; t.start=null; t.end=null; });
+  emps.forEach(e=>{ e.state='idle'; e.task=null; e.taskStart=null; e.done=0; e.totalSec=0; e.files=[]; e.log=[]; e.err=null; });
+  totalDone=0; taskTimings=[];
+  // Reset BUILD
+  BUILD.phase=0; BUILD.courses.clear(); BUILD.qbReady.clear();
+  BUILD.features.xp=false; BUILD.features.timer=false; BUILD.features.explain=false; BUILD.features.review=false;
+  BUILD.log=[];
+  document.getElementById('build-log-strip').innerHTML='';
+  document.getElementById('build-phase-badge').textContent='Phase 0';
+  document.getElementById('uc-progress-bar').style.width='0%';
+  document.getElementById('uc-phase-text').textContent='作業待機中';
+  document.getElementById('uc-area').style.display='flex';
+  document.getElementById('toeic-app').style.display='none';
+  [500,650,700,900].forEach(c=>{ const l=document.getElementById('lock-'+c); if(l) l.style.display='flex'; });
+  addLog('🔄 リセット完了','system');
+  renderApprovalQueue(); renderTaskList(); updateSidePanel();
+};
+
+document.getElementById('btn-mtg').onclick=()=>{
+  mtgMode=true;
+  emps.forEach(e=>setState(e.id,'meeting'));
+  addLog('📊 全体MTG開始','system');
+};
+
+function loop(){ frame++; render(); if(frame%60===0) updateSidePanel(); document.getElementById('clock').textContent=new Date().toLocaleTimeString('ja-JP'); requestAnimationFrame(loop); }
+
+window.addEventListener('resize',()=>{
+  const wrap=document.getElementById('office-wrap');
+  const sc=Math.min(wrap.clientWidth/canvas.width,1);
+  canvas.style.width=(canvas.width*sc)+'px';
+  canvas.style.height=(canvas.height*sc)+'px';
+});
+
+addLog('🏢 AIオフィス起動完了','system');
+buildLog('🏢 AIオフィス × TOEICアプリ統合システム起動');
+renderApprovalQueue(); renderTaskList(); updateSidePanel(); loop();
+</script>
+</body>
+</html>
