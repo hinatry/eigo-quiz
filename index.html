@@ -5,61 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ビジネス英語クイズ | Business English Quiz</title>
 <meta name="description" content="ビジネス英語力を無料で鍛えよう。500点〜860点レベルの本格的な問題で実力アップ。">
-<!-- Google AdSense placeholder -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0f1117;
-  --surface:#1a1d2e;
-  --surface2:#22263a;
-  --accent:#6366f1;
-  --accent2:#8b5cf6;
-  --green:#22c55e;
-  --red:#ef4444;
-  --yellow:#f59e0b;
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-  --border:#2d3148;
+  --bg:#0f1117;--surface:#1a1d2e;--surface2:#22263a;--surface3:#2a2f47;
+  --accent:#6366f1;--accent2:#8b5cf6;--green:#22c55e;--red:#ef4444;
+  --yellow:#f59e0b;--blue:#3b82f6;--text:#e2e8f0;--muted:#94a3b8;--border:#2d3148;
 }
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
-.logo{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.logo-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.header-right{margin-left:auto;display:flex;gap:12px;align-items:center}
-.level-badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:2px solid transparent;transition:all 0.2s}
-.level-badge.active{border-color:var(--accent);background:rgba(99,102,241,0.2)}
-.level-badge:not(.active){background:var(--surface2);color:var(--muted)}
-.level-badge:hover:not(.active){border-color:var(--border);color:var(--text)}
 
-main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px}
+/* NAV */
+nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;position:sticky;top:0;z-index:100;height:56px}
+.nav-logo{font-size:17px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-right:24px;white-space:nowrap}
+.nav-tabs{display:flex;gap:4px;flex:1}
+.nav-tab{padding:6px 16px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:none;background:none;color:var(--muted);transition:all 0.2s}
+.nav-tab.active{background:rgba(99,102,241,0.2);color:var(--text)}
+.nav-tab:hover:not(.active){color:var(--text)}
 
-/* Stats bar */
-.stats{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;flex:1;min-width:100px}
-.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
-.stat-value{font-size:24px;font-weight:700}
-.stat-value.green{color:var(--green)}
-.stat-value.accent{color:var(--accent)}
-.stat-value.yellow{color:var(--yellow)}
+main{flex:1;max-width:900px;margin:0 auto;width:100%;padding:24px 16px}
 
-/* Progress */
-.progress-wrap{background:var(--surface2);border-radius:8px;height:8px;margin-bottom:24px;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:8px;transition:width 0.5s ease}
+/* ===== DASHBOARD ===== */
+#view-home{display:block}
+#view-quiz{display:none}
 
-/* Quiz card */
-.quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px}
-.q-meta{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
-.q-num{font-size:13px;color:var(--muted)}
-.q-level{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+/* Rank banner */
+.rank-banner{background:linear-gradient(135deg,#1e1b4b,#312e81,#1e1b4b);border:1px solid #4338ca;border-radius:16px;padding:24px 28px;margin-bottom:20px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden}
+.rank-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(99,102,241,0.15),transparent 70%)}
+.rank-icon{font-size:48px;flex-shrink:0}
+.rank-info{flex:1}
+.rank-name{font-size:22px;font-weight:800;margin-bottom:4px}
+.rank-sub{font-size:13px;color:#a5b4fc;margin-bottom:12px}
+.rank-xp-wrap{background:rgba(0,0,0,0.3);border-radius:8px;height:10px;overflow:hidden;margin-bottom:6px}
+.rank-xp-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:8px;transition:width 0.8s ease}
+.rank-xp-label{font-size:12px;color:#a5b4fc}
+.rank-badge{position:absolute;right:24px;top:24px;font-size:32px}
+
+/* Stat grid */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+.stat-icon{font-size:20px;margin-bottom:8px}
+.stat-val{font-size:26px;font-weight:700;margin-bottom:2px}
+.stat-lbl{font-size:12px;color:var(--muted)}
+.c-green{color:var(--green)} .c-accent{color:var(--accent)} .c-yellow{color:var(--yellow)} .c-red{color:var(--red)} .c-blue{color:var(--blue)}
+
+/* Two col layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+.panel-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
+
+/* Today's goal */
+.goal-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.goal-item:last-child{border-bottom:none}
+.goal-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.goal-check.done{background:var(--green);border-color:var(--green);color:#fff}
+.goal-text{flex:1;font-size:14px}
+.goal-prog{font-size:13px;color:var(--muted)}
+
+/* Activity bars */
+.activity-bars{display:flex;gap:6px;align-items:flex-end;height:60px;margin-bottom:8px}
+.act-col{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+.act-bar{width:100%;border-radius:4px 4px 0 0;background:var(--accent);opacity:0.6;min-height:4px;transition:height 0.5s ease}
+.act-label{font-size:10px;color:var(--muted)}
+
+/* Level breakdown */
+.lv-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.lv-tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;min-width:52px;text-align:center}
 .lv500{background:rgba(34,197,94,0.2);color:#4ade80}
 .lv650{background:rgba(99,102,241,0.2);color:#818cf8}
 .lv730{background:rgba(245,158,11,0.2);color:#fbbf24}
 .lv860{background:rgba(239,68,68,0.2);color:#f87171}
-.q-cat{font-size:12px;color:var(--muted);padding:3px 10px;background:var(--surface2);border-radius:20px}
-.q-text{font-size:18px;font-weight:500;line-height:1.6;margin-bottom:24px;color:var(--text)}
+.lv-bar-wrap{flex:1;background:var(--surface2);border-radius:4px;height:8px;overflow:hidden}
+.lv-bar{height:100%;border-radius:4px;transition:width 0.8s ease}
+.lv-pct{font-size:12px;color:var(--muted);min-width:36px;text-align:right}
 
-/* Options */
+/* CTA */
+.cta-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.btn{padding:12px 28px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-ghost{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:8px 18px;font-size:13px}
+
+/* Achievements */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px}
+.ach{text-align:center;padding:12px 8px;border-radius:12px;background:var(--surface2);border:1px solid var(--border)}
+.ach.unlocked{border-color:var(--yellow);background:rgba(245,158,11,0.1)}
+.ach-icon{font-size:24px;margin-bottom:6px;filter:grayscale(1);opacity:0.4}
+.ach.unlocked .ach-icon{filter:none;opacity:1}
+.ach-name{font-size:10px;color:var(--muted);line-height:1.3}
+.ach.unlocked .ach-name{color:var(--yellow)}
+
+/* ===== QUIZ ===== */
+.filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.filter-btn{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--surface2);color:var(--muted);transition:all 0.2s}
+.filter-btn.active{border-color:var(--accent);background:rgba(99,102,241,0.2);color:var(--text)}
+.progress-wrap{background:var(--surface2);border-radius:8px;height:8px;margin-bottom:24px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:8px;transition:width 0.5s ease}
+.quiz-stats{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.qs-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 18px;flex:1;min-width:90px}
+.qs-val{font-size:22px;font-weight:700}
+.qs-lbl{font-size:11px;color:var(--muted)}
+.quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px}
+.q-meta{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.q-num{font-size:13px;color:var(--muted)}
+.q-level{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.q-cat{font-size:12px;color:var(--muted);padding:3px 10px;background:var(--surface2);border-radius:20px}
+.q-text{font-size:18px;font-weight:500;line-height:1.6;margin-bottom:24px}
 .options{display:grid;gap:10px}
 .option{padding:14px 18px;border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:15px;text-align:left;background:var(--surface2);color:var(--text);display:flex;align-items:center;gap:12px}
 .option:hover:not(:disabled){border-color:var(--accent);background:rgba(99,102,241,0.1)}
@@ -69,53 +122,24 @@ main{flex:1;max-width:720px;margin:0 auto;width:100%;padding:24px 16px}
 .option-label{width:28px;height:28px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:var(--muted)}
 .option.correct .option-label{background:var(--green);color:#fff}
 .option.wrong .option-label{background:var(--red);color:#fff}
-
-/* Explanation */
-.explanation{margin-top:16px;padding:14px 18px;background:rgba(99,102,241,0.1);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:14px;color:var(--text);line-height:1.6;display:none}
+.explanation{margin-top:16px;padding:14px 18px;background:rgba(99,102,241,0.1);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:14px;line-height:1.6;display:none}
 .explanation.show{display:block}
 .exp-label{font-size:11px;color:var(--accent);font-weight:700;margin-bottom:4px;text-transform:uppercase}
-
-/* Buttons */
-.btn{padding:12px 28px;border-radius:12px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
-.btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
-.btn-ghost{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
-
-/* Level filter bar */
-.filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-.filter-btn{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--surface2);color:var(--muted);transition:all 0.2s}
-.filter-btn.active{border-color:var(--accent);background:rgba(99,102,241,0.2);color:var(--text)}
-.filter-btn:hover:not(.active){border-color:var(--muted)}
-
-/* Result screen */
 .result-screen{display:none;text-align:center;padding:40px 20px}
 .result-score{font-size:72px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .result-label{font-size:20px;color:var(--muted);margin-bottom:32px}
 .result-breakdown{display:flex;gap:16px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
-.rb-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 24px;min-width:120px}
+.rb-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 24px;min-width:100px}
 .rb-val{font-size:28px;font-weight:700;margin-bottom:4px}
 .rb-lbl{font-size:12px;color:var(--muted)}
-.result-msg{font-size:18px;margin-bottom:32px;color:var(--text)}
-
-/* Loading */
-.loading{text-align:center;padding:60px;color:var(--muted);font-size:18px}
+.result-msg{font-size:18px;margin-bottom:32px}
+.loading{text-align:center;padding:60px;color:var(--muted)}
 .spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
+.ad-slot{background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:20px;text-align:center;color:var(--muted);font-size:12px;margin:16px 0;display:none}
 
-/* Score history mini */
-.history-bar{display:flex;gap:4px;align-items:flex-end;height:32px;margin-top:8px}
-.history-bar .hb{width:16px;background:var(--accent);border-radius:3px 3px 0 0;opacity:0.7;min-height:4px}
-
-/* Category display */
-.cat-map={grammar:'文法',vocab:'語彙',reading:'読解',email:'メール'}
-
-/* Footer */
-footer{background:var(--surface);border-top:1px solid var(--border);padding:16px 20px;text-align:center;font-size:12px;color:var(--muted)}
-footer a{color:var(--accent);text-decoration:none}
-
-/* Modal */
+/* Privacy modal */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center}
 .modal-bg.show{display:flex}
 .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;max-width:540px;width:90%;max-height:80vh;overflow-y:auto}
@@ -124,31 +148,159 @@ footer a{color:var(--accent);text-decoration:none}
 .modal ul{padding-left:20px}
 .modal-close{float:right;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer}
 
-/* Ad slot */
-.ad-slot{background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:20px;text-align:center;color:var(--muted);font-size:12px;margin:16px 0}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 20px;text-align:center;font-size:12px;color:var(--muted)}
+footer a{color:var(--accent);text-decoration:none}
 
-@media(max-width:480px){
-  .stats{gap:8px}
-  .stat-card{padding:10px 14px}
-  .stat-value{font-size:20px}
+@media(max-width:600px){
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .rank-badge{display:none}
   .q-text{font-size:16px}
   .option{font-size:14px;padding:12px 14px}
 }
 </style>
 </head>
 <body>
-<header>
-  <div>
-    <div class="logo">📚 ビジネス英語クイズ</div>
-    <div class="logo-sub">Business English Quiz</div>
+
+<nav>
+  <div class="nav-logo">📚 ビジネス英語</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showView('home',this)">🏠 ホーム</button>
+    <button class="nav-tab" onclick="showView('quiz',this)">✏️ クイズ</button>
   </div>
-  <div class="header-right">
-    <button class="btn btn-ghost" style="padding:6px 14px;font-size:13px" onclick="showPrivacy()">プライバシー</button>
-  </div>
-</header>
+  <button class="btn btn-ghost btn-sm" onclick="showPrivacy()" style="margin-left:8px">プライバシー</button>
+</nav>
 
 <main>
-  <!-- Filter bar -->
+
+<!-- ========== HOME / DASHBOARD ========== -->
+<div id="view-home">
+
+  <!-- Rank Banner -->
+  <div class="rank-banner">
+    <div class="rank-icon" id="rank-icon">🥉</div>
+    <div class="rank-info">
+      <div class="rank-name" id="rank-name">ビギナー</div>
+      <div class="rank-sub" id="rank-sub">次のランクまであと <span id="xp-to-next">100</span> XP</div>
+      <div class="rank-xp-wrap"><div class="rank-xp-bar" id="xp-bar" style="width:0%"></div></div>
+      <div class="rank-xp-label">総XP: <span id="total-xp">0</span></div>
+    </div>
+    <div class="rank-badge" id="rank-badge">🌱</div>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-val c-green" id="d-acc">-%</div>
+      <div class="stat-lbl">正解率</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📝</div>
+      <div class="stat-val c-accent" id="d-total">0</div>
+      <div class="stat-lbl">総回答数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔥</div>
+      <div class="stat-val c-yellow" id="d-streak">0</div>
+      <div class="stat-lbl">最大連続正解</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-val c-blue" id="d-correct">0</div>
+      <div class="stat-lbl">総正解数</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-row">
+    <button class="btn btn-primary" onclick="quickStart(10)">▶ 今日の10問を始める</button>
+    <button class="btn btn-ghost" onclick="quickStart(20)">20問チャレンジ</button>
+    <button class="btn btn-ghost" onclick="showView('quiz',document.querySelectorAll('.nav-tab')[1])">レベル選択 →</button>
+  </div>
+
+  <!-- Two column -->
+  <div class="two-col">
+
+    <!-- Today's Goal -->
+    <div class="panel">
+      <div class="panel-title">📋 今日の目標</div>
+      <div id="goals-list">
+        <div class="goal-item">
+          <div class="goal-check" id="g1-check">　</div>
+          <div class="goal-text">10問回答する</div>
+          <div class="goal-prog" id="g1-prog">0/10</div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-check" id="g2-check">　</div>
+          <div class="goal-text">正解率60%以上</div>
+          <div class="goal-prog" id="g2-prog">-</div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-check" id="g3-check">　</div>
+          <div class="goal-text">3連続正解を達成</div>
+          <div class="goal-prog" id="g3-prog">-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level breakdown -->
+    <div class="panel">
+      <div class="panel-title">📊 レベル別正解率</div>
+      <div id="lv-breakdown">
+        <div class="lv-row">
+          <span class="lv-tag lv500">500点</span>
+          <div class="lv-bar-wrap"><div class="lv-bar" id="bar500" style="width:0%;background:#4ade80"></div></div>
+          <span class="lv-pct" id="pct500">-%</span>
+        </div>
+        <div class="lv-row">
+          <span class="lv-tag lv650">650点</span>
+          <div class="lv-bar-wrap"><div class="lv-bar" id="bar650" style="width:0%;background:#818cf8"></div></div>
+          <span class="lv-pct" id="pct650">-%</span>
+        </div>
+        <div class="lv-row">
+          <span class="lv-tag lv730">730点</span>
+          <div class="lv-bar-wrap"><div class="lv-bar" id="bar730" style="width:0%;background:#fbbf24"></div></div>
+          <span class="lv-pct" id="pct730">-%</span>
+        </div>
+        <div class="lv-row">
+          <span class="lv-tag lv860">860点</span>
+          <div class="lv-bar-wrap"><div class="lv-bar" id="bar860" style="width:0%;background:#f87171"></div></div>
+          <span class="lv-pct" id="pct860">-%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity (last 7 days) -->
+  <div class="panel" style="margin-bottom:20px">
+    <div class="panel-title">📅 直近7日間の回答数</div>
+    <div class="activity-bars" id="activity-bars">
+      <!-- filled by JS -->
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted)" id="activity-labels"></div>
+  </div>
+
+  <!-- Achievements -->
+  <div class="panel" style="margin-bottom:20px">
+    <div class="panel-title">🏆 実績</div>
+    <div class="ach-grid" id="ach-grid">
+      <div class="ach" id="ach-first"><div class="ach-icon">🎯</div><div class="ach-name">初回正解</div></div>
+      <div class="ach" id="ach-10"><div class="ach-icon">📝</div><div class="ach-name">10問回答</div></div>
+      <div class="ach" id="ach-50"><div class="ach-icon">📚</div><div class="ach-name">50問回答</div></div>
+      <div class="ach" id="ach-100"><div class="ach-icon">💯</div><div class="ach-name">100問回答</div></div>
+      <div class="ach" id="ach-streak3"><div class="ach-icon">🔥</div><div class="ach-name">3連続正解</div></div>
+      <div class="ach" id="ach-streak10"><div class="ach-icon">⚡</div><div class="ach-name">10連続正解</div></div>
+      <div class="ach" id="ach-perfect"><div class="ach-icon">✨</div><div class="ach-name">10問全正解</div></div>
+      <div class="ach" id="ach-860"><div class="ach-icon">👑</div><div class="ach-name">860点正解</div></div>
+    </div>
+  </div>
+
+</div><!-- /view-home -->
+
+
+<!-- ========== QUIZ ========== -->
+<div id="view-quiz">
   <div class="filter-bar">
     <button class="filter-btn active" data-level="all" onclick="setLevel('all',this)">全レベル</button>
     <button class="filter-btn" data-level="500" onclick="setLevel(500,this)">★ 500点</button>
@@ -157,44 +309,22 @@ footer a{color:var(--accent);text-decoration:none}
     <button class="filter-btn" data-level="860" onclick="setLevel(860,this)">★★★★ 860点</button>
   </div>
 
-  <!-- Stats -->
-  <div class="stats">
-    <div class="stat-card">
-      <div class="stat-label">正解率</div>
-      <div class="stat-value green" id="stat-acc">-</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">セッション正解</div>
-      <div class="stat-value accent" id="stat-correct">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">挑戦問題数</div>
-      <div class="stat-value yellow" id="stat-total">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">連続正解</div>
-      <div class="stat-value" id="stat-streak">🔥 0</div>
-    </div>
+  <div class="quiz-stats">
+    <div class="qs-card"><div class="qs-val c-green" id="qs-acc">-%</div><div class="qs-lbl">正解率</div></div>
+    <div class="qs-card"><div class="qs-val c-accent" id="qs-correct">0</div><div class="qs-lbl">セッション正解</div></div>
+    <div class="qs-card"><div class="qs-val c-yellow" id="qs-streak">🔥 0</div><div class="qs-lbl">連続正解</div></div>
   </div>
 
-  <!-- Progress -->
-  <div class="progress-wrap">
-    <div class="progress-bar" id="progress-bar" style="width:0%"></div>
-  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
 
-  <!-- Loading -->
-  <div class="loading" id="loading">
-    <div class="spinner"></div>
-    問題を読み込み中...
-  </div>
+  <div class="loading" id="loading"><div class="spinner"></div>問題を読み込み中...</div>
 
-  <!-- Quiz card -->
   <div id="quiz-area" style="display:none">
     <div class="quiz-card">
       <div class="q-meta">
-        <span class="q-num" id="q-num">Q1 / 10</span>
-        <span class="q-level" id="q-level">500点</span>
-        <span class="q-cat" id="q-cat">文法</span>
+        <span class="q-num" id="q-num">Q1</span>
+        <span class="q-level" id="q-level"></span>
+        <span class="q-cat" id="q-cat"></span>
       </div>
       <div class="q-text" id="q-text"></div>
       <div class="options" id="options"></div>
@@ -203,46 +333,33 @@ footer a{color:var(--accent);text-decoration:none}
         <div id="exp-text"></div>
       </div>
     </div>
-
-    <!-- Ad slot (between questions) -->
-    <div class="ad-slot" id="ad-slot" style="display:none">
-      <!-- AdSense広告がここに表示されます -->
-      <div style="height:90px;display:flex;align-items:center;justify-content:center">広告スペース</div>
-    </div>
-
+    <div class="ad-slot" id="ad-slot"><div style="height:90px;display:flex;align-items:center;justify-content:center">広告スペース</div></div>
     <div class="actions">
       <button class="btn btn-ghost" onclick="skipQuestion()">スキップ</button>
       <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display:none">次の問題 →</button>
     </div>
   </div>
 
-  <!-- Result screen -->
   <div class="result-screen" id="result-screen">
     <div class="result-score" id="res-score">0%</div>
-    <div class="result-label" id="res-label">セッション終了</div>
+    <div class="result-label" id="res-label"></div>
     <div class="result-breakdown">
-      <div class="rb-item">
-        <div class="rb-val green" id="rb-correct">0</div>
-        <div class="rb-lbl">正解</div>
-      </div>
-      <div class="rb-item">
-        <div class="rb-val" style="color:var(--red)" id="rb-wrong">0</div>
-        <div class="rb-lbl">不正解</div>
-      </div>
-      <div class="rb-item">
-        <div class="rb-val yellow" id="rb-streak">0</div>
-        <div class="rb-lbl">最大連続</div>
-      </div>
+      <div class="rb-item"><div class="rb-val c-green" id="rb-correct">0</div><div class="rb-lbl">正解</div></div>
+      <div class="rb-item"><div class="rb-val c-red" id="rb-wrong">0</div><div class="rb-lbl">不正解</div></div>
+      <div class="rb-item"><div class="rb-val c-yellow" id="rb-streak">0</div><div class="rb-lbl">最大連続</div></div>
     </div>
     <div class="result-msg" id="res-msg"></div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px">
       <button class="btn btn-primary" onclick="startSession()">もう一度 (10問)</button>
       <button class="btn btn-ghost" onclick="startSession(20)">20問チャレンジ</button>
+      <button class="btn btn-ghost" onclick="showView('home',document.querySelector('.nav-tab'))">ホームへ</button>
     </div>
   </div>
+</div><!-- /view-quiz -->
+
 </main>
 
-<!-- Privacy modal -->
+<!-- Privacy -->
 <div class="modal-bg" id="privacy-modal" onclick="if(event.target===this)hidePrivacy()">
   <div class="modal">
     <button class="modal-close" onclick="hidePrivacy()">✕</button>
@@ -251,208 +368,299 @@ footer a{color:var(--accent);text-decoration:none}
     <p><strong>収集する情報</strong></p>
     <ul>
       <li>クイズの回答履歴（端末内のみ保存、外部送信なし）</li>
-      <li>アクセス解析（Google Analytics：将来導入予定）</li>
+      <li>アクセス解析（将来導入予定）</li>
     </ul>
     <p><strong>広告について</strong></p>
-    <p>本サービスはGoogle AdSense等の広告サービスを利用予定です。広告配信のためCookieが使用される場合があります。</p>
+    <p>本サービスはGoogle AdSense等の広告サービスを利用予定です。</p>
     <p><strong>お問い合わせ</strong></p>
-    <p>サイト内のフォームまたはGitHubのIssueよりご連絡ください。</p>
+    <p>GitHubのIssueよりご連絡ください。</p>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 ビジネス英語クイズ | <a href="#" onclick="showPrivacy();return false">プライバシーポリシー</a></p>
-  <p style="margin-top:4px">200問の本格ビジネス英語で実力アップ</p>
+  <p>© 2026 ビジネス英語クイズ | <a href="#" onclick="showPrivacy();return false">プライバシーポリシー</a> | 200問収録</p>
 </footer>
 
 <script>
-const CAT_JP = {grammar:'文法',vocab:'語彙',reading:'読解',email:'メール表現'};
-const LV_LABELS = {500:'500点',650:'650点',730:'730点',860:'860点'};
-const LV_CLASS = {500:'lv500',650:'lv650',730:'lv730',860:'lv860'};
+// ===== DATA & STATE =====
+const CAT_JP={grammar:'文法',vocab:'語彙',reading:'読解',email:'メール表現'};
+const LV_LABELS={500:'500点',650:'650点',730:'730点',860:'860点'};
+const LV_CLASS={500:'lv500',650:'lv650',730:'lv730',860:'lv860'};
+const RANKS=[
+  {min:0,   name:'ビギナー',    icon:'🥉', badge:'🌱', next:200},
+  {min:200, name:'学習者',      icon:'🥈', badge:'📖', next:500},
+  {min:500, name:'中級者',      icon:'🥇', badge:'💡', next:1000},
+  {min:1000,name:'上級者',      icon:'🏆', badge:'🎓', next:2000},
+  {min:2000,name:'エキスパート',icon:'👑', badge:'⭐', next:9999},
+];
 
-let allQuestions = [];
-let sessionQs = [];
-let qIdx = 0;
-let sessionCorrect = 0;
-let sessionTotal = 0;
-let totalCorrect = 0;
-let totalAnswered = 0;
-let streak = 0;
-let maxStreak = 0;
-let selectedLevel = 'all';
-let answered = false;
-const SESSION_SIZE = 10;
+let allQuestions=[], sessionQs=[], qIdx=0;
+let sessionCorrect=0, sessionTotal=0, sessionStreak=0, sessionMaxStreak=0;
+let totalCorrect=0, totalAnswered=0, maxStreak=0, totalXP=0;
+let lvStats={500:{c:0,t:0},650:{c:0,t:0},730:{c:0,t:0},860:{c:0,t:0}};
+let dailyActivity={}, todayKey='', todayAnswered=0, todayCorrect=0, todayBestStreak=0;
+let achievements={};
+let selectedLevel='all', answered=false;
 
-// Load from localStorage
+// ===== STORAGE =====
 function loadProgress(){
   try{
-    const p = JSON.parse(localStorage.getItem('beq_progress')||'{}');
-    totalCorrect = p.correct||0;
-    totalAnswered = p.answered||0;
-    maxStreak = p.maxStreak||0;
-    updateStats();
+    const p=JSON.parse(localStorage.getItem('beq2_progress')||'{}');
+    totalCorrect=p.correct||0; totalAnswered=p.answered||0;
+    maxStreak=p.maxStreak||0; totalXP=p.xp||0;
+    lvStats=p.lvStats||{500:{c:0,t:0},650:{c:0,t:0},730:{c:0,t:0},860:{c:0,t:0}};
+    dailyActivity=p.daily||{};
+    achievements=p.ach||{};
+    todayKey=new Date().toISOString().slice(0,10);
+    const td=dailyActivity[todayKey]||{};
+    todayAnswered=td.a||0; todayCorrect=td.c||0; todayBestStreak=td.s||0;
   }catch(e){}
 }
 function saveProgress(){
   try{
-    localStorage.setItem('beq_progress',JSON.stringify({correct:totalCorrect,answered:totalAnswered,maxStreak}));
+    dailyActivity[todayKey]={a:todayAnswered,c:todayCorrect,s:todayBestStreak};
+    // Keep last 30 days
+    const keys=Object.keys(dailyActivity).sort().slice(-30);
+    const trimmed={}; keys.forEach(k=>trimmed[k]=dailyActivity[k]);
+    localStorage.setItem('beq2_progress',JSON.stringify({
+      correct:totalCorrect,answered:totalAnswered,maxStreak,xp:totalXP,
+      lvStats,daily:trimmed,ach:achievements
+    }));
   }catch(e){}
 }
 
+// ===== VIEWS =====
+function showView(v, btn){
+  document.getElementById('view-home').style.display = v==='home'?'block':'none';
+  document.getElementById('view-quiz').style.display = v==='quiz'?'block':'none';
+  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  if(v==='home') updateDashboard();
+}
+
+// ===== DASHBOARD =====
+function updateDashboard(){
+  // Rank
+  const rank=RANKS.slice().reverse().find(r=>totalXP>=r.min)||RANKS[0];
+  const nextRank=RANKS[RANKS.indexOf(rank)+1];
+  document.getElementById('rank-icon').textContent=rank.icon;
+  document.getElementById('rank-name').textContent=rank.name;
+  document.getElementById('rank-badge').textContent=rank.badge;
+  const xpInRank=totalXP-rank.min;
+  const xpNeeded=(nextRank?nextRank.min:rank.min+1000)-rank.min;
+  const pct=Math.min(100,Math.round(xpInRank/xpNeeded*100));
+  document.getElementById('xp-bar').style.width=pct+'%';
+  document.getElementById('xp-to-next').textContent=nextRank?nextRank.min-totalXP:'MAX';
+  document.getElementById('total-xp').textContent=totalXP;
+
+  // Stats
+  const acc=totalAnswered>0?Math.round(totalCorrect/totalAnswered*100)+'%':'-%';
+  document.getElementById('d-acc').textContent=acc;
+  document.getElementById('d-total').textContent=totalAnswered;
+  document.getElementById('d-streak').textContent=maxStreak;
+  document.getElementById('d-correct').textContent=totalCorrect;
+
+  // Goals
+  const g1done=todayAnswered>=10;
+  const g2pct=todayAnswered>0?Math.round(todayCorrect/todayAnswered*100):0;
+  const g2done=todayAnswered>=5&&g2pct>=60;
+  const g3done=todayBestStreak>=3;
+  setGoal('g1',g1done,`${Math.min(todayAnswered,10)}/10`);
+  setGoal('g2',g2done,todayAnswered>0?g2pct+'%':'-');
+  setGoal('g3',g3done,todayBestStreak>=3?'✓':todayBestStreak+'/3');
+
+  // Level breakdown
+  [500,650,730,860].forEach(lv=>{
+    const s=lvStats[lv]||{c:0,t:0};
+    const p=s.t>0?Math.round(s.c/s.t*100):0;
+    document.getElementById('bar'+lv).style.width=(s.t>0?p:0)+'%';
+    document.getElementById('pct'+lv).textContent=s.t>0?p+'%':'-%';
+  });
+
+  // Activity (last 7 days)
+  const bars=document.getElementById('activity-bars');
+  const lbls=document.getElementById('activity-labels');
+  bars.innerHTML=''; lbls.innerHTML='';
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date(); d.setDate(d.getDate()-i);
+    days.push(d.toISOString().slice(0,10));
+  }
+  const maxAct=Math.max(1,...days.map(d=>(dailyActivity[d]||{}).a||0));
+  days.forEach(d=>{
+    const cnt=(dailyActivity[d]||{}).a||0;
+    const h=Math.max(4,Math.round(cnt/maxAct*56));
+    const isToday=d===todayKey;
+    bars.innerHTML+=`<div class="act-col"><div class="act-bar" style="height:${h}px;opacity:${isToday?1:0.5};background:${isToday?'var(--accent)':'var(--accent2)'}"></div></div>`;
+    const dayLabel=['日','月','火','水','木','金','土'][new Date(d+'T12:00:00').getDay()];
+    lbls.innerHTML+=`<span style="flex:1;text-align:center;font-size:11px;color:var(--muted)">${dayLabel}</span>`;
+  });
+
+  // Achievements
+  const checkAch=(id,cond)=>{
+    if(cond&&!achievements[id]){achievements[id]=true;saveProgress();}
+    document.getElementById('ach-'+id)?.classList.toggle('unlocked',!!achievements[id]);
+  };
+  checkAch('first',totalCorrect>=1);
+  checkAch('10',totalAnswered>=10);
+  checkAch('50',totalAnswered>=50);
+  checkAch('100',totalAnswered>=100);
+  checkAch('streak3',maxStreak>=3);
+  checkAch('streak10',maxStreak>=10);
+  checkAch('860',(lvStats[860]||{}).c>=1);
+}
+
+function setGoal(id,done,prog){
+  const el=document.getElementById(id+'-check');
+  el.textContent=done?'✓':'';
+  el.classList.toggle('done',done);
+  document.getElementById(id+'-prog').textContent=prog;
+}
+
+// ===== QUIZ =====
 async function loadQuestions(){
   try{
-    const r = await fetch('questions.json');
-    const data = await r.json();
-    allQuestions = data.questions;
+    const r=await fetch('questions.json');
+    const data=await r.json();
+    allQuestions=data.questions;
     document.getElementById('loading').style.display='none';
     document.getElementById('quiz-area').style.display='block';
     startSession();
   }catch(e){
-    document.getElementById('loading').innerHTML='<p style="color:var(--red)">問題の読み込みに失敗しました。ページを再読み込みしてください。</p>';
+    document.getElementById('loading').innerHTML='<p style="color:var(--red)">問題の読み込みに失敗しました。</p>';
   }
 }
 
-function setLevel(lv, btn){
-  selectedLevel = lv;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  startSession();
+function quickStart(n=10){
+  showView('quiz',document.querySelectorAll('.nav-tab')[1]);
+  if(allQuestions.length>0) startSession(n);
 }
 
-function startSession(size=SESSION_SIZE){
-  let pool = selectedLevel==='all' ? allQuestions : allQuestions.filter(q=>q.level===selectedLevel);
-  if(pool.length===0) pool = allQuestions;
-  // Shuffle
-  const shuffled = [...pool].sort(()=>Math.random()-0.5);
-  sessionQs = shuffled.slice(0, Math.min(size, shuffled.length));
-  qIdx = 0;
-  sessionCorrect = 0;
-  sessionTotal = 0;
-  streak = 0;
+function setLevel(lv,btn){
+  selectedLevel=lv;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(allQuestions.length>0) startSession();
+}
+
+function startSession(size=10){
+  let pool=selectedLevel==='all'?allQuestions:allQuestions.filter(q=>q.level===selectedLevel);
+  if(!pool.length) pool=allQuestions;
+  sessionQs=[...pool].sort(()=>Math.random()-0.5).slice(0,Math.min(size,pool.length));
+  qIdx=0; sessionCorrect=0; sessionTotal=0; sessionStreak=0; sessionMaxStreak=0;
   document.getElementById('quiz-area').style.display='block';
   document.getElementById('result-screen').style.display='none';
-  updateProgress();
-  showQuestion();
+  updateQStats(); updateProgress(); showQuestion();
 }
 
 function showQuestion(){
-  if(qIdx >= sessionQs.length){ showResult(); return; }
-  const q = sessionQs[qIdx];
-  answered = false;
-  document.getElementById('q-num').textContent = `Q${qIdx+1} / ${sessionQs.length}`;
-  const lvEl = document.getElementById('q-level');
-  lvEl.textContent = LV_LABELS[q.level]||q.level+'点';
-  lvEl.className = 'q-level '+(LV_CLASS[q.level]||'');
-  document.getElementById('q-cat').textContent = CAT_JP[q.cat]||q.cat;
-  document.getElementById('q-text').textContent = q.q;
+  if(qIdx>=sessionQs.length){showResult();return;}
+  const q=sessionQs[qIdx];
+  answered=false;
+  document.getElementById('q-num').textContent=`Q${qIdx+1} / ${sessionQs.length}`;
+  const lvEl=document.getElementById('q-level');
+  lvEl.textContent=LV_LABELS[q.level]||q.level+'点';
+  lvEl.className='q-level '+(LV_CLASS[q.level]||'');
+  document.getElementById('q-cat').textContent=CAT_JP[q.cat]||q.cat;
+  document.getElementById('q-text').textContent=q.q;
   document.getElementById('explanation').classList.remove('show');
   document.getElementById('next-btn').style.display='none';
   document.getElementById('ad-slot').style.display='none';
-
-  const opts = document.getElementById('options');
-  opts.innerHTML = '';
-  const labels = ['A','B','C','D'];
-  q.opts.forEach((opt,i)=>{
-    const btn = document.createElement('button');
-    btn.className = 'option';
-    btn.innerHTML = `<span class="option-label">${labels[i]}</span><span>${opt}</span>`;
-    btn.onclick = ()=>selectAnswer(i, q.ans, q.exp);
+  const opts=document.getElementById('options');
+  opts.innerHTML='';
+  ['A','B','C','D'].forEach((lbl,i)=>{
+    if(i>=q.opts.length) return;
+    const btn=document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=`<span class="option-label">${lbl}</span><span>${q.opts[i]}</span>`;
+    btn.onclick=()=>selectAnswer(i,q);
     opts.appendChild(btn);
   });
   updateProgress();
 }
 
-function selectAnswer(chosen, correct, exp){
+function selectAnswer(chosen,q){
   if(answered) return;
-  answered = true;
-  sessionTotal++;
-  totalAnswered++;
-
-  const opts = document.querySelectorAll('.option');
-  opts.forEach((btn,i)=>{
-    btn.disabled = true;
-    if(i===correct) btn.classList.add('correct');
-    if(i===chosen && i!==correct) btn.classList.add('wrong');
+  answered=true;
+  sessionTotal++; totalAnswered++; todayAnswered++;
+  document.querySelectorAll('.option').forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===q.ans) btn.classList.add('correct');
+    if(i===chosen&&i!==q.ans) btn.classList.add('wrong');
   });
-
-  if(chosen===correct){
-    sessionCorrect++;
-    totalCorrect++;
-    streak++;
-    if(streak>maxStreak) maxStreak=streak;
+  if(chosen===q.ans){
+    sessionCorrect++; totalCorrect++; todayCorrect++;
+    sessionStreak++; if(sessionStreak>sessionMaxStreak) sessionMaxStreak=sessionStreak;
+    if(sessionStreak>maxStreak) maxStreak=sessionStreak;
+    if(sessionStreak>todayBestStreak) todayBestStreak=sessionStreak;
+    totalXP+=10;
+    // Level stats
+    if(!lvStats[q.level]) lvStats[q.level]={c:0,t:0};
+    lvStats[q.level].c++;
+    // Achievements
+    if(q.level===860) achievements['860']=true;
+    if(sessionCorrect===sessionQs.length&&sessionQs.length>=10) achievements['perfect']=true;
   } else {
-    streak=0;
+    sessionStreak=0;
+    totalXP+=2;
   }
-
-  document.getElementById('exp-text').textContent = exp;
+  if(!lvStats[q.level]) lvStats[q.level]={c:0,t:0};
+  lvStats[q.level].t++;
+  document.getElementById('exp-text').textContent=q.exp;
   document.getElementById('explanation').classList.add('show');
   document.getElementById('next-btn').style.display='block';
-  // Show ad every 5 questions
-  if((sessionTotal)%5===0) document.getElementById('ad-slot').style.display='block';
-
-  saveProgress();
-  updateStats();
+  if(sessionTotal%5===0) document.getElementById('ad-slot').style.display='block';
+  saveProgress(); updateQStats();
 }
 
 function skipQuestion(){
-  if(answered){ nextQuestion(); return; }
-  answered = true;
-  sessionTotal++;
-  totalAnswered++;
-  streak = 0;
-  const q = sessionQs[qIdx];
-  const opts = document.querySelectorAll('.option');
-  opts.forEach((btn,i)=>{ btn.disabled=true; if(i===q.ans) btn.classList.add('correct'); });
-  document.getElementById('exp-text').textContent = q.exp;
+  if(answered){nextQuestion();return;}
+  answered=true; sessionTotal++; totalAnswered++; todayAnswered++;
+  sessionStreak=0; totalXP+=1;
+  const q=sessionQs[qIdx];
+  document.querySelectorAll('.option').forEach((btn,i)=>{btn.disabled=true;if(i===q.ans)btn.classList.add('correct');});
+  if(!lvStats[q.level]) lvStats[q.level]={c:0,t:0};
+  lvStats[q.level].t++;
+  document.getElementById('exp-text').textContent=q.exp;
   document.getElementById('explanation').classList.add('show');
   document.getElementById('next-btn').style.display='block';
-  saveProgress();
-  updateStats();
+  saveProgress(); updateQStats();
 }
 
-function nextQuestion(){
-  qIdx++;
-  if(qIdx >= sessionQs.length){ showResult(); }
-  else { showQuestion(); }
-}
+function nextQuestion(){qIdx++; if(qIdx>=sessionQs.length) showResult(); else showQuestion();}
 
 function showResult(){
   document.getElementById('quiz-area').style.display='none';
   document.getElementById('result-screen').style.display='block';
-  const pct = sessionTotal>0 ? Math.round(sessionCorrect/sessionTotal*100) : 0;
-  document.getElementById('res-score').textContent = pct+'%';
-  document.getElementById('rb-correct').textContent = sessionCorrect;
-  document.getElementById('rb-wrong').textContent = sessionTotal-sessionCorrect;
-  document.getElementById('rb-streak').textContent = maxStreak;
-  const msgs = [
-    [90,'🎉 素晴らしい！ビジネス英語の達人です！'],
-    [70,'👍 良い結果です！さらに上を目指しましょう！'],
-    [50,'📚 もう少し！復習して再挑戦しましょう！'],
-    [0,'💪 諦めずに続けましょう！繰り返しが力になります！']
-  ];
-  const msg = msgs.find(m=>pct>=m[0]);
-  document.getElementById('res-msg').textContent = msg[1];
-  const label = pct>=90?'完璧':pct>=70?'合格':'再挑戦';
-  document.getElementById('res-label').textContent = `${label} — ${sessionCorrect}/${sessionTotal} 正解`;
+  const pct=sessionTotal>0?Math.round(sessionCorrect/sessionTotal*100):0;
+  document.getElementById('res-score').textContent=pct+'%';
+  document.getElementById('rb-correct').textContent=sessionCorrect;
+  document.getElementById('rb-wrong').textContent=sessionTotal-sessionCorrect;
+  document.getElementById('rb-streak').textContent=sessionMaxStreak;
+  const msgs=[[90,'🎉 素晴らしい！ビジネス英語の達人です！'],[70,'👍 良い結果！さらに上を目指しましょう！'],[50,'📚 もう少し！復習して再挑戦！'],[0,'💪 諦めずに続けましょう！']];
+  const msg=msgs.find(m=>pct>=m[0]);
+  document.getElementById('res-msg').textContent=msg[1];
+  document.getElementById('res-label').textContent=`${sessionCorrect}/${sessionTotal} 正解`;
 }
 
-function updateStats(){
-  const acc = totalAnswered>0 ? Math.round(totalCorrect/totalAnswered*100)+'%' : '-';
-  document.getElementById('stat-acc').textContent = acc;
-  document.getElementById('stat-correct').textContent = totalCorrect;
-  document.getElementById('stat-total').textContent = totalAnswered;
-  document.getElementById('stat-streak').textContent = '🔥 '+streak;
+function updateQStats(){
+  const acc=totalAnswered>0?Math.round(totalCorrect/totalAnswered*100)+'%':'-%';
+  document.getElementById('qs-acc').textContent=acc;
+  document.getElementById('qs-correct').textContent=sessionCorrect;
+  document.getElementById('qs-streak').textContent='🔥 '+sessionStreak;
 }
 
 function updateProgress(){
-  const pct = sessionQs.length>0 ? (qIdx/sessionQs.length*100) : 0;
-  document.getElementById('progress-bar').style.width = pct+'%';
+  const pct=sessionQs.length>0?(qIdx/sessionQs.length*100):0;
+  document.getElementById('progress-bar').style.width=pct+'%';
 }
 
-function showPrivacy(){ document.getElementById('privacy-modal').classList.add('show'); }
-function hidePrivacy(){ document.getElementById('privacy-modal').classList.remove('show'); }
+function showPrivacy(){document.getElementById('privacy-modal').classList.add('show');}
+function hidePrivacy(){document.getElementById('privacy-modal').classList.remove('show');}
 
+// Init
 loadProgress();
+updateDashboard();
 loadQuestions();
 </script>
 </body>
