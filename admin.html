@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理画面 | ビジネス英語クイズ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0c14;--surface:#12151f;--surface2:#1a1e2e;--surface3:#22273a;
+  --accent:#6366f1;--accent2:#8b5cf6;--green:#22c55e;--red:#ef4444;
+  --yellow:#f59e0b;--blue:#3b82f6;--cyan:#06b6d4;
+  --text:#e2e8f0;--muted:#64748b;--border:#1e2336;
+}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;min-height:100vh}
+
+/* LOGIN */
+#login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:20px}
+.login-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;width:320px;text-align:center}
+.login-title{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.login-sub{font-size:12px;color:var(--muted);margin-bottom:24px}
+.login-input{width:100%;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;outline:none}
+.login-input:focus{border-color:var(--accent)}
+.login-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.login-err{color:var(--red);font-size:12px;margin-top:8px;display:none}
+
+/* MAIN APP */
+#app{display:none;height:100vh;overflow:hidden;flex-direction:column}
+#app.show{display:flex}
+
+/* Top bar */
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+.topbar-logo{font-size:14px;font-weight:700;color:var(--accent)}
+.topbar-status{font-size:11px;color:var(--green);display:flex;align-items:center;gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.topbar-right{margin-left:auto;display:flex;gap:10px;align-items:center}
+.tb-btn{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit}
+.tb-btn:hover{border-color:var(--accent);color:var(--text)}
+
+/* Layout */
+.layout{display:flex;flex:1;overflow:hidden}
+
+/* LEFT: Office */
+.left-panel{width:480px;min-width:480px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.panel-hdr{padding:8px 14px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;display:flex;align-items:center;justify-content:between;gap:8px}
+.panel-hdr span{margin-left:auto;font-size:10px}
+
+/* Canvas area */
+.canvas-wrap{display:flex;justify-content:center;align-items:center;padding:8px;background:var(--bg);flex-shrink:0}
+canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);border-radius:4px}
+
+/* Controls */
+.controls{display:flex;gap:6px;padding:8px 12px;background:var(--surface2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.ctrl-btn{padding:4px 12px;font-size:11px;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700}
+#btn-start{background:#238636;color:#fff}
+#btn-stop{background:#da3633;color:#fff}
+#btn-reset{background:#444;color:#ccc}
+
+/* Task list */
+.task-list{flex:1;overflow-y:auto;padding:8px}
+.task-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;margin-bottom:4px;font-size:11px;border:1px solid transparent;cursor:pointer;transition:all 0.2s}
+.task-item:hover{border-color:var(--border)}
+.task-item.running{background:rgba(99,102,241,0.15);border-color:var(--accent)}
+.task-item.done{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3)}
+.task-item.pending{color:var(--muted)}
+.task-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.task-dot.pending{background:var(--muted)}
+.task-dot.running{background:var(--accent);animation:pulse 1s infinite}
+.task-dot.done{background:var(--green)}
+.task-name{flex:1}
+.task-emp{font-size:10px;color:var(--muted)}
+
+/* Log */
+.log-area{height:100px;overflow-y:auto;padding:6px 10px;background:var(--bg);border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.log-line{padding:1px 0;border-bottom:1px solid var(--border)}
+.log-line:last-child{border-bottom:none}
+.log-line .ts{color:var(--muted)}
+.log-line .msg{color:var(--text);margin-left:6px}
+.log-line.success .msg{color:var(--green)}
+.log-line.warn .msg{color:var(--yellow)}
+.log-line.error .msg{color:var(--red)}
+
+/* RIGHT: Build output */
+.right-panel{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.right-top{flex:1;overflow-y:auto;padding:16px}
+.build-log-strip{height:120px;overflow-y:auto;background:var(--bg);border-bottom:1px solid var(--border);padding:8px 14px;font-size:11px}
+.bl-entry{padding:2px 0;color:var(--muted)}
+.bl-entry.active{color:var(--cyan)}
+.bl-entry.done{color:var(--green)}
+
+/* Output area */
+.output-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+.oc-title{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.oc-phase{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(99,102,241,0.2);color:#818cf8}
+
+/* Stats */
+.out-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.os-card{background:var(--surface2);border-radius:10px;padding:12px;text-align:center}
+.os-val{font-size:22px;font-weight:700;margin-bottom:2px}
+.os-lbl{font-size:10px;color:var(--muted)}
+
+/* Generated questions preview */
+.gen-preview{background:var(--bg);border-radius:8px;padding:12px;font-size:11px;max-height:200px;overflow-y:auto;margin-bottom:12px;border:1px solid var(--border)}
+.gp-item{padding:4px 0;border-bottom:1px solid var(--border);color:var(--text)}
+.gp-item:last-child{border-bottom:none}
+.gp-lv{display:inline-block;padding:1px 6px;border-radius:4px;font-size:10px;margin-right:6px}
+
+/* Export button */
+.export-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--green),#16a34a);border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:8px}
+.export-btn:disabled{background:var(--muted);cursor:default}
+.export-note{font-size:11px;color:var(--muted);text-align:center}
+
+/* Idle state */
+.idle-state{text-align:center;padding:40px 20px;color:var(--muted)}
+.idle-icon{font-size:48px;margin-bottom:16px}
+.idle-title{font-size:16px;color:var(--text);margin-bottom:8px}
+.idle-sub{font-size:12px;line-height:1.6}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* Textarea for export */
+.export-textarea{width:100%;height:120px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--text);font-size:10px;font-family:'Courier New',monospace;resize:none;margin-bottom:8px}
+
+@media(max-width:800px){.left-panel{width:100%;min-width:0;max-height:50vh}.layout{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div style="font-size:24px;margin-bottom:8px">🔐</div>
+  <div class="login-box">
+    <div class="login-title">管理者ログイン</div>
+    <div class="login-sub">ビジネス英語クイズ 管理画面</div>
+    <input class="login-input" type="password" id="pw-input" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">ログイン</button>
+    <div class="login-err" id="login-err">パスワードが違います</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-logo">🏢 AIオフィス管理画面</div>
+    <div class="topbar-status"><div class="dot"></div>システム稼働中</div>
+    <div class="topbar-right">
+      <div id="clock" style="font-size:11px;color:var(--muted)"></div>
+      <button class="tb-btn" onclick="doLogout()">ログアウト</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- LEFT: Office sim -->
+    <div class="left-panel">
+      <div class="panel-hdr">🏢 AIオフィス <span id="phase-badge">Phase 0</span></div>
+      <div class="canvas-wrap">
+        <canvas id="office-canvas" width="448" height="256"></canvas>
+      </div>
+      <div class="controls">
+        <button class="ctrl-btn" id="btn-start" onclick="startSim()">▶ スタート</button>
+        <button class="ctrl-btn" id="btn-stop" onclick="stopSim()">⏸ 停止</button>
+        <button class="ctrl-btn" id="btn-reset" onclick="resetSim()">↺ リセット</button>
+        <span style="font-size:10px;color:var(--muted);align-self:center;margin-left:auto" id="sim-status">待機中</span>
+      </div>
+      <div class="panel-hdr" style="margin-top:0">📋 タスク一覧</div>
+      <div class="task-list" id="task-list"></div>
+      <div class="panel-hdr">📟 ログ</div>
+      <div class="log-area" id="log-area"></div>
+    </div>
+
+    <!-- RIGHT: Output -->
+    <div class="right-panel">
+      <div class="panel-hdr">🔨 ビルドログ</div>
+      <div class="build-log-strip" id="build-log"></div>
+
+      <div class="right-top" id="right-content">
+        <!-- Idle -->
+        <div class="idle-state" id="idle-state">
+          <div class="idle-icon">⚙️</div>
+          <div class="idle-title">AI社員が待機中</div>
+          <div class="idle-sub">「スタート」を押すとAI社員が働き始め<br>新しい英語問題を自動生成します</div>
+        </div>
+
+        <!-- Output (hidden until tasks complete) -->
+        <div id="output-area" style="display:none">
+          <div class="output-card">
+            <div class="oc-title">📊 生成結果 <span class="oc-phase" id="out-phase">Phase 0</span></div>
+            <div class="out-stats">
+              <div class="os-card"><div class="os-val" style="color:var(--green)" id="out-new">0</div><div class="os-lbl">新規生成問題</div></div>
+              <div class="os-card"><div class="os-val" style="color:var(--accent)" id="out-total">0</div><div class="os-lbl">総問題数</div></div>
+              <div class="os-card"><div class="os-val" style="color:var(--yellow)" id="out-quality">0%</div><div class="os-lbl">品質スコア</div></div>
+            </div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:8px">📝 生成された問題（プレビュー）</div>
+            <div class="gen-preview" id="gen-preview"></div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:8px">📦 questions.json（コピーしてGitHubに貼り付け）</div>
+            <textarea class="export-textarea" id="export-json" readonly placeholder="タスク完了後にここにJSONが生成されます..."></textarea>
+            <button class="export-btn" id="export-btn" onclick="copyJson()" disabled>📋 JSONをコピー</button>
+            <div class="export-note" id="export-note">タスクが完了するとJSONが生成されます</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== AUTH =====
+const PASS = 'admin2026'; // ← ここを変更してください
+function doLogin(){
+  const v = document.getElementById('pw-input').value;
+  if(v === PASS){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').classList.add('show');
+    initApp();
+  } else {
+    document.getElementById('login-err').style.display='block';
+    document.getElementById('pw-input').value='';
+  }
+}
+function doLogout(){
+  document.getElementById('app').classList.remove('show');
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('pw-input').value='';
+}
+
+// ===== CLOCK =====
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=n.toLocaleTimeString('ja-JP');
+}
+setInterval(updateClock,1000); updateClock();
+
+// ===== CANVAS / PIXEL ART =====
+const S=2, VW=224, VH=128;
+const canvas=document.getElementById('office-canvas');
+canvas.width=VW*S; canvas.height=VH*S;
+const ctx=canvas.getContext('2d');
+ctx.imageSmoothingEnabled=false;
+
+const CHARS=[
+  {id:'pm',  x:20, y:20, color:'#5b8af5',label:'PM',    state:'idle'},
+  {id:'eng', x:70, y:20, color:'#f55b5b',label:'Dev',   state:'idle'},
+  {id:'res', x:120,y:20, color:'#f5c85b',label:'研究',  state:'idle'},
+  {id:'des', x:170,y:20, color:'#c85bf5',label:'UI',    state:'idle'},
+  {id:'qa',  x:20, y:75, color:'#5bf5c8',label:'QA',    state:'idle'},
+  {id:'wrt', x:70, y:75, color:'#f5a55b',label:'Writer',state:'idle'},
+];
+
+let frame=0, animTimer=null, simRunning=false;
+
+function drawPixelChar(c,t){
+  const x=c.x*S, y=c.y*S, s=S;
+  // Body
+  ctx.fillStyle=c.color;
+  ctx.fillRect(x+3*s,y+4*s,5*s,6*s);
+  // Head
+  ctx.fillStyle='#ffd5a0';
+  ctx.fillRect(x+3*s,y+s,5*s,4*s);
+  // Eyes
+  ctx.fillStyle='#222';
+  if(c.state==='working'){
+    ctx.fillRect(x+4*s,y+2*s,s,2*s);
+    ctx.fillRect(x+6*s,y+2*s,s,2*s);
+  } else if(c.state==='idle'){
+    ctx.fillRect(x+4*s,y+2*s,s,s);
+    ctx.fillRect(x+6*s,y+2*s,s,s);
+    // Z
+    ctx.fillStyle='#aaa';
+    const blink=Math.floor(t/30)%2;
+    if(blink) ctx.fillRect(x+8*s,y,2*s,s);
+  } else {
+    ctx.fillRect(x+4*s,y+2*s,s,s);
+    ctx.fillRect(x+6*s,y+2*s,s,s);
+  }
+  // Arms
+  ctx.fillStyle=c.color;
+  if(c.state==='working'&&Math.floor(t/10)%2===0){
+    ctx.fillRect(x+s,y+4*s,2*s,5*s);
+    ctx.fillRect(x+8*s,y+4*s,2*s,5*s);
+  } else {
+    ctx.fillRect(x+s,y+5*s,2*s,4*s);
+    ctx.fillRect(x+8*s,y+5*s,2*s,4*s);
+  }
+  // Legs
+  ctx.fillStyle='#334';
+  ctx.fillRect(x+3*s,y+10*s,2*s,3*s);
+  ctx.fillRect(x+6*s,y+10*s,2*s,3*s);
+  // Desk
+  ctx.fillStyle='#4a3728';
+  ctx.fillRect(x,y+14*s,11*s,2*s);
+  ctx.fillStyle='#1a2a3a';
+  ctx.fillRect(x+s,y+11*s,9*s,3*s);
+  if(c.state==='working'){
+    ctx.fillStyle='#2a4a7a';
+    ctx.fillRect(x+s,y+11*s,9*s,3*s);
+    const blink2=Math.floor(t/8)%3;
+    ctx.fillStyle=blink2===0?'#5bf':'blink2'===1?'#a5f':'#5fa';
+    ctx.fillStyle='#5bf5c8';
+    ctx.fillRect(x+2*s+blink2*s,y+12*s,2*s,s);
+  }
+  // Label
+  ctx.fillStyle='rgba(0,0,0,0.7)';
+  ctx.fillRect(x,y+16*s,11*s,6*s);
+  ctx.fillStyle='#fff';
+  ctx.font=`${s*4}px monospace`;
+  ctx.textAlign='center';
+  ctx.fillText(c.label,x+5.5*s,y+20*s);
+  // Done badge
+  if(c.state==='done'){
+    ctx.fillStyle='#22c55e';
+    ctx.fillRect(x+7*s,y,4*s,4*s);
+    ctx.fillStyle='#fff';
+    ctx.fillText('✓',x+9*s,y+3*s);
+  }
+}
+
+function drawOffice(t){
+  // Background
+  ctx.fillStyle='#1a1208';
+  ctx.fillRect(0,0,VW*S,VH*S);
+  // Floor
+  ctx.fillStyle='#2a2010';
+  ctx.fillRect(0,VH*S-20*S,VW*S,20*S);
+  // Wall
+  ctx.fillStyle='#0f0f18';
+  ctx.fillRect(0,0,VW*S,30*S);
+  // Windows
+  for(let i=0;i<3;i++){
+    ctx.fillStyle='#1a2a3a';
+    ctx.fillRect((30+i*60)*S,4*S,30*S,18*S);
+    ctx.fillStyle='rgba(150,200,255,0.1)';
+    ctx.fillRect((31+i*60)*S,5*S,28*S,16*S);
+    ctx.strokeStyle='#2a4a6a';
+    ctx.strokeRect((30+i*60)*S,4*S,30*S,18*S);
+  }
+  // Draw chars
+  CHARS.forEach(c=>drawPixelChar(c,t));
+}
+
+function animLoop(){
+  frame++;
+  drawOffice(frame);
+  if(simRunning) animTimer=requestAnimationFrame(animLoop);
+}
+drawOffice(0);
+
+// ===== TASKS =====
+const TASKS=[
+  {id:'t1',name:'プロジェクト計画策定',  emp:'pm',   dur:8000,  effect:'plan'},
+  {id:'t2',name:'英語問題トレンド分析',  emp:'res',  dur:10000, effect:'analyze'},
+  {id:'t3',name:'500点問題バッチ生成',   emp:'wrt',  dur:12000, effect:'gen500'},
+  {id:'t4',name:'650点問題バッチ生成',   emp:'wrt',  dur:12000, effect:'gen650'},
+  {id:'t5',name:'UIコンポーネント整備',  emp:'des',  dur:8000,  effect:'ui'},
+  {id:'t6',name:'730点問題バッチ生成',   emp:'eng',  dur:14000, effect:'gen730'},
+  {id:'t7',name:'860点問題バッチ生成',   emp:'eng',  dur:14000, effect:'gen860'},
+  {id:'t8',name:'品質レビュー',          emp:'qa',   dur:10000, effect:'review'},
+  {id:'t9',name:'JSON出力・エクスポート',emp:'pm',   dur:6000,  effect:'export'},
+];
+
+let taskStates={}, currentTaskIdx=-1, simPhase=0;
+let generatedQuestions=[], buildLogEntries=[];
+let simTimer=null;
+
+const TEMPLATES={
+  500:[
+    {q:'The presentation will ___ at 3 PM sharp.',opts:['start','starting','started','starts'],ans:0,exp:'will + 動詞原形'},
+    {q:'Please ___ the form before submitting.',opts:['sign','signing','signed','signs'],ans:0,exp:'命令文 → 動詞原形'},
+    {q:'The package was ___ yesterday morning.',opts:['delivered','deliver','delivering','delivers'],ans:0,exp:'was + 過去分詞（受動態）'},
+    {q:'Could you ___ me the updated schedule?',opts:['send','sends','sent','sending'],ans:0,exp:'Could you + 動詞原形'},
+    {q:'We are ___ forward to working with you.',opts:['looking','look','looks','looked'],ans:0,exp:'be looking forward to'},
+    {q:'The invoice is ___ by the end of this month.',opts:['due','do','done','doing'],ans:0,exp:'due = 期限'},
+    {q:'Please ___ me know if you have any questions.',opts:['let','make','have','get'],ans:0,exp:'let me know = 知らせる'},
+    {q:'The office is ___ on weekends.',opts:['closed','close','closing','closes'],ans:0,exp:'is closed = 閉まっている（状態）'},
+    {q:'I would like to ___ a meeting for next Tuesday.',opts:['arrange','arranges','arranged','arranging'],ans:0,exp:'would like to + 動詞原形'},
+    {q:'The new policy will take ___ next month.',opts:['effect','affect','effort','effect'],ans:0,exp:'take effect = 発効する'},
+    {q:'She ___ working here since 2020.',opts:['has been','is','was','had'],ans:0,exp:'since + 現在完了進行形'},
+    {q:'The client called ___ discuss the contract.',opts:['to','for','at','in'],ans:0,exp:'called to discuss = 〜するために電話した'},
+  ],
+  650:[
+    {q:'The quarterly targets were ___ by a wide margin.',opts:['exceeded','exceed','exceeding','exceedance'],ans:0,exp:'were exceeded = 達成された（受動態）'},
+    {q:'Despite the setbacks, the team remained ___ to completing the project.',opts:['committed','commit','committing','commitment'],ans:0,exp:'remained + 形容詞'},
+    {q:'The board is considering ___ the dividend this year.',opts:['increasing','increase','increased','increases'],ans:0,exp:'consider + 動名詞（-ing）'},
+    {q:'___ the high costs involved, the project was approved.',opts:['Notwithstanding','Despite of','Although','Even'],ans:0,exp:'Notwithstanding = 〜にもかかわらず（フォーマル）'},
+    {q:'The new regulation ___ all companies to disclose their carbon footprint.',opts:['requires','require','required','requiring'],ans:0,exp:'三人称単数現在形 requires'},
+    {q:'The market research ___ that demand will increase next quarter.',opts:['indicates','indicate','indicated','is indicating'],ans:0,exp:'現在形で事実・研究結果を述べる'},
+    {q:'The proposal was well-received, ___ some reservations about the timeline.',opts:['despite','although','however','whereas'],ans:0,exp:'despite + 名詞'},
+    {q:'We need to ___ the risks associated with the new venture.',opts:['mitigate','mitigating','mitigated','mitigation'],ans:0,exp:'need to + 動詞原形; mitigate = 軽減する'},
+  ],
+  730:[
+    {q:'The report highlights several areas ___ improvement is most urgently needed.',opts:['where','which','that','in that'],ans:0,exp:'関係副詞 where（場所・状況）'},
+    {q:'Only ___ implementing more efficient processes can we reduce operational costs.',opts:['by','through','with','from'],ans:0,exp:'Only by + 動名詞 → 倒置構文'},
+    {q:'The acquisition was ___ to create synergies between the two companies.',opts:['intended','intending','intention','intend'],ans:0,exp:'be intended to = 〜することを意図された'},
+    {q:'The CEO stressed that adaptability ___ key to surviving in today\'s market.',opts:['remains','remain','remaining','is remaining'],ans:0,exp:'stressed that 節 → 時制の一致（remains）'},
+    {q:'___ its initial losses, the startup has emerged as a market leader.','opts':['Despite','Although','However','Even though'],ans:0,exp:'Despite + 名詞'},
+    {q:'The consultant recommended that the company ___ its pricing strategy.',opts:['revisit','revisits','revisited','revisiting'],ans:0,exp:'recommended that + 仮定法現在（動詞原形）'},
+  ],
+  860:[
+    {q:'The regulatory changes have far-___ implications for the entire industry.',opts:['reaching','reached','reach','reaches'],ans:0,exp:'far-reaching = 広範な影響を及ぼす'},
+    {q:'The firm\'s ___ to innovation has been the cornerstone of its success.',opts:['commitment','committed','committing','commit'],ans:0,exp:'commitment to = 〜へのコミットメント（名詞）'},
+    {q:'___ the complexity of the market, the team\'s analysis was remarkably accurate.',opts:['Given','Giving','Given that','To give'],ans:0,exp:'Given = 〜を考慮すると（前置詞）'},
+    {q:'The proposal, ___ merit, was ultimately rejected on budgetary grounds.',opts:['while having considerable','while considerable','having considerable','considerable'],ans:0,exp:'while having = 〜を持っているが（譲歩の分詞構文）'},
+    {q:'The acquisition strategy was predicated ___ the assumption of stable growth.',opts:['on','upon','in','at'],ans:0,exp:'predicated on = 〜を前提としている'},
+  ]
+};
+
+function initTasks(){
+  taskStates={};
+  TASKS.forEach(t=>{taskStates[t.id]='pending';});
+  renderTasks();
+}
+
+function renderTasks(){
+  const el=document.getElementById('task-list');
+  el.innerHTML='';
+  TASKS.forEach((t,i)=>{
+    const st=taskStates[t.id]||'pending';
+    const div=document.createElement('div');
+    div.className=`task-item ${st}`;
+    div.innerHTML=`<div class="task-dot ${st}"></div><div class="task-name">${t.name}</div><div class="task-emp">${getEmpLabel(t.emp)}</div>`;
+    el.appendChild(div);
+  });
+}
+
+function getEmpLabel(id){
+  return {pm:'👔PM',eng:'💻Dev',res:'📚研究',des:'🎨UI',qa:'🔍QA',wrt:'✍Writer'}[id]||id;
+}
+
+function addLog(msg,type=''){
+  const el=document.getElementById('log-area');
+  const t=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const div=document.createElement('div');
+  div.className=`log-line ${type}`;
+  div.innerHTML=`<span class="ts">[${t}]</span><span class="msg">${msg}</span>`;
+  el.appendChild(div);
+  el.scrollTop=el.scrollHeight;
+}
+
+function addBuildLog(msg,isDone=false){
+  const el=document.getElementById('build-log');
+  const div=document.createElement('div');
+  div.className=`bl-entry ${isDone?'done':'active'}`;
+  const t=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  div.textContent=`[${t}] ${msg}`;
+  el.appendChild(div);
+  el.scrollTop=el.scrollHeight;
+  buildLogEntries.push(msg);
+}
+
+// ===== SIM CONTROL =====
+function startSim(){
+  if(simRunning) return;
+  simRunning=true;
+  document.getElementById('sim-status').textContent='稼働中';
+  document.getElementById('idle-state').style.display='none';
+  document.getElementById('output-area').style.display='block';
+  animLoop();
+  if(currentTaskIdx===-1){ initTasks(); generatedQuestions=[]; }
+  runNextTask();
+}
+
+function stopSim(){
+  simRunning=false;
+  if(animTimer){ cancelAnimationFrame(animTimer); animTimer=null; }
+  if(simTimer){ clearTimeout(simTimer); simTimer=null; }
+  CHARS.forEach(c=>c.state='idle');
+  drawOffice(frame);
+  document.getElementById('sim-status').textContent='停止中';
+  addLog('シミュレーション停止','warn');
+}
+
+function resetSim(){
+  stopSim();
+  currentTaskIdx=-1; simPhase=0; generatedQuestions=[];
+  initTasks();
+  CHARS.forEach(c=>{c.state='idle';});
+  drawOffice(0);
+  document.getElementById('sim-status').textContent='待機中';
+  document.getElementById('export-json').value='';
+  document.getElementById('export-btn').disabled=true;
+  document.getElementById('export-note').textContent='タスクが完了するとJSONが生成されます';
+  document.getElementById('gen-preview').innerHTML='';
+  document.getElementById('out-new').textContent='0';
+  document.getElementById('out-total').textContent='0';
+  document.getElementById('out-quality').textContent='0%';
+  document.getElementById('out-phase').textContent='Phase 0';
+  document.getElementById('idle-state').style.display='block';
+  document.getElementById('output-area').style.display='none';
+  document.getElementById('build-log').innerHTML='';
+  addLog('リセット完了');
+}
+
+function runNextTask(){
+  currentTaskIdx++;
+  if(currentTaskIdx>=TASKS.length){
+    onAllTasksDone();
+    return;
+  }
+  const task=TASKS[currentTaskIdx];
+  taskStates[task.id]='running';
+  renderTasks();
+  const char=CHARS.find(c=>c.id===task.emp)||CHARS[0];
+  char.state='working';
+  addLog(`${getEmpLabel(task.emp)} → ${task.name}開始`);
+  addBuildLog(`⚡ ${task.name} 実行中...`);
+  document.getElementById('sim-status').textContent=task.name+'中...';
+
+  simTimer=setTimeout(()=>{
+    if(!simRunning) return;
+    applyEffect(task.effect);
+    taskStates[task.id]='done';
+    char.state='done';
+    renderTasks();
+    addLog(`✅ ${task.name} 完了`,'success');
+    addBuildLog(`✅ ${task.name} 完了`,true);
+    simPhase=currentTaskIdx+1;
+    document.getElementById('phase-badge').textContent=`Phase ${simPhase}`;
+    updateOutputStats();
+    simTimer=setTimeout(runNextTask, 800);
+  }, task.dur);
+}
+
+function applyEffect(effect){
+  const pick=(arr,n)=>{
+    const s=[...arr].sort(()=>Math.random()-0.5);
+    return s.slice(0,Math.min(n,s.length));
+  };
+  if(effect==='gen500'){
+    const qs=pick(TEMPLATES[500],8).map((q,i)=>({
+      id:200+generatedQuestions.length+i+1,level:500,cat:'grammar',...q
+    }));
+    generatedQuestions.push(...qs);
+    updatePreview(qs,'500点');
+  } else if(effect==='gen650'){
+    const qs=pick(TEMPLATES[650],6).map((q,i)=>({
+      id:200+generatedQuestions.length+i+1,level:650,cat:'grammar',...q
+    }));
+    generatedQuestions.push(...qs);
+    updatePreview(qs,'650点');
+  } else if(effect==='gen730'){
+    const qs=pick(TEMPLATES[730],5).map((q,i)=>({
+      id:200+generatedQuestions.length+i+1,level:730,cat:'grammar',...q
+    }));
+    generatedQuestions.push(...qs);
+    updatePreview(qs,'730点');
+  } else if(effect==='gen860'){
+    const qs=pick(TEMPLATES[860],4).map((q,i)=>({
+      id:200+generatedQuestions.length+i+1,level:860,cat:'grammar',...q
+    }));
+    generatedQuestions.push(...qs);
+    updatePreview(qs,'860点');
+  } else if(effect==='export'){
+    buildExportJson();
+  }
+}
+
+function updatePreview(qs,lvLabel){
+  const el=document.getElementById('gen-preview');
+  const colors={500:'#4ade80',650:'#818cf8',730:'#fbbf24',860:'#f87171'};
+  qs.forEach(q=>{
+    const div=document.createElement('div');
+    div.className='gp-item';
+    const lv=q.level;
+    div.innerHTML=`<span class="gp-lv" style="background:rgba(99,102,241,0.2);color:${colors[lv]||'#fff'}">${lv}点</span>${q.q}`;
+    el.appendChild(div);
+  });
+  el.scrollTop=el.scrollHeight;
+}
+
+function updateOutputStats(){
+  document.getElementById('out-new').textContent=generatedQuestions.length;
+  document.getElementById('out-total').textContent=200+generatedQuestions.length;
+  const quality=Math.min(100,85+Math.floor(Math.random()*12));
+  document.getElementById('out-quality').textContent=quality+'%';
+  document.getElementById('out-phase').textContent=`Phase ${simPhase}`;
+}
+
+function buildExportJson(){
+  // Load existing questions + add new ones
+  fetch('questions.json').then(r=>r.json()).then(data=>{
+    const existing=data.questions||[];
+    const maxId=Math.max(0,...existing.map(q=>q.id));
+    const newQs=generatedQuestions.map((q,i)=>({...q,id:maxId+i+1}));
+    const merged=[...existing,...newQs];
+    const out={version:'1.1',generated:new Date().toISOString().slice(0,10),total:merged.length,questions:merged};
+    document.getElementById('export-json').value=JSON.stringify(out,null,2);
+    document.getElementById('export-btn').disabled=false;
+    document.getElementById('export-note').textContent=`✅ ${newQs.length}問追加 → 合計${merged.length}問。GitHubのquestions.jsonに貼り付けてください。`;
+    addLog(`📦 JSON生成完了 (${merged.length}問)`,'success');
+  }).catch(()=>{
+    // Fallback: just new questions
+    const out={version:'1.1',generated:new Date().toISOString().slice(0,10),total:generatedQuestions.length,questions:generatedQuestions};
+    document.getElementById('export-json').value=JSON.stringify(out,null,2);
+    document.getElementById('export-btn').disabled=false;
+    document.getElementById('export-note').textContent='GitHubのquestions.jsonを差し替えてください。';
+    addLog('📦 JSON生成完了','success');
+  });
+}
+
+function onAllTasksDone(){
+  simRunning=false;
+  cancelAnimationFrame(animTimer);
+  document.getElementById('sim-status').textContent='✅ 全タスク完了！';
+  addLog('🎉 全タスク完了！JSONをGitHubに貼り付けてください','success');
+  addBuildLog('🎉 ビルド完了！',true);
+  drawOffice(frame);
+}
+
+function copyJson(){
+  const ta=document.getElementById('export-json');
+  ta.select();
+  document.execCommand('copy');
+  const btn=document.getElementById('export-btn');
+  btn.textContent='✅ コピー完了！';
+  setTimeout(()=>btn.textContent='📋 JSONをコピー',2000);
+}
+
+// ===== INIT =====
+function initApp(){
+  initTasks();
+  addLog('管理画面起動完了','success');
+  addBuildLog('🚀 システム起動');
+}
+</script>
+</body>
+</html>
