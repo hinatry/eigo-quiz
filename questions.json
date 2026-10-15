@@ -1,207 +1,2849 @@
 {
-  "version": "1.0",
-  "generated": "2026-10-13",
-  "total": 200,
+  "version": "2.0",
+  "generated": "2026-10-15",
+  "total": 203,
   "questions": [
-    {"id":1,"level":500,"cat":"grammar","q":"The report ___ by the team last Friday.","opts":["was submitted","submitted","is submitting","submits"],"ans":0,"exp":"過去の受動態: was + 過去分詞"},
-    {"id":2,"level":500,"cat":"vocab","q":"Please ___ the attached document before the meeting.","opts":["review","reviews","reviewed","reviewing"],"ans":0,"exp":"命令文なので動詞の原形"},
-    {"id":3,"level":500,"cat":"grammar","q":"She has been working at this company ___ ten years.","opts":["for","since","during","while"],"ans":0,"exp":"期間には for を使う"},
-    {"id":4,"level":500,"cat":"vocab","q":"The manager asked everyone to ___ the new policy.","opts":["follow","follows","followed","following"],"ans":0,"exp":"asked + 人 + to + 動詞原形"},
-    {"id":5,"level":500,"cat":"grammar","q":"___ you finish the report, please send it to me.","opts":["When","During","While","For"],"ans":0,"exp":"「〜したら」は When"},
-    {"id":6,"level":500,"cat":"vocab","q":"The project was completed ___ schedule.","opts":["on","in","at","by"],"ans":0,"exp":"on schedule = 予定通りに"},
-    {"id":7,"level":500,"cat":"grammar","q":"We need ___ more staff for the busy season.","opts":["to hire","hiring","hired","hire"],"ans":0,"exp":"need + to 不定詞"},
-    {"id":8,"level":500,"cat":"vocab","q":"The meeting has been ___ to next Monday.","opts":["postponed","promoted","proposed","provided"],"ans":0,"exp":"postponed = 延期された"},
-    {"id":9,"level":500,"cat":"grammar","q":"Please let me know ___ you are available.","opts":["when","what","which","who"],"ans":0,"exp":"let me know when...「いつ空いているか教えて」"},
-    {"id":10,"level":500,"cat":"vocab","q":"I would like to ___ a meeting for next week.","opts":["schedule","schedules","scheduled","scheduling"],"ans":0,"exp":"would like to + 動詞原形"},
-    {"id":11,"level":500,"cat":"grammar","q":"The sales figures ___ significantly last quarter.","opts":["increased","increase","increasing","have increase"],"ans":0,"exp":"last quarter（過去）→ 過去形"},
-    {"id":12,"level":500,"cat":"vocab","q":"The company decided to ___ its prices by 5%.","opts":["raise","rise","arise","arose"],"ans":0,"exp":"raise = 他動詞（価格を上げる）"},
-    {"id":13,"level":500,"cat":"grammar","q":"___ is responsible for the accounting department?","opts":["Who","What","Which","Whom"],"ans":0,"exp":"主語を聞く疑問詞は Who"},
-    {"id":14,"level":500,"cat":"vocab","q":"We received a large ___ from our biggest client.","opts":["order","orders","ordering","ordered"],"ans":0,"exp":"order = 注文（名詞）"},
-    {"id":15,"level":500,"cat":"grammar","q":"The new product will ___ next month.","opts":["be launched","launch","launching","launched"],"ans":0,"exp":"will be + 過去分詞（未来受動態）"},
-    {"id":16,"level":500,"cat":"vocab","q":"Please ___ this form and return it by Friday.","opts":["complete","completes","completing","completed"],"ans":0,"exp":"命令文 → 動詞原形"},
-    {"id":17,"level":500,"cat":"grammar","q":"The CEO ___ the company for 20 years.","opts":["has led","led","leads","leading"],"ans":0,"exp":"for + 期間 → 現在完了形"},
-    {"id":18,"level":500,"cat":"vocab","q":"Our company offers a competitive ___ package.","opts":["benefits","benefit","beneficial","benefiting"],"ans":0,"exp":"benefits package = 福利厚生パッケージ"},
-    {"id":19,"level":500,"cat":"grammar","q":"She asked ___ the project status.","opts":["about","for","at","in"],"ans":0,"exp":"ask about = 〜について尋ねる"},
-    {"id":20,"level":500,"cat":"vocab","q":"The deadline for the proposal is ___ the end of this month.","opts":["by","at","on","in"],"ans":0,"exp":"by = 〜までに（期限）"},
-    {"id":21,"level":500,"cat":"grammar","q":"___ the meeting, we discussed the budget.","opts":["During","While","When","For"],"ans":0,"exp":"During + 名詞"},
-    {"id":22,"level":500,"cat":"vocab","q":"The company plans to ___ into the Asian market.","opts":["expand","expands","expanded","expanding"],"ans":0,"exp":"plans to + 動詞原形"},
-    {"id":23,"level":500,"cat":"grammar","q":"I will ___ you know the results tomorrow.","opts":["let","make","have","get"],"ans":0,"exp":"let + 人 + 知る = let you know"},
-    {"id":24,"level":500,"cat":"vocab","q":"The team worked ___ to meet the deadline.","opts":["hard","hardly","harder","hardest"],"ans":0,"exp":"work hard = 一生懸命働く"},
-    {"id":25,"level":500,"cat":"grammar","q":"Could you please ___ the document?","opts":["sign","signing","signed","signs"],"ans":0,"exp":"Could you please + 動詞原形"},
-    {"id":26,"level":650,"cat":"grammar","q":"The budget proposal, ___ was submitted last week, has been approved.","opts":["which","that","what","who"],"ans":0,"exp":"非制限用法の関係代名詞はwhich"},
-    {"id":27,"level":650,"cat":"vocab","q":"The company's quarterly ___ exceeded expectations.","opts":["revenue","revenues","revenuing","revenued"],"ans":0,"exp":"revenue = 収益（不可算名詞として使うことが多い）"},
-    {"id":28,"level":650,"cat":"grammar","q":"___ the project is completed, we will conduct a review.","opts":["Once","During","While","Because"],"ans":0,"exp":"Once = 〜したら"},
-    {"id":29,"level":650,"cat":"vocab","q":"The HR department is responsible for employee ___.","opts":["retention","retaining","retain","retains"],"ans":0,"exp":"retention = 維持、定着（名詞）"},
-    {"id":30,"level":650,"cat":"grammar","q":"The team leader suggested ___ the strategy.","opts":["revising","revise","to revise","revised"],"ans":0,"exp":"suggest + 動名詞（-ing）"},
-    {"id":31,"level":650,"cat":"vocab","q":"We need to ___ our resources more efficiently.","opts":["allocate","allocation","allocated","allocating"],"ans":0,"exp":"allocate = 配分する（他動詞）"},
-    {"id":32,"level":650,"cat":"grammar","q":"The contract will not be signed ___ both parties agree.","opts":["unless","until","if","when"],"ans":0,"exp":"unless = 〜しない限り"},
-    {"id":33,"level":650,"cat":"vocab","q":"The marketing team developed a comprehensive ___ strategy.","opts":["outreach","outstretched","outreaching","outstretches"],"ans":0,"exp":"outreach strategy = アウトリーチ戦略"},
-    {"id":34,"level":650,"cat":"grammar","q":"___ having extensive experience, she did not get the promotion.","opts":["Despite","Although","Because","Since"],"ans":0,"exp":"Despite + 名詞/動名詞"},
-    {"id":35,"level":650,"cat":"vocab","q":"The board of directors approved the merger ___.","opts":["unanimously","unanimous","unanimity","unanimousness"],"ans":0,"exp":"unanimously = 全会一致で（副詞）"},
-    {"id":36,"level":650,"cat":"grammar","q":"The new policy requires that all employees ___ safety training.","opts":["complete","completes","completed","completing"],"ans":0,"exp":"requires that 節では仮定法現在（動詞原形）"},
-    {"id":37,"level":650,"cat":"vocab","q":"Our quarterly report shows a significant ___ in operating costs.","opts":["reduction","reduce","reduced","reducing"],"ans":0,"exp":"reduction = 削減（名詞）"},
-    {"id":38,"level":650,"cat":"grammar","q":"The presentation ___ by the time the clients arrive.","opts":["will have been prepared","will prepare","is prepared","prepares"],"ans":0,"exp":"未来完了: will have been + 過去分詞"},
-    {"id":39,"level":650,"cat":"vocab","q":"The company has achieved ___ growth in the past year.","opts":["substantial","substance","substantially","substantive"],"ans":0,"exp":"substantial = 相当な（形容詞）"},
-    {"id":40,"level":650,"cat":"grammar","q":"Neither the manager nor the staff members ___ aware of the change.","opts":["were","was","are","is"],"ans":0,"exp":"neither A nor B → 近い主語（staff members）に動詞を合わせる"},
-    {"id":41,"level":650,"cat":"vocab","q":"We should ___ the risks before making a final decision.","opts":["assess","assessment","assessed","assessing"],"ans":0,"exp":"should + 動詞原形; assess = 評価する"},
-    {"id":42,"level":650,"cat":"grammar","q":"The factory's output has increased ___ 30% this year.","opts":["by","to","in","at"],"ans":0,"exp":"increase by = 〜だけ増加する"},
-    {"id":43,"level":650,"cat":"vocab","q":"The company will ___ its annual report next quarter.","opts":["release","releases","released","releasing"],"ans":0,"exp":"will + 動詞原形; release = 公開する"},
-    {"id":44,"level":650,"cat":"grammar","q":"I would appreciate it if you ___ the report by noon.","opts":["could send","can send","will send","send"],"ans":0,"exp":"would appreciate it if + 仮定法過去（could）"},
-    {"id":45,"level":650,"cat":"vocab","q":"The management team will ___ the new initiative next week.","opts":["implement","implementation","implemented","implementing"],"ans":0,"exp":"will + 動詞原形; implement = 実施する"},
-    {"id":46,"level":650,"cat":"grammar","q":"The client complained that the service ___ not meet their expectations.","opts":["did","does","had","has"],"ans":0,"exp":"complained（過去形）→ 時制の一致 → did not"},
-    {"id":47,"level":650,"cat":"vocab","q":"The product launch was a great ___ for the company.","opts":["milestone","millstone","mindset","mindstone"],"ans":0,"exp":"milestone = 重要な節目"},
-    {"id":48,"level":650,"cat":"grammar","q":"___ the new software is installed, productivity should improve.","opts":["Once","While","Because","Before"],"ans":0,"exp":"once = 〜したら（条件・時間）"},
-    {"id":49,"level":650,"cat":"vocab","q":"The company needs to ___ its brand image to attract younger customers.","opts":["revamp","revoke","review","revise"],"ans":0,"exp":"revamp = 刷新する"},
-    {"id":50,"level":650,"cat":"grammar","q":"The CEO, along with her executives, ___ the conference.","opts":["attended","attend","attending","have attended"],"ans":0,"exp":"主語はCEO（単数）→ attended"},
-    {"id":51,"level":730,"cat":"grammar","q":"The proposal ___ considerable debate among the shareholders before being accepted.","opts":["generated","was generated","has generated","generates"],"ans":0,"exp":"過去の特定の出来事 → 過去形"},
-    {"id":52,"level":730,"cat":"vocab","q":"The firm's new ___ policy aims to increase workplace diversity.","opts":["recruitment","recruit","recruited","recruiting"],"ans":0,"exp":"recruitment policy = 採用方針"},
-    {"id":53,"level":730,"cat":"grammar","q":"It is essential that the data ___ before the system upgrade.","opts":["be backed up","is backed up","was backed up","will be backed up"],"ans":0,"exp":"essential that + 仮定法現在（be）"},
-    {"id":54,"level":730,"cat":"vocab","q":"The consultant recommended several measures to ___ operational efficiency.","opts":["streamline","mainstream","streamlined","streamlines"],"ans":0,"exp":"streamline = 合理化する"},
-    {"id":55,"level":730,"cat":"grammar","q":"___ that the deadline was approaching, the team worked overtime.","opts":["Realizing","Realized","Realize","To realize"],"ans":0,"exp":"分詞構文（主節と主語が同じ）"},
-    {"id":56,"level":730,"cat":"vocab","q":"The company's financial ___ showed steady improvement over the past decade.","opts":["trajectory","tradition","transition","transaction"],"ans":0,"exp":"trajectory = 軌跡、推移"},
-    {"id":57,"level":730,"cat":"grammar","q":"The contract stipulates that payment ___ within 30 days of delivery.","opts":["be made","is made","was made","will be made"],"ans":0,"exp":"stipulate that + 仮定法現在（be）"},
-    {"id":58,"level":730,"cat":"vocab","q":"Her ___ approach to problem-solving impressed the entire management team.","opts":["pragmatic","pragmatism","pragmatically","pragmatist"],"ans":0,"exp":"pragmatic = 現実的な（形容詞）"},
-    {"id":59,"level":730,"cat":"grammar","q":"The new regulation, ___ effect next year, will affect all companies.","opts":["taking","taken","takes","to take"],"ans":0,"exp":"分詞（現在分詞）で名詞を修飾"},
-    {"id":60,"level":730,"cat":"vocab","q":"The merger was expected to create significant ___ for both companies.","opts":["synergies","synergy","synergize","synergized"],"ans":0,"exp":"synergies = 相乗効果（複数形が一般的）"},
-    {"id":61,"level":730,"cat":"grammar","q":"Rarely ___ such an innovative product in the consumer market.","opts":["has there been","there has been","was there","has there"],"ans":0,"exp":"否定副詞 Rarely + 倒置（has + 主語 + been）"},
-    {"id":62,"level":730,"cat":"vocab","q":"The startup's rapid growth was ___ by its innovative business model.","opts":["fueled","fuel","fueling","fuels"],"ans":0,"exp":"be fueled by = 〜によって推進される"},
-    {"id":63,"level":730,"cat":"grammar","q":"The manager insisted on ___ all expenses before reimbursement.","opts":["verifying","verify","verified","verification"],"ans":0,"exp":"insist on + 動名詞（-ing）"},
-    {"id":64,"level":730,"cat":"vocab","q":"The board approved a ___ restructuring of the organization.","opts":["comprehensive","comprehension","comprehend","comprehensible"],"ans":0,"exp":"comprehensive = 包括的な（形容詞）"},
-    {"id":65,"level":730,"cat":"grammar","q":"___ the project budget more carefully, we could have avoided the deficit.","opts":["Had we managed","If we managed","Managing","We had managed"],"ans":0,"exp":"仮定法過去完了の倒置 Had + S + PP"},
-    {"id":66,"level":730,"cat":"vocab","q":"The legal team reviewed the contract to ensure ___ with local regulations.","opts":["compliance","compliant","comply","complying"],"ans":0,"exp":"compliance with = 〜への準拠"},
-    {"id":67,"level":730,"cat":"grammar","q":"The new policy was met with ___ from employees who felt it was too restrictive.","opts":["resistance","resistant","resist","resisting"],"ans":0,"exp":"met with resistance = 抵抗に遭う"},
-    {"id":68,"level":730,"cat":"vocab","q":"Despite ___ setbacks, the team remained committed to the project.","opts":["numerous","numerate","numerously","numerating"],"ans":0,"exp":"numerous = 多数の（形容詞）"},
-    {"id":69,"level":730,"cat":"grammar","q":"The efficiency gains ___ from the automation project justified the investment.","opts":["resulting","resulted","results","result"],"ans":0,"exp":"現在分詞で後ろから名詞を修飾"},
-    {"id":70,"level":730,"cat":"vocab","q":"The company's strategy was to ___ in emerging markets before competitors.","opts":["capitalize","capitalization","capitalized","capitalizing"],"ans":0,"exp":"capitalize on/in = 〜を活用する、進出する"},
-    {"id":71,"level":730,"cat":"grammar","q":"Not until the final report was submitted ___ the project manager relax.","opts":["did","could","was","had"],"ans":0,"exp":"not until + 節 → 倒置（did + 主語 + 動詞）"},
-    {"id":72,"level":730,"cat":"vocab","q":"The quarterly earnings report demonstrated the company's financial ___.","opts":["resilience","resilient","resiliently","resile"],"ans":0,"exp":"resilience = 回復力（名詞）"},
-    {"id":73,"level":730,"cat":"grammar","q":"The committee recommended that the proposal ___ further consideration.","opts":["be given","is given","was given","will be given"],"ans":0,"exp":"recommended that + 仮定法現在"},
-    {"id":74,"level":730,"cat":"vocab","q":"The new CEO's leadership style was described as highly ___.","opts":["transformative","transformation","transform","transforming"],"ans":0,"exp":"transformative = 変革をもたらす（形容詞）"},
-    {"id":75,"level":730,"cat":"grammar","q":"The success of the campaign ___ on the quality of the content produced.","opts":["hinges","hinge","hinged","hinging"],"ans":0,"exp":"hinge on = 〜にかかっている（現在形）"},
-    {"id":76,"level":860,"cat":"grammar","q":"The acquisition, ___ finalizing last month, is expected to reshape the industry landscape.","opts":["having been","being","to have been","been"],"ans":0,"exp":"完了の分詞構文: having been + PP"},
-    {"id":77,"level":860,"cat":"vocab","q":"The board expressed ___ about the proposed merger's potential regulatory hurdles.","opts":["apprehension","apprehensive","apprehend","apprehensible"],"ans":0,"exp":"apprehension = 懸念（名詞）"},
-    {"id":78,"level":860,"cat":"grammar","q":"___ the complexity of the negotiations, it is remarkable that a deal was reached at all.","opts":["Given","Giving","Given that","To give"],"ans":0,"exp":"Given = 〜を考えると（前置詞的用法）"},
-    {"id":79,"level":860,"cat":"vocab","q":"The company's aggressive expansion strategy was met with ___ skepticism from analysts.","opts":["considerable","consider","considerably","consideration"],"ans":0,"exp":"considerable = かなりの（形容詞）"},
-    {"id":80,"level":860,"cat":"grammar","q":"The new regulations ___ far-reaching implications for how businesses operate globally.","opts":["carry","carry out","carry on","carry through"],"ans":0,"exp":"carry implications = 影響を持つ"},
-    {"id":81,"level":860,"cat":"vocab","q":"The restructuring plan was designed to ___ the company's long-term viability.","opts":["bolster","bolstering","bolstered","bolsters"],"ans":0,"exp":"bolster = 強化する、支える"},
-    {"id":82,"level":860,"cat":"grammar","q":"Only by ___ a culture of continuous improvement can companies remain competitive.","opts":["fostering","foster","fostered","having fostered"],"ans":0,"exp":"Only by + 動名詞 → 倒置構文の準備"},
-    {"id":83,"level":860,"cat":"vocab","q":"The CFO's presentation ___ light on previously overlooked financial risks.","opts":["shed","sheds","shedding","to shed"],"ans":0,"exp":"shed light on = 〜を明らかにする（過去形）"},
-    {"id":84,"level":860,"cat":"grammar","q":"The proposal was so ___ that even the most skeptical board members were convinced.","opts":["compelling","compelled","compellingly","compulsion"],"ans":0,"exp":"so + 形容詞 + that..."},
-    {"id":85,"level":860,"cat":"vocab","q":"The company's ___ to its core values set it apart from competitors.","opts":["adherence","adhere","adhering","adherent"],"ans":0,"exp":"adherence to = 〜への固執（名詞）"},
-    {"id":86,"level":860,"cat":"grammar","q":"___ it been implemented sooner, the policy would have prevented significant losses.","opts":["Had","Has","Have","Having"],"ans":0,"exp":"仮定法過去完了の倒置: Had it been..."},
-    {"id":87,"level":860,"cat":"vocab","q":"The merger created a company with unparalleled ___ in the global market.","opts":["leverage","leveraged","leveraging","leverages"],"ans":0,"exp":"leverage = 影響力、優位性（名詞）"},
-    {"id":88,"level":860,"cat":"grammar","q":"The data ___ that consumer confidence has reached its highest point in a decade.","opts":["corroborates","corroborate","is corroborating","corroborated"],"ans":0,"exp":"data（複数）→ corroborate; 現在形で事実を述べる"},
-    {"id":89,"level":860,"cat":"vocab","q":"The CEO's speech was intended to ___ investor concerns about the company's direction.","opts":["allay","allay with","allayed","allaying"],"ans":0,"exp":"allay = 和らげる（他動詞）"},
-    {"id":90,"level":860,"cat":"grammar","q":"The success of the initiative hinges ___ the team's ability to execute flawlessly.","opts":["on","in","at","upon"],"ans":0,"exp":"hinge on/upon = 〜にかかっている"},
-    {"id":91,"level":860,"cat":"vocab","q":"The new compliance framework was designed to be both robust and ___.","opts":["scalable","scale","scaling","scaled"],"ans":0,"exp":"scalable = 拡張可能な（形容詞）"},
-    {"id":92,"level":860,"cat":"grammar","q":"The firm's market share has ___ eroded as competitors introduced superior products.","opts":["steadily","steady","steadiness","steading"],"ans":0,"exp":"has + 副詞 + 動詞PP の語順"},
-    {"id":93,"level":860,"cat":"vocab","q":"The proposed legislation would fundamentally ___ the regulatory landscape.","opts":["alter","alteration","altered","altering"],"ans":0,"exp":"would + 動詞原形; alter = 変える"},
-    {"id":94,"level":860,"cat":"grammar","q":"No sooner ___ the deal announced than rival companies began their countermoves.","opts":["was","had","were","is"],"ans":0,"exp":"No sooner + had/was + 主語 than..."},
-    {"id":95,"level":860,"cat":"vocab","q":"The company's rapid internationalization required significant ___ investment.","opts":["infrastructural","infrastructure","infrastructuring","infrastructured"],"ans":0,"exp":"infrastructural = インフラ的な（形容詞）"},
-    {"id":96,"level":860,"cat":"grammar","q":"The consultant's recommendations, though ___ sound, proved difficult to implement.","opts":["theoretically","theoretical","theorize","theories"],"ans":0,"exp":"though + 副詞 + 形容詞"},
-    {"id":97,"level":860,"cat":"vocab","q":"The firm's ___ approach to risk management proved invaluable during the crisis.","opts":["proactive","proactively","proaction","proactivism"],"ans":0,"exp":"proactive = 積極的な（形容詞）"},
-    {"id":98,"level":860,"cat":"grammar","q":"What sets this company apart ___ its competitors is its commitment to innovation.","opts":["from","with","against","between"],"ans":0,"exp":"set apart from = 〜と区別する"},
-    {"id":99,"level":860,"cat":"vocab","q":"The acquisition was ___ as a strategic move to strengthen the company's market position.","opts":["heralded","herald","heralding","heralds"],"ans":0,"exp":"heralded as = 〜として称賛された"},
-    {"id":100,"level":860,"cat":"grammar","q":"The more resources ___ to R&D, the greater the likelihood of breakthrough innovations.","opts":["are allocated","allocate","allocated","allocating"],"ans":0,"exp":"The more..., the more... 構文"},
-    {"id":101,"level":500,"cat":"reading","q":"'Please reply by end of day.' What does this mean?","opts":["Respond before today ends","Reply tomorrow","Call back","Send a letter"],"ans":0,"exp":"end of day = 今日中"},
-    {"id":102,"level":500,"cat":"reading","q":"'The meeting is on hold.' What does this mean?","opts":["The meeting is paused/postponed","The meeting is finished","The meeting started","The meeting is cancelled"],"ans":0,"exp":"on hold = 一時停止中"},
-    {"id":103,"level":500,"cat":"reading","q":"'Please CC me on that email.' What does CC mean?","opts":["Send a copy to me","Call me","Cancel the email","Confirm by me"],"ans":0,"exp":"CC = Carbon Copy（写しを送る）"},
-    {"id":104,"level":500,"cat":"reading","q":"'The client is on board.' What does this mean?","opts":["The client agrees","The client is on a ship","The client left","The client called"],"ans":0,"exp":"on board = 賛同している"},
-    {"id":105,"level":500,"cat":"reading","q":"'Let's circle back on this.' What does this mean?","opts":["Revisit this topic later","Draw a circle","Go back to the office","Call again"],"ans":0,"exp":"circle back = 後で再度話し合う"},
-    {"id":106,"level":500,"cat":"reading","q":"'The report is due Friday.' What does 'due' mean here?","opts":["Must be submitted by","Was sent on","Is about","Will start on"],"ans":0,"exp":"due = 〜が期日"},
-    {"id":107,"level":500,"cat":"reading","q":"'Can we push the deadline?' What does 'push' mean here?","opts":["Extend/move to a later time","Work harder","Cancel","Announce"],"ans":0,"exp":"push the deadline = 締め切りを延ばす"},
-    {"id":108,"level":500,"cat":"reading","q":"'I'll keep you in the loop.' What does this mean?","opts":["I'll keep you informed","I'll call you","I'll send a package","I'll wait for you"],"ans":0,"exp":"keep in the loop = 情報を共有し続ける"},
-    {"id":109,"level":500,"cat":"reading","q":"'The project is behind schedule.' What does this mean?","opts":["Progress is slower than planned","The project is finished","The project is on time","The schedule is missing"],"ans":0,"exp":"behind schedule = 予定より遅れている"},
-    {"id":110,"level":500,"cat":"reading","q":"'Please touch base with the client.' What does 'touch base' mean?","opts":["Make brief contact","Touch the client","Visit the office","Send a package"],"ans":0,"exp":"touch base = 簡単に連絡を取る"},
-    {"id":111,"level":650,"cat":"reading","q":"'The proposal was tabled until next quarter.' In American English, what does 'tabled' mean?","opts":["Postponed","Discussed","Accepted","Written on a table"],"ans":0,"exp":"米英語でtable = 棚上げ（延期）する"},
-    {"id":112,"level":650,"cat":"reading","q":"'We need to leverage our core competencies.' What does 'leverage' mean?","opts":["Use to maximum advantage","Pay back","Advertise","Evaluate"],"ans":0,"exp":"leverage = 最大限に活用する"},
-    {"id":113,"level":650,"cat":"reading","q":"'The deal was a win-win situation.' What does this mean?","opts":["Both sides benefited","One side won","The deal failed","It was a competition"],"ans":0,"exp":"win-win = 双方が利益を得る"},
-    {"id":114,"level":650,"cat":"reading","q":"'We need to get all stakeholders aligned.' Who are stakeholders?","opts":["People with an interest in the project","Shareholders only","Employees only","Customers only"],"ans":0,"exp":"stakeholders = 利害関係者（全ての関係者）"},
-    {"id":115,"level":650,"cat":"reading","q":"'The company is pivoting to a subscription model.' What does 'pivoting' mean?","opts":["Changing strategic direction","Cancelling operations","Merging with another company","Reducing costs"],"ans":0,"exp":"pivot = 方向転換する"},
-    {"id":116,"level":650,"cat":"reading","q":"'We should conduct due diligence before the acquisition.' What is due diligence?","opts":["Careful investigation and verification","A legal requirement","A type of contract","A financial penalty"],"ans":0,"exp":"due diligence = 適正調査"},
-    {"id":117,"level":650,"cat":"reading","q":"'The project hit a bottleneck.' What does 'bottleneck' mean?","opts":["A point that slows progress","A type of meeting","A financial problem","A technical error"],"ans":0,"exp":"bottleneck = 障害、ボトルネック"},
-    {"id":118,"level":650,"cat":"reading","q":"'We need to monetize our user base.' What does 'monetize' mean?","opts":["Generate revenue from","Count the number of","Analyze the behavior of","Reduce the size of"],"ans":0,"exp":"monetize = 収益化する"},
-    {"id":119,"level":650,"cat":"reading","q":"'The team needs to be more agile in their approach.' What does 'agile' mean here?","opts":["Flexible and quick to adapt","Physically fit","Technically skilled","Financially efficient"],"ans":0,"exp":"agile = 柔軟で迅速に適応できる"},
-    {"id":120,"level":650,"cat":"reading","q":"'Let's take this offline.' In a business context, what does this mean?","opts":["Discuss this privately after the meeting","Disconnect from the internet","Cancel the video call","Work without computers"],"ans":0,"exp":"take offline = 別途（プライベートに）話し合う"},
-    {"id":121,"level":730,"cat":"reading","q":"'The company is looking to divest its non-core assets.' What does 'divest' mean?","opts":["Sell off","Buy additional","Improve","Manage better"],"ans":0,"exp":"divest = 売却する、手放す"},
-    {"id":122,"level":730,"cat":"reading","q":"'The board is concerned about the company's liquidity.' What is liquidity?","opts":["Ability to meet short-term financial obligations","Amount of water used","Employee satisfaction","Market expansion rate"],"ans":0,"exp":"liquidity = 流動性（短期的な支払い能力）"},
-    {"id":123,"level":730,"cat":"reading","q":"'The firm needs to mitigate its exposure to currency risk.' What does 'mitigate' mean?","opts":["Reduce or lessen","Increase","Transfer","Eliminate completely"],"ans":0,"exp":"mitigate = 軽減する"},
-    {"id":124,"level":730,"cat":"reading","q":"'The company reported strong EBITDA this quarter.' What does EBITDA stand for?","opts":["Earnings Before Interest, Taxes, Depreciation, and Amortization","Employee Benefits Including Tax and Dividend Allowances","Estimated Budget for Investment and Total Development Allocation","External Business Income Tax Deduction Amount"],"ans":0,"exp":"EBITDA = 利払い・税引き・償却前利益"},
-    {"id":125,"level":730,"cat":"reading","q":"'The CEO issued a profit warning.' What is a profit warning?","opts":["An announcement that profits will be lower than expected","A warning about dangerous financial behavior","A notice to pay taxes","A forecast of future profits"],"ans":0,"exp":"profit warning = 業績下方修正の警告"},
-    {"id":126,"level":860,"cat":"reading","q":"'The company's capex budget was significantly curtailed.' What does 'capex' refer to?","opts":["Capital expenditures for long-term assets","Cash payments to executives","Company advertising expenses","Customer acquisition programs"],"ans":0,"exp":"capex = capital expenditure（設備投資）"},
-    {"id":127,"level":860,"cat":"reading","q":"'The firm is exploring accretive acquisitions.' What does 'accretive' mean in M&A?","opts":["Adding value to earnings per share","Decreasing in value","Requiring court approval","Involving government entities"],"ans":0,"exp":"accretive = 1株当たり利益を増加させる"},
-    {"id":128,"level":860,"cat":"reading","q":"'The board approved a share buyback program.' What is the primary effect of a buyback?","opts":["Reduces shares outstanding, increasing EPS","Increases the company's debt","Attracts new investors","Expands the company's product line"],"ans":0,"exp":"buyback = 自社株買い（発行済み株式数を減らしEPSを向上）"},
-    {"id":129,"level":860,"cat":"reading","q":"'The company faces headwinds from macroeconomic uncertainty.' What are 'headwinds' in business?","opts":["Challenges that slow growth","Favorable market conditions","Opportunities for expansion","Regulatory requirements"],"ans":0,"exp":"headwinds = 逆風（成長を妨げる要因）"},
-    {"id":130,"level":860,"cat":"reading","q":"'The CFO warned about covenant breaches.' What is a covenant in finance?","opts":["A condition in a loan agreement","A type of merger","A government regulation","An employee contract"],"ans":0,"exp":"covenant = 財務制限条項（融資契約の条件）"},
-    {"id":131,"level":500,"cat":"email","q":"Which is the most professional email opening?","opts":["Dear Mr. Johnson,","Hey Johnson!","Yo John,","To Whom It May Concern (when you know the name)"],"ans":0,"exp":"既知の相手にはDear + 敬称 + 姓が最も適切"},
-    {"id":132,"level":500,"cat":"email","q":"How do you politely ask someone to reply quickly?","opts":["I would appreciate a prompt response.","Reply ASAP!!!","Answer me now.","When are you going to respond?"],"ans":0,"exp":"I would appreciate a prompt response. = 丁寧な返信依頼"},
-    {"id":133,"level":500,"cat":"email","q":"Which phrase correctly ends a formal email?","opts":["Best regards,","Bye!","See ya,","Cheers mate,"],"ans":0,"exp":"Best regards = ビジネスメールの丁寧な締め"},
-    {"id":134,"level":500,"cat":"email","q":"'Please find attached the report.' What does this phrase signal?","opts":["A file is attached to the email","The report is lost","Please search for the report","The report is in the mail"],"ans":0,"exp":"Please find attached = 添付ファイルがあることを知らせる定型表現"},
-    {"id":135,"level":500,"cat":"email","q":"Which is the correct way to apologize in a business email?","opts":["I apologize for any inconvenience caused.","Sorry lol","My bad","Oops, my mistake!"],"ans":0,"exp":"I apologize for any inconvenience caused = フォーマルなお詫び"},
-    {"id":136,"level":650,"cat":"email","q":"How do you professionally request clarification?","opts":["Could you please clarify what you meant by...?","What do you mean???","I don't understand your email.","Explain that again."],"ans":0,"exp":"Could you please clarify... = 丁寧な確認依頼"},
-    {"id":137,"level":650,"cat":"email","q":"Which phrase correctly declines a meeting request?","opts":["I regret that I am unable to attend due to a prior commitment.","I can't come, I'm busy.","No thanks.","Don't schedule me for that."],"ans":0,"exp":"I regret that I am unable to attend due to... = 丁寧な欠席連絡"},
-    {"id":138,"level":650,"cat":"email","q":"How do you professionally follow up on an unanswered email?","opts":["I wanted to follow up on my previous email regarding...","Why haven't you replied?!","Did you see my email???","Hello? Anyone there?"],"ans":0,"exp":"I wanted to follow up on... = 丁寧なフォローアップ"},
-    {"id":139,"level":650,"cat":"email","q":"Which phrase introduces a proposal in a business email?","opts":["I would like to propose that we...","I think we should maybe possibly...","Here's my idea, take it or leave it.","You need to do this:"],"ans":0,"exp":"I would like to propose = 丁寧な提案表現"},
-    {"id":140,"level":650,"cat":"email","q":"How do you professionally express urgency in an email?","opts":["This matter requires your prompt attention.","URGENT!!! DO THIS NOW!!!","This is super important please hurry","You need to do this right away"],"ans":0,"exp":"requires your prompt attention = プロフェッショナルな緊急表現"},
-    {"id":141,"level":730,"cat":"email","q":"Which phrase best conveys a conditional offer?","opts":["Subject to board approval, we are prepared to proceed.","If the board says yes, we'll do it.","We might do it if approved.","Pending approval, maybe we'll continue."],"ans":0,"exp":"Subject to = 〜を条件として（フォーマル）"},
-    {"id":142,"level":730,"cat":"email","q":"How do you professionally express disagreement with a proposal?","opts":["While I appreciate your perspective, I have some reservations about...","I disagree completely.","That won't work.","Your idea is wrong."],"ans":0,"exp":"While I appreciate... I have reservations = 丁寧な反対意見"},
-    {"id":143,"level":730,"cat":"email","q":"Which phrase best acknowledges receipt and confirms action?","opts":["Thank you for your email. I will review the documents and revert by Thursday.","Got it.","OK will check","Received, will look at it sometime"],"ans":0,"exp":"I will review and revert by [date] = 明確な行動と期限の提示"},
-    {"id":144,"level":730,"cat":"email","q":"How do you professionally escalate an unresolved issue?","opts":["I am writing to bring this matter to your attention as it remains unresolved after...","My colleague isn't helping me so I'm emailing you.","Nobody is fixing this problem.","FYI this is still broken"],"ans":0,"exp":"bring this matter to your attention = フォーマルなエスカレーション"},
-    {"id":145,"level":730,"cat":"email","q":"Which phrase correctly requests a contract amendment?","opts":["We would like to request a revision to clause 3.2 of the agreement.","Can you change the contract?","Fix section 3.2 please.","We don't like part of the contract."],"ans":0,"exp":"request a revision to clause = 条項の修正を正式に依頼"},
-    {"id":146,"level":860,"cat":"email","q":"Which phrase most appropriately conveys a firm but diplomatic refusal?","opts":["While we have given this careful consideration, we are not in a position to accommodate this request at this time.","No.","We can't do that.","I'm afraid that's not possible for us."],"ans":0,"exp":"not in a position to accommodate = 外交的な断り方"},
-    {"id":147,"level":860,"cat":"email","q":"How do you formally request an expedited review?","opts":["Given the time-sensitive nature of this matter, we would be grateful if you could prioritize the review.","Please hurry up with the review.","This is urgent, review ASAP.","We need you to review this faster than normal."],"ans":0,"exp":"time-sensitive + prioritize the review = フォーマルな迅速対応依頼"},
-    {"id":148,"level":860,"cat":"email","q":"Which phrase best introduces a counter-proposal?","opts":["We appreciate your proposal and would like to suggest an alternative arrangement that may better serve our mutual interests.","How about we do this instead?","We don't like your idea, here's ours.","Counter-offer: here are our terms."],"ans":0,"exp":"mutual interests = 双方の利益を強調した代替案提示"},
-    {"id":149,"level":860,"cat":"email","q":"How do you professionally acknowledge a breach of terms?","opts":["We note with concern that the terms outlined in Section 4 of our agreement have not been adhered to.","You broke the contract.","You didn't follow the rules.","Section 4 wasn't followed."],"ans":0,"exp":"note with concern + have not been adhered to = 丁寧かつ明確な違反指摘"},
-    {"id":150,"level":860,"cat":"email","q":"Which phrase best closes a negotiation email?","opts":["We trust that the above terms are acceptable and look forward to formalizing our agreement.","Hope this works for you.","Let us know if you agree.","Please confirm your acceptance."],"ans":0,"exp":"trust that... + look forward to formalizing = 合意への期待を示す締め括り"},
-    {"id":151,"level":500,"cat":"grammar","q":"The office supplies ___ ordered yesterday.","opts":["were","was","is","are"],"ans":0,"exp":"supplies（複数）→ were"},
-    {"id":152,"level":500,"cat":"grammar","q":"She doesn't ___ to attend the conference.","opts":["have","has","having","had"],"ans":0,"exp":"doesn't + 動詞原形"},
-    {"id":153,"level":500,"cat":"grammar","q":"___ of the employees received a bonus this year.","opts":["All","Every","Each one","Any"],"ans":0,"exp":"All of the employees（複数扱い）"},
-    {"id":154,"level":500,"cat":"vocab","q":"The company will ___ the old equipment with newer models.","opts":["replace","replacement","replaced","replacing"],"ans":0,"exp":"will + 動詞原形; replace = 取り替える"},
-    {"id":155,"level":500,"cat":"vocab","q":"Please ___ your concerns to the HR department.","opts":["address","addresses","addressed","addressing"],"ans":0,"exp":"address concerns = 懸念を伝える（命令形）"},
-    {"id":156,"level":650,"cat":"grammar","q":"The new software, ___ developed by our IT team, will improve efficiency.","opts":["recently","recent","recency","more recent"],"ans":0,"exp":"副詞 recently が過去分詞 developed を修飾"},
-    {"id":157,"level":650,"cat":"vocab","q":"The company decided to ___ its focus to digital services.","opts":["shift","shifts","shifted","shifting"],"ans":0,"exp":"decided to + 動詞原形; shift = 移す"},
-    {"id":158,"level":650,"cat":"grammar","q":"He works ___ than anyone else in the department.","opts":["harder","hardest","more hard","most hard"],"ans":0,"exp":"比較級: hard → harder"},
-    {"id":159,"level":650,"cat":"vocab","q":"The team was able to ___ the issue before it became a major problem.","opts":["resolve","resolution","resolved","resolving"],"ans":0,"exp":"was able to + 動詞原形; resolve = 解決する"},
-    {"id":160,"level":650,"cat":"grammar","q":"The company's profits have grown ___ over the past five years.","opts":["consistently","consistent","consistency","more consistent"],"ans":0,"exp":"動詞を修飾するので副詞 consistently"},
-    {"id":161,"level":730,"cat":"grammar","q":"The decision to outsource manufacturing was ___ by cost considerations.","opts":["driven","driving","drives","drive"],"ans":0,"exp":"be driven by = 〜によって動機づけられる"},
-    {"id":162,"level":730,"cat":"vocab","q":"The startup's innovative approach helped it ___ in a crowded market.","opts":["differentiate","differentiates","differentiated","differentiating"],"ans":0,"exp":"helped it + 動詞原形; differentiate = 差別化する"},
-    {"id":163,"level":730,"cat":"grammar","q":"___ the risks are minimized, the project can proceed to the next phase.","opts":["Provided that","Despite","Although","Whereas"],"ans":0,"exp":"provided that = 〜を条件として"},
-    {"id":164,"level":730,"cat":"vocab","q":"The company's growth strategy is predicated ___ expanding into emerging markets.","opts":["on","in","at","for"],"ans":0,"exp":"predicated on = 〜を前提としている"},
-    {"id":165,"level":860,"cat":"grammar","q":"The regulatory framework, ___ to be revised next year, will significantly impact operations.","opts":["due","owing","set","scheduled"],"ans":0,"exp":"due to be = 〜する予定である（正式表現）"},
-    {"id":166,"level":860,"cat":"vocab","q":"The company's market position has been ___ by years of consistent innovation.","opts":["entrenched","entrenching","entrench","entrenches"],"ans":0,"exp":"entrenched = 確立された、定着した"},
-    {"id":167,"level":500,"cat":"vocab","q":"Please ___ me with an update when the project is finished.","opts":["provide","provides","provided","providing"],"ans":0,"exp":"provide + 人 + with = 〜に〜を提供する"},
-    {"id":168,"level":500,"cat":"vocab","q":"The team will ___ a presentation at the conference next week.","opts":["deliver","delivers","delivered","delivering"],"ans":0,"exp":"deliver a presentation = プレゼンを行う"},
-    {"id":169,"level":650,"cat":"vocab","q":"After the merger, the company ___ to a new headquarters in Tokyo.","opts":["relocated","relocation","relocate","relocating"],"ans":0,"exp":"過去形 relocated = 移転した"},
-    {"id":170,"level":650,"cat":"vocab","q":"The success of the campaign was ___ to the team's hard work.","opts":["attributed","attribute","attributing","attributable"],"ans":0,"exp":"attributed to = 〜のおかげである"},
-    {"id":171,"level":730,"cat":"vocab","q":"The company aims to ___ its market share by 15% by end of year.","opts":["augment","augmentation","augmented","augmenting"],"ans":0,"exp":"augment = 増大させる（他動詞）"},
-    {"id":172,"level":730,"cat":"vocab","q":"The leadership team must ___ a clear vision for the company's future.","opts":["articulate","articulation","articulated","articulating"],"ans":0,"exp":"articulate = 明確に表現する"},
-    {"id":173,"level":860,"cat":"vocab","q":"The company's ___ business model proved resilient even during economic downturns.","opts":["diversified","diversify","diversification","diversifying"],"ans":0,"exp":"diversified = 多角化された（形容詞）"},
-    {"id":174,"level":860,"cat":"vocab","q":"The analyst's report highlighted several ___ risks facing the industry.","opts":["systemic","system","systematize","systematically"],"ans":0,"exp":"systemic risks = システミックリスク（構造的リスク）"},
-    {"id":175,"level":500,"cat":"grammar","q":"The office is ___ on the third floor.","opts":["located","locating","locate","location"],"ans":0,"exp":"is located = 〜に位置している（受動態）"},
-    {"id":176,"level":500,"cat":"grammar","q":"We are looking forward to ___ you at the conference.","opts":["meeting","meet","met","meets"],"ans":0,"exp":"look forward to + 動名詞（-ing）"},
-    {"id":177,"level":650,"cat":"grammar","q":"The figures presented in the report ___ our initial projections.","opts":["exceeded","exceed","exceeding","have exceed"],"ans":0,"exp":"過去の事実 → 過去形 exceeded"},
-    {"id":178,"level":650,"cat":"grammar","q":"Management is considering ___ the company's headquarters.","opts":["relocating","relocate","to relocate","relocated"],"ans":0,"exp":"consider + 動名詞（-ing）"},
-    {"id":179,"level":730,"cat":"grammar","q":"The more diverse the team, ___ the range of solutions they generate.","opts":["the broader","the broad","broader","broad"],"ans":0,"exp":"The more..., the + 比較級構文"},
-    {"id":180,"level":730,"cat":"grammar","q":"The strategy proved ___ in markets where competitors had already established dominance.","opts":["ineffective","ineffectively","ineffectiveness","ineffected"],"ans":0,"exp":"proved + 形容詞 = 〜であることがわかった"},
-    {"id":181,"level":860,"cat":"grammar","q":"The committee's decision, however well-intentioned, ___ be seen as overreaching its mandate.","opts":["could","can","will","should"],"ans":0,"exp":"could be seen as = 〜と見なされうる（可能性）"},
-    {"id":182,"level":860,"cat":"grammar","q":"___ unprecedented, the company's recovery within six months impressed analysts worldwide.","opts":["While not entirely","While not entire","Although not entirely","Both while and not entirely"],"ans":0,"exp":"While not entirely + 形容詞 = 完全に〜ではないが"},
-    {"id":183,"level":500,"cat":"vocab","q":"The sales team exceeded its ___ for the quarter.","opts":["targets","target's","targeting","targeted"],"ans":0,"exp":"targets = 目標（複数名詞）"},
-    {"id":184,"level":500,"cat":"vocab","q":"Could you please ___ the meeting to 3 PM?","opts":["reschedule","rescheduling","rescheduled","reschedules"],"ans":0,"exp":"reschedule = 日程を変更する"},
-    {"id":185,"level":650,"cat":"vocab","q":"The executive team will ___ the new policy at tomorrow's all-hands meeting.","opts":["unveil","unveils","unveiled","unveiling"],"ans":0,"exp":"will + 動詞原形; unveil = 発表する"},
-    {"id":186,"level":650,"cat":"vocab","q":"The project manager worked to ___ the expectations of all stakeholders.","opts":["align","aligns","aligned","aligning"],"ans":0,"exp":"align expectations = 期待を一致させる"},
-    {"id":187,"level":730,"cat":"vocab","q":"The firm's competitive advantage lies in its ability to ___ quickly to market changes.","opts":["adapt","adapts","adapted","adapting"],"ans":0,"exp":"ability to + 動詞原形; adapt = 適応する"},
-    {"id":188,"level":730,"cat":"vocab","q":"The board voted to ___ the dividend by 10% given the strong performance.","opts":["increase","increasing","increased","increases"],"ans":0,"exp":"voted to + 動詞原形; increase the dividend = 配当を増やす"},
-    {"id":189,"level":860,"cat":"vocab","q":"The company's flagship product has become ___ with quality in the consumer electronics sector.","opts":["synonymous","synonymy","synonym","synonymously"],"ans":0,"exp":"synonymous with = 〜と同義の（形容詞）"},
-    {"id":190,"level":860,"cat":"vocab","q":"The proposed restructuring is intended to ___ the company's core operations.","opts":["rationalize","rational","rationale","rationally"],"ans":0,"exp":"rationalize = 合理化する（他動詞）"},
-    {"id":191,"level":500,"cat":"grammar","q":"___ it rain tomorrow, the outdoor event will be moved indoors.","opts":["Should","Would","Could","Will"],"ans":0,"exp":"Should it rain = If it should rain（仮定法の倒置）"},
-    {"id":192,"level":650,"cat":"grammar","q":"The team worked diligently to ensure that all deliverables ___ on time.","opts":["were submitted","submitted","submit","have submitted"],"ans":0,"exp":"ensure that + 受動態（were submitted）"},
-    {"id":193,"level":730,"cat":"grammar","q":"It was not until the audit was completed ___ the discrepancies came to light.","opts":["that","when","which","then"],"ans":0,"exp":"It was not until... that 〜 の強調構文"},
-    {"id":194,"level":860,"cat":"grammar","q":"The merger talks, ___ at length by both legal teams, were ultimately concluded successfully.","opts":["negotiated","negotiating","having negotiated","being negotiated"],"ans":0,"exp":"過去分詞の分詞構文（受動の意味）"},
-    {"id":195,"level":500,"cat":"vocab","q":"The HR team will conduct annual ___ for all employees.","opts":["reviews","review's","reviewing","reviewed"],"ans":0,"exp":"annual reviews = 年次評価（複数名詞）"},
-    {"id":196,"level":650,"cat":"vocab","q":"The company's ___ to quality has earned it numerous industry awards.","opts":["commitment","commit","committed","committing"],"ans":0,"exp":"commitment to quality = 品質へのコミットメント"},
-    {"id":197,"level":730,"cat":"vocab","q":"The new initiative was designed to foster a culture of ___ within the organization.","opts":["accountability","accountable","account","accountably"],"ans":0,"exp":"accountability = 説明責任（名詞）"},
-    {"id":198,"level":860,"cat":"vocab","q":"The report identified several areas where the company could enhance its operational ___.","opts":["agility","agile","agilely","agileness"],"ans":0,"exp":"operational agility = 業務の俊敏性（名詞が自然）"},
-    {"id":199,"level":500,"cat":"vocab","q":"Please ___ all participants of the schedule change.","opts":["notify","notifies","notified","notifying"],"ans":0,"exp":"notify = 通知する（命令形）"},
-    {"id":200,"level":860,"cat":"vocab","q":"The firm's ability to ___ talent from around the world is a key competitive advantage.","opts":["attract","attraction","attracted","attracting"],"ans":0,"exp":"ability to + 動詞原形; attract = 引きつける"}
+    {
+      "id": 1,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report ___ by the team last Friday.",
+      "opts": [
+        "was submitted",
+        "submitted",
+        "is submitting",
+        "submits"
+      ],
+      "ans": 0,
+      "exp": "過去の受動態: was + 過去分詞"
+    },
+    {
+      "id": 2,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Please ___ the attached document before the meeting.",
+      "opts": [
+        "review",
+        "reviews",
+        "reviewed",
+        "reviewing"
+      ],
+      "ans": 0,
+      "exp": "命令文なので動詞の原形"
+    },
+    {
+      "id": 3,
+      "level": 500,
+      "cat": "grammar",
+      "q": "She has been working at this company ___ ten years.",
+      "opts": [
+        "for",
+        "since",
+        "during",
+        "while"
+      ],
+      "ans": 0,
+      "exp": "期間には for を使う"
+    },
+    {
+      "id": 4,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The manager asked everyone to ___ the new policy.",
+      "opts": [
+        "follow",
+        "follows",
+        "followed",
+        "following"
+      ],
+      "ans": 0,
+      "exp": "asked + 人 + to + 動詞原形"
+    },
+    {
+      "id": 5,
+      "level": 500,
+      "cat": "grammar",
+      "q": "___ you finish the report, please send it to me.",
+      "opts": [
+        "When",
+        "During",
+        "While",
+        "For"
+      ],
+      "ans": 0,
+      "exp": "「〜したら」は When"
+    },
+    {
+      "id": 6,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The project was completed ___ schedule.",
+      "opts": [
+        "on",
+        "in",
+        "at",
+        "by"
+      ],
+      "ans": 0,
+      "exp": "on schedule = 予定通りに"
+    },
+    {
+      "id": 7,
+      "level": 500,
+      "cat": "grammar",
+      "q": "We need ___ more staff for the busy season.",
+      "opts": [
+        "to hire",
+        "hiring",
+        "hired",
+        "hire"
+      ],
+      "ans": 0,
+      "exp": "need + to 不定詞"
+    },
+    {
+      "id": 8,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "promoted",
+        "proposed",
+        "provided"
+      ],
+      "ans": 0,
+      "exp": "postponed = 延期された"
+    },
+    {
+      "id": 9,
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please let me know ___ you are available.",
+      "opts": [
+        "when",
+        "what",
+        "which",
+        "who"
+      ],
+      "ans": 0,
+      "exp": "let me know when...「いつ空いているか教えて」"
+    },
+    {
+      "id": 10,
+      "level": 500,
+      "cat": "vocab",
+      "q": "I would like to ___ a meeting for next week.",
+      "opts": [
+        "schedule",
+        "schedules",
+        "scheduled",
+        "scheduling"
+      ],
+      "ans": 0,
+      "exp": "would like to + 動詞原形"
+    },
+    {
+      "id": 11,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The sales figures ___ significantly last quarter.",
+      "opts": [
+        "increased",
+        "increase",
+        "increasing",
+        "have increase"
+      ],
+      "ans": 0,
+      "exp": "last quarter（過去）→ 過去形"
+    },
+    {
+      "id": 12,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The company decided to ___ its prices by 5%.",
+      "opts": [
+        "raise",
+        "rise",
+        "arise",
+        "arose"
+      ],
+      "ans": 0,
+      "exp": "raise = 他動詞（価格を上げる）"
+    },
+    {
+      "id": 13,
+      "level": 500,
+      "cat": "grammar",
+      "q": "___ is responsible for the accounting department?",
+      "opts": [
+        "Who",
+        "What",
+        "Which",
+        "Whom"
+      ],
+      "ans": 0,
+      "exp": "主語を聞く疑問詞は Who"
+    },
+    {
+      "id": 14,
+      "level": 500,
+      "cat": "vocab",
+      "q": "We received a large ___ from our biggest client.",
+      "opts": [
+        "order",
+        "orders",
+        "ordering",
+        "ordered"
+      ],
+      "ans": 0,
+      "exp": "order = 注文（名詞）"
+    },
+    {
+      "id": 15,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The new product will ___ next month.",
+      "opts": [
+        "be launched",
+        "launch",
+        "launching",
+        "launched"
+      ],
+      "ans": 0,
+      "exp": "will be + 過去分詞（未来受動態）"
+    },
+    {
+      "id": 16,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Please ___ this form and return it by Friday.",
+      "opts": [
+        "complete",
+        "completes",
+        "completing",
+        "completed"
+      ],
+      "ans": 0,
+      "exp": "命令文 → 動詞原形"
+    },
+    {
+      "id": 17,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The CEO ___ the company for 20 years.",
+      "opts": [
+        "has led",
+        "led",
+        "leads",
+        "leading"
+      ],
+      "ans": 0,
+      "exp": "for + 期間 → 現在完了形"
+    },
+    {
+      "id": 18,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Our company offers a competitive ___ package.",
+      "opts": [
+        "benefits",
+        "benefit",
+        "beneficial",
+        "benefiting"
+      ],
+      "ans": 0,
+      "exp": "benefits package = 福利厚生パッケージ"
+    },
+    {
+      "id": 19,
+      "level": 500,
+      "cat": "grammar",
+      "q": "She asked ___ the project status.",
+      "opts": [
+        "about",
+        "for",
+        "at",
+        "in"
+      ],
+      "ans": 0,
+      "exp": "ask about = 〜について尋ねる"
+    },
+    {
+      "id": 20,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The deadline for the proposal is ___ the end of this month.",
+      "opts": [
+        "by",
+        "at",
+        "on",
+        "in"
+      ],
+      "ans": 0,
+      "exp": "by = 〜までに（期限）"
+    },
+    {
+      "id": 21,
+      "level": 500,
+      "cat": "grammar",
+      "q": "___ the meeting, we discussed the budget.",
+      "opts": [
+        "During",
+        "While",
+        "When",
+        "For"
+      ],
+      "ans": 0,
+      "exp": "During + 名詞"
+    },
+    {
+      "id": 22,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The company plans to ___ into the Asian market.",
+      "opts": [
+        "expand",
+        "expands",
+        "expanded",
+        "expanding"
+      ],
+      "ans": 0,
+      "exp": "plans to + 動詞原形"
+    },
+    {
+      "id": 23,
+      "level": 500,
+      "cat": "grammar",
+      "q": "I will ___ you know the results tomorrow.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let + 人 + 知る = let you know"
+    },
+    {
+      "id": 24,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The team worked ___ to meet the deadline.",
+      "opts": [
+        "hard",
+        "hardly",
+        "harder",
+        "hardest"
+      ],
+      "ans": 0,
+      "exp": "work hard = 一生懸命働く"
+    },
+    {
+      "id": 25,
+      "level": 500,
+      "cat": "grammar",
+      "q": "Could you please ___ the document?",
+      "opts": [
+        "sign",
+        "signing",
+        "signed",
+        "signs"
+      ],
+      "ans": 0,
+      "exp": "Could you please + 動詞原形"
+    },
+    {
+      "id": 26,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The budget proposal, ___ was submitted last week, has been approved.",
+      "opts": [
+        "which",
+        "that",
+        "what",
+        "who"
+      ],
+      "ans": 0,
+      "exp": "非制限用法の関係代名詞はwhich"
+    },
+    {
+      "id": 27,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company's quarterly ___ exceeded expectations.",
+      "opts": [
+        "revenue",
+        "revenues",
+        "revenuing",
+        "revenued"
+      ],
+      "ans": 0,
+      "exp": "revenue = 収益（不可算名詞として使うことが多い）"
+    },
+    {
+      "id": 28,
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the project is completed, we will conduct a review.",
+      "opts": [
+        "Once",
+        "During",
+        "While",
+        "Because"
+      ],
+      "ans": 0,
+      "exp": "Once = 〜したら"
+    },
+    {
+      "id": 29,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The HR department is responsible for employee ___.",
+      "opts": [
+        "retention",
+        "retaining",
+        "retain",
+        "retains"
+      ],
+      "ans": 0,
+      "exp": "retention = 維持、定着（名詞）"
+    },
+    {
+      "id": 30,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The team leader suggested ___ the strategy.",
+      "opts": [
+        "revising",
+        "revise",
+        "to revise",
+        "revised"
+      ],
+      "ans": 0,
+      "exp": "suggest + 動名詞（-ing）"
+    },
+    {
+      "id": 31,
+      "level": 650,
+      "cat": "vocab",
+      "q": "We need to ___ our resources more efficiently.",
+      "opts": [
+        "allocate",
+        "allocation",
+        "allocated",
+        "allocating"
+      ],
+      "ans": 0,
+      "exp": "allocate = 配分する（他動詞）"
+    },
+    {
+      "id": 32,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The contract will not be signed ___ both parties agree.",
+      "opts": [
+        "unless",
+        "until",
+        "if",
+        "when"
+      ],
+      "ans": 0,
+      "exp": "unless = 〜しない限り"
+    },
+    {
+      "id": 33,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The marketing team developed a comprehensive ___ strategy.",
+      "opts": [
+        "outreach",
+        "outstretched",
+        "outreaching",
+        "outstretches"
+      ],
+      "ans": 0,
+      "exp": "outreach strategy = アウトリーチ戦略"
+    },
+    {
+      "id": 34,
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ having extensive experience, she did not get the promotion.",
+      "opts": [
+        "Despite",
+        "Although",
+        "Because",
+        "Since"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞/動名詞"
+    },
+    {
+      "id": 35,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The board of directors approved the merger ___.",
+      "opts": [
+        "unanimously",
+        "unanimous",
+        "unanimity",
+        "unanimousness"
+      ],
+      "ans": 0,
+      "exp": "unanimously = 全会一致で（副詞）"
+    },
+    {
+      "id": 36,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The new policy requires that all employees ___ safety training.",
+      "opts": [
+        "complete",
+        "completes",
+        "completed",
+        "completing"
+      ],
+      "ans": 0,
+      "exp": "requires that 節では仮定法現在（動詞原形）"
+    },
+    {
+      "id": 37,
+      "level": 650,
+      "cat": "vocab",
+      "q": "Our quarterly report shows a significant ___ in operating costs.",
+      "opts": [
+        "reduction",
+        "reduce",
+        "reduced",
+        "reducing"
+      ],
+      "ans": 0,
+      "exp": "reduction = 削減（名詞）"
+    },
+    {
+      "id": 38,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The presentation ___ by the time the clients arrive.",
+      "opts": [
+        "will have been prepared",
+        "will prepare",
+        "is prepared",
+        "prepares"
+      ],
+      "ans": 0,
+      "exp": "未来完了: will have been + 過去分詞"
+    },
+    {
+      "id": 39,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company has achieved ___ growth in the past year.",
+      "opts": [
+        "substantial",
+        "substance",
+        "substantially",
+        "substantive"
+      ],
+      "ans": 0,
+      "exp": "substantial = 相当な（形容詞）"
+    },
+    {
+      "id": 40,
+      "level": 650,
+      "cat": "grammar",
+      "q": "Neither the manager nor the staff members ___ aware of the change.",
+      "opts": [
+        "were",
+        "was",
+        "are",
+        "is"
+      ],
+      "ans": 0,
+      "exp": "neither A nor B → 近い主語（staff members）に動詞を合わせる"
+    },
+    {
+      "id": 41,
+      "level": 650,
+      "cat": "vocab",
+      "q": "We should ___ the risks before making a final decision.",
+      "opts": [
+        "assess",
+        "assessment",
+        "assessed",
+        "assessing"
+      ],
+      "ans": 0,
+      "exp": "should + 動詞原形; assess = 評価する"
+    },
+    {
+      "id": 42,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The factory's output has increased ___ 30% this year.",
+      "opts": [
+        "by",
+        "to",
+        "in",
+        "at"
+      ],
+      "ans": 0,
+      "exp": "increase by = 〜だけ増加する"
+    },
+    {
+      "id": 43,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company will ___ its annual report next quarter.",
+      "opts": [
+        "release",
+        "releases",
+        "released",
+        "releasing"
+      ],
+      "ans": 0,
+      "exp": "will + 動詞原形; release = 公開する"
+    },
+    {
+      "id": 44,
+      "level": 650,
+      "cat": "grammar",
+      "q": "I would appreciate it if you ___ the report by noon.",
+      "opts": [
+        "could send",
+        "can send",
+        "will send",
+        "send"
+      ],
+      "ans": 0,
+      "exp": "would appreciate it if + 仮定法過去（could）"
+    },
+    {
+      "id": 45,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The management team will ___ the new initiative next week.",
+      "opts": [
+        "implement",
+        "implementation",
+        "implemented",
+        "implementing"
+      ],
+      "ans": 0,
+      "exp": "will + 動詞原形; implement = 実施する"
+    },
+    {
+      "id": 46,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The client complained that the service ___ not meet their expectations.",
+      "opts": [
+        "did",
+        "does",
+        "had",
+        "has"
+      ],
+      "ans": 0,
+      "exp": "complained（過去形）→ 時制の一致 → did not"
+    },
+    {
+      "id": 47,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The product launch was a great ___ for the company.",
+      "opts": [
+        "milestone",
+        "millstone",
+        "mindset",
+        "mindstone"
+      ],
+      "ans": 0,
+      "exp": "milestone = 重要な節目"
+    },
+    {
+      "id": 48,
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the new software is installed, productivity should improve.",
+      "opts": [
+        "Once",
+        "While",
+        "Because",
+        "Before"
+      ],
+      "ans": 0,
+      "exp": "once = 〜したら（条件・時間）"
+    },
+    {
+      "id": 49,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company needs to ___ its brand image to attract younger customers.",
+      "opts": [
+        "revamp",
+        "revoke",
+        "review",
+        "revise"
+      ],
+      "ans": 0,
+      "exp": "revamp = 刷新する"
+    },
+    {
+      "id": 50,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The CEO, along with her executives, ___ the conference.",
+      "opts": [
+        "attended",
+        "attend",
+        "attending",
+        "have attended"
+      ],
+      "ans": 0,
+      "exp": "主語はCEO（単数）→ attended"
+    },
+    {
+      "id": 51,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The proposal ___ considerable debate among the shareholders before being accepted.",
+      "opts": [
+        "generated",
+        "was generated",
+        "has generated",
+        "generates"
+      ],
+      "ans": 0,
+      "exp": "過去の特定の出来事 → 過去形"
+    },
+    {
+      "id": 52,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The firm's new ___ policy aims to increase workplace diversity.",
+      "opts": [
+        "recruitment",
+        "recruit",
+        "recruited",
+        "recruiting"
+      ],
+      "ans": 0,
+      "exp": "recruitment policy = 採用方針"
+    },
+    {
+      "id": 53,
+      "level": 730,
+      "cat": "grammar",
+      "q": "It is essential that the data ___ before the system upgrade.",
+      "opts": [
+        "be backed up",
+        "is backed up",
+        "was backed up",
+        "will be backed up"
+      ],
+      "ans": 0,
+      "exp": "essential that + 仮定法現在（be）"
+    },
+    {
+      "id": 54,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The consultant recommended several measures to ___ operational efficiency.",
+      "opts": [
+        "streamline",
+        "mainstream",
+        "streamlined",
+        "streamlines"
+      ],
+      "ans": 0,
+      "exp": "streamline = 合理化する"
+    },
+    {
+      "id": 55,
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ that the deadline was approaching, the team worked overtime.",
+      "opts": [
+        "Realizing",
+        "Realized",
+        "Realize",
+        "To realize"
+      ],
+      "ans": 0,
+      "exp": "分詞構文（主節と主語が同じ）"
+    },
+    {
+      "id": 56,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The company's financial ___ showed steady improvement over the past decade.",
+      "opts": [
+        "trajectory",
+        "tradition",
+        "transition",
+        "transaction"
+      ],
+      "ans": 0,
+      "exp": "trajectory = 軌跡、推移"
+    },
+    {
+      "id": 57,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The contract stipulates that payment ___ within 30 days of delivery.",
+      "opts": [
+        "be made",
+        "is made",
+        "was made",
+        "will be made"
+      ],
+      "ans": 0,
+      "exp": "stipulate that + 仮定法現在（be）"
+    },
+    {
+      "id": 58,
+      "level": 730,
+      "cat": "vocab",
+      "q": "Her ___ approach to problem-solving impressed the entire management team.",
+      "opts": [
+        "pragmatic",
+        "pragmatism",
+        "pragmatically",
+        "pragmatist"
+      ],
+      "ans": 0,
+      "exp": "pragmatic = 現実的な（形容詞）"
+    },
+    {
+      "id": 59,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The new regulation, ___ effect next year, will affect all companies.",
+      "opts": [
+        "taking",
+        "taken",
+        "takes",
+        "to take"
+      ],
+      "ans": 0,
+      "exp": "分詞（現在分詞）で名詞を修飾"
+    },
+    {
+      "id": 60,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The merger was expected to create significant ___ for both companies.",
+      "opts": [
+        "synergies",
+        "synergy",
+        "synergize",
+        "synergized"
+      ],
+      "ans": 0,
+      "exp": "synergies = 相乗効果（複数形が一般的）"
+    },
+    {
+      "id": 61,
+      "level": 730,
+      "cat": "grammar",
+      "q": "Rarely ___ such an innovative product in the consumer market.",
+      "opts": [
+        "has there been",
+        "there has been",
+        "was there",
+        "has there"
+      ],
+      "ans": 0,
+      "exp": "否定副詞 Rarely + 倒置（has + 主語 + been）"
+    },
+    {
+      "id": 62,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The startup's rapid growth was ___ by its innovative business model.",
+      "opts": [
+        "fueled",
+        "fuel",
+        "fueling",
+        "fuels"
+      ],
+      "ans": 0,
+      "exp": "be fueled by = 〜によって推進される"
+    },
+    {
+      "id": 63,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The manager insisted on ___ all expenses before reimbursement.",
+      "opts": [
+        "verifying",
+        "verify",
+        "verified",
+        "verification"
+      ],
+      "ans": 0,
+      "exp": "insist on + 動名詞（-ing）"
+    },
+    {
+      "id": 64,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The board approved a ___ restructuring of the organization.",
+      "opts": [
+        "comprehensive",
+        "comprehension",
+        "comprehend",
+        "comprehensible"
+      ],
+      "ans": 0,
+      "exp": "comprehensive = 包括的な（形容詞）"
+    },
+    {
+      "id": 65,
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ the project budget more carefully, we could have avoided the deficit.",
+      "opts": [
+        "Had we managed",
+        "If we managed",
+        "Managing",
+        "We had managed"
+      ],
+      "ans": 0,
+      "exp": "仮定法過去完了の倒置 Had + S + PP"
+    },
+    {
+      "id": 66,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The legal team reviewed the contract to ensure ___ with local regulations.",
+      "opts": [
+        "compliance",
+        "compliant",
+        "comply",
+        "complying"
+      ],
+      "ans": 0,
+      "exp": "compliance with = 〜への準拠"
+    },
+    {
+      "id": 67,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The new policy was met with ___ from employees who felt it was too restrictive.",
+      "opts": [
+        "resistance",
+        "resistant",
+        "resist",
+        "resisting"
+      ],
+      "ans": 0,
+      "exp": "met with resistance = 抵抗に遭う"
+    },
+    {
+      "id": 68,
+      "level": 730,
+      "cat": "vocab",
+      "q": "Despite ___ setbacks, the team remained committed to the project.",
+      "opts": [
+        "numerous",
+        "numerate",
+        "numerously",
+        "numerating"
+      ],
+      "ans": 0,
+      "exp": "numerous = 多数の（形容詞）"
+    },
+    {
+      "id": 69,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The efficiency gains ___ from the automation project justified the investment.",
+      "opts": [
+        "resulting",
+        "resulted",
+        "results",
+        "result"
+      ],
+      "ans": 0,
+      "exp": "現在分詞で後ろから名詞を修飾"
+    },
+    {
+      "id": 70,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The company's strategy was to ___ in emerging markets before competitors.",
+      "opts": [
+        "capitalize",
+        "capitalization",
+        "capitalized",
+        "capitalizing"
+      ],
+      "ans": 0,
+      "exp": "capitalize on/in = 〜を活用する、進出する"
+    },
+    {
+      "id": 71,
+      "level": 730,
+      "cat": "grammar",
+      "q": "Not until the final report was submitted ___ the project manager relax.",
+      "opts": [
+        "did",
+        "could",
+        "was",
+        "had"
+      ],
+      "ans": 0,
+      "exp": "not until + 節 → 倒置（did + 主語 + 動詞）"
+    },
+    {
+      "id": 72,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The quarterly earnings report demonstrated the company's financial ___.",
+      "opts": [
+        "resilience",
+        "resilient",
+        "resiliently",
+        "resile"
+      ],
+      "ans": 0,
+      "exp": "resilience = 回復力（名詞）"
+    },
+    {
+      "id": 73,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The committee recommended that the proposal ___ further consideration.",
+      "opts": [
+        "be given",
+        "is given",
+        "was given",
+        "will be given"
+      ],
+      "ans": 0,
+      "exp": "recommended that + 仮定法現在"
+    },
+    {
+      "id": 74,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The new CEO's leadership style was described as highly ___.",
+      "opts": [
+        "transformative",
+        "transformation",
+        "transform",
+        "transforming"
+      ],
+      "ans": 0,
+      "exp": "transformative = 変革をもたらす（形容詞）"
+    },
+    {
+      "id": 75,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The success of the campaign ___ on the quality of the content produced.",
+      "opts": [
+        "hinges",
+        "hinge",
+        "hinged",
+        "hinging"
+      ],
+      "ans": 0,
+      "exp": "hinge on = 〜にかかっている（現在形）"
+    },
+    {
+      "id": 76,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The acquisition, ___ finalizing last month, is expected to reshape the industry landscape.",
+      "opts": [
+        "having been",
+        "being",
+        "to have been",
+        "been"
+      ],
+      "ans": 0,
+      "exp": "完了の分詞構文: having been + PP"
+    },
+    {
+      "id": 77,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The board expressed ___ about the proposed merger's potential regulatory hurdles.",
+      "opts": [
+        "apprehension",
+        "apprehensive",
+        "apprehend",
+        "apprehensible"
+      ],
+      "ans": 0,
+      "exp": "apprehension = 懸念（名詞）"
+    },
+    {
+      "id": 78,
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ the complexity of the negotiations, it is remarkable that a deal was reached at all.",
+      "opts": [
+        "Given",
+        "Giving",
+        "Given that",
+        "To give"
+      ],
+      "ans": 0,
+      "exp": "Given = 〜を考えると（前置詞的用法）"
+    },
+    {
+      "id": 79,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's aggressive expansion strategy was met with ___ skepticism from analysts.",
+      "opts": [
+        "considerable",
+        "consider",
+        "considerably",
+        "consideration"
+      ],
+      "ans": 0,
+      "exp": "considerable = かなりの（形容詞）"
+    },
+    {
+      "id": 80,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The new regulations ___ far-reaching implications for how businesses operate globally.",
+      "opts": [
+        "carry",
+        "carry out",
+        "carry on",
+        "carry through"
+      ],
+      "ans": 0,
+      "exp": "carry implications = 影響を持つ"
+    },
+    {
+      "id": 81,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The restructuring plan was designed to ___ the company's long-term viability.",
+      "opts": [
+        "bolster",
+        "bolstering",
+        "bolstered",
+        "bolsters"
+      ],
+      "ans": 0,
+      "exp": "bolster = 強化する、支える"
+    },
+    {
+      "id": 82,
+      "level": 860,
+      "cat": "grammar",
+      "q": "Only by ___ a culture of continuous improvement can companies remain competitive.",
+      "opts": [
+        "fostering",
+        "foster",
+        "fostered",
+        "having fostered"
+      ],
+      "ans": 0,
+      "exp": "Only by + 動名詞 → 倒置構文の準備"
+    },
+    {
+      "id": 83,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The CFO's presentation ___ light on previously overlooked financial risks.",
+      "opts": [
+        "shed",
+        "sheds",
+        "shedding",
+        "to shed"
+      ],
+      "ans": 0,
+      "exp": "shed light on = 〜を明らかにする（過去形）"
+    },
+    {
+      "id": 84,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The proposal was so ___ that even the most skeptical board members were convinced.",
+      "opts": [
+        "compelling",
+        "compelled",
+        "compellingly",
+        "compulsion"
+      ],
+      "ans": 0,
+      "exp": "so + 形容詞 + that..."
+    },
+    {
+      "id": 85,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's ___ to its core values set it apart from competitors.",
+      "opts": [
+        "adherence",
+        "adhere",
+        "adhering",
+        "adherent"
+      ],
+      "ans": 0,
+      "exp": "adherence to = 〜への固執（名詞）"
+    },
+    {
+      "id": 86,
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ it been implemented sooner, the policy would have prevented significant losses.",
+      "opts": [
+        "Had",
+        "Has",
+        "Have",
+        "Having"
+      ],
+      "ans": 0,
+      "exp": "仮定法過去完了の倒置: Had it been..."
+    },
+    {
+      "id": 87,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The merger created a company with unparalleled ___ in the global market.",
+      "opts": [
+        "leverage",
+        "leveraged",
+        "leveraging",
+        "leverages"
+      ],
+      "ans": 0,
+      "exp": "leverage = 影響力、優位性（名詞）"
+    },
+    {
+      "id": 88,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The data ___ that consumer confidence has reached its highest point in a decade.",
+      "opts": [
+        "corroborates",
+        "corroborate",
+        "is corroborating",
+        "corroborated"
+      ],
+      "ans": 0,
+      "exp": "data（複数）→ corroborate; 現在形で事実を述べる"
+    },
+    {
+      "id": 89,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The CEO's speech was intended to ___ investor concerns about the company's direction.",
+      "opts": [
+        "allay",
+        "allay with",
+        "allayed",
+        "allaying"
+      ],
+      "ans": 0,
+      "exp": "allay = 和らげる（他動詞）"
+    },
+    {
+      "id": 90,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The success of the initiative hinges ___ the team's ability to execute flawlessly.",
+      "opts": [
+        "on",
+        "in",
+        "at",
+        "upon"
+      ],
+      "ans": 0,
+      "exp": "hinge on/upon = 〜にかかっている"
+    },
+    {
+      "id": 91,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The new compliance framework was designed to be both robust and ___.",
+      "opts": [
+        "scalable",
+        "scale",
+        "scaling",
+        "scaled"
+      ],
+      "ans": 0,
+      "exp": "scalable = 拡張可能な（形容詞）"
+    },
+    {
+      "id": 92,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The firm's market share has ___ eroded as competitors introduced superior products.",
+      "opts": [
+        "steadily",
+        "steady",
+        "steadiness",
+        "steading"
+      ],
+      "ans": 0,
+      "exp": "has + 副詞 + 動詞PP の語順"
+    },
+    {
+      "id": 93,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The proposed legislation would fundamentally ___ the regulatory landscape.",
+      "opts": [
+        "alter",
+        "alteration",
+        "altered",
+        "altering"
+      ],
+      "ans": 0,
+      "exp": "would + 動詞原形; alter = 変える"
+    },
+    {
+      "id": 94,
+      "level": 860,
+      "cat": "grammar",
+      "q": "No sooner ___ the deal announced than rival companies began their countermoves.",
+      "opts": [
+        "was",
+        "had",
+        "were",
+        "is"
+      ],
+      "ans": 0,
+      "exp": "No sooner + had/was + 主語 than..."
+    },
+    {
+      "id": 95,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's rapid internationalization required significant ___ investment.",
+      "opts": [
+        "infrastructural",
+        "infrastructure",
+        "infrastructuring",
+        "infrastructured"
+      ],
+      "ans": 0,
+      "exp": "infrastructural = インフラ的な（形容詞）"
+    },
+    {
+      "id": 96,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The consultant's recommendations, though ___ sound, proved difficult to implement.",
+      "opts": [
+        "theoretically",
+        "theoretical",
+        "theorize",
+        "theories"
+      ],
+      "ans": 0,
+      "exp": "though + 副詞 + 形容詞"
+    },
+    {
+      "id": 97,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The firm's ___ approach to risk management proved invaluable during the crisis.",
+      "opts": [
+        "proactive",
+        "proactively",
+        "proaction",
+        "proactivism"
+      ],
+      "ans": 0,
+      "exp": "proactive = 積極的な（形容詞）"
+    },
+    {
+      "id": 98,
+      "level": 860,
+      "cat": "grammar",
+      "q": "What sets this company apart ___ its competitors is its commitment to innovation.",
+      "opts": [
+        "from",
+        "with",
+        "against",
+        "between"
+      ],
+      "ans": 0,
+      "exp": "set apart from = 〜と区別する"
+    },
+    {
+      "id": 99,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The acquisition was ___ as a strategic move to strengthen the company's market position.",
+      "opts": [
+        "heralded",
+        "herald",
+        "heralding",
+        "heralds"
+      ],
+      "ans": 0,
+      "exp": "heralded as = 〜として称賛された"
+    },
+    {
+      "id": 100,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The more resources ___ to R&D, the greater the likelihood of breakthrough innovations.",
+      "opts": [
+        "are allocated",
+        "allocate",
+        "allocated",
+        "allocating"
+      ],
+      "ans": 0,
+      "exp": "The more..., the more... 構文"
+    },
+    {
+      "id": 101,
+      "level": 500,
+      "cat": "reading",
+      "q": "'Please reply by end of day.' What does this mean?",
+      "opts": [
+        "Respond before today ends",
+        "Reply tomorrow",
+        "Call back",
+        "Send a letter"
+      ],
+      "ans": 0,
+      "exp": "end of day = 今日中"
+    },
+    {
+      "id": 102,
+      "level": 500,
+      "cat": "reading",
+      "q": "'The meeting is on hold.' What does this mean?",
+      "opts": [
+        "The meeting is paused/postponed",
+        "The meeting is finished",
+        "The meeting started",
+        "The meeting is cancelled"
+      ],
+      "ans": 0,
+      "exp": "on hold = 一時停止中"
+    },
+    {
+      "id": 103,
+      "level": 500,
+      "cat": "reading",
+      "q": "'Please CC me on that email.' What does CC mean?",
+      "opts": [
+        "Send a copy to me",
+        "Call me",
+        "Cancel the email",
+        "Confirm by me"
+      ],
+      "ans": 0,
+      "exp": "CC = Carbon Copy（写しを送る）"
+    },
+    {
+      "id": 104,
+      "level": 500,
+      "cat": "reading",
+      "q": "'The client is on board.' What does this mean?",
+      "opts": [
+        "The client agrees",
+        "The client is on a ship",
+        "The client left",
+        "The client called"
+      ],
+      "ans": 0,
+      "exp": "on board = 賛同している"
+    },
+    {
+      "id": 105,
+      "level": 500,
+      "cat": "reading",
+      "q": "'Let's circle back on this.' What does this mean?",
+      "opts": [
+        "Revisit this topic later",
+        "Draw a circle",
+        "Go back to the office",
+        "Call again"
+      ],
+      "ans": 0,
+      "exp": "circle back = 後で再度話し合う"
+    },
+    {
+      "id": 106,
+      "level": 500,
+      "cat": "reading",
+      "q": "'The report is due Friday.' What does 'due' mean here?",
+      "opts": [
+        "Must be submitted by",
+        "Was sent on",
+        "Is about",
+        "Will start on"
+      ],
+      "ans": 0,
+      "exp": "due = 〜が期日"
+    },
+    {
+      "id": 107,
+      "level": 500,
+      "cat": "reading",
+      "q": "'Can we push the deadline?' What does 'push' mean here?",
+      "opts": [
+        "Extend/move to a later time",
+        "Work harder",
+        "Cancel",
+        "Announce"
+      ],
+      "ans": 0,
+      "exp": "push the deadline = 締め切りを延ばす"
+    },
+    {
+      "id": 108,
+      "level": 500,
+      "cat": "reading",
+      "q": "'I'll keep you in the loop.' What does this mean?",
+      "opts": [
+        "I'll keep you informed",
+        "I'll call you",
+        "I'll send a package",
+        "I'll wait for you"
+      ],
+      "ans": 0,
+      "exp": "keep in the loop = 情報を共有し続ける"
+    },
+    {
+      "id": 109,
+      "level": 500,
+      "cat": "reading",
+      "q": "'The project is behind schedule.' What does this mean?",
+      "opts": [
+        "Progress is slower than planned",
+        "The project is finished",
+        "The project is on time",
+        "The schedule is missing"
+      ],
+      "ans": 0,
+      "exp": "behind schedule = 予定より遅れている"
+    },
+    {
+      "id": 110,
+      "level": 500,
+      "cat": "reading",
+      "q": "'Please touch base with the client.' What does 'touch base' mean?",
+      "opts": [
+        "Make brief contact",
+        "Touch the client",
+        "Visit the office",
+        "Send a package"
+      ],
+      "ans": 0,
+      "exp": "touch base = 簡単に連絡を取る"
+    },
+    {
+      "id": 111,
+      "level": 650,
+      "cat": "reading",
+      "q": "'The proposal was tabled until next quarter.' In American English, what does 'tabled' mean?",
+      "opts": [
+        "Postponed",
+        "Discussed",
+        "Accepted",
+        "Written on a table"
+      ],
+      "ans": 0,
+      "exp": "米英語でtable = 棚上げ（延期）する"
+    },
+    {
+      "id": 112,
+      "level": 650,
+      "cat": "reading",
+      "q": "'We need to leverage our core competencies.' What does 'leverage' mean?",
+      "opts": [
+        "Use to maximum advantage",
+        "Pay back",
+        "Advertise",
+        "Evaluate"
+      ],
+      "ans": 0,
+      "exp": "leverage = 最大限に活用する"
+    },
+    {
+      "id": 113,
+      "level": 650,
+      "cat": "reading",
+      "q": "'The deal was a win-win situation.' What does this mean?",
+      "opts": [
+        "Both sides benefited",
+        "One side won",
+        "The deal failed",
+        "It was a competition"
+      ],
+      "ans": 0,
+      "exp": "win-win = 双方が利益を得る"
+    },
+    {
+      "id": 114,
+      "level": 650,
+      "cat": "reading",
+      "q": "'We need to get all stakeholders aligned.' Who are stakeholders?",
+      "opts": [
+        "People with an interest in the project",
+        "Shareholders only",
+        "Employees only",
+        "Customers only"
+      ],
+      "ans": 0,
+      "exp": "stakeholders = 利害関係者（全ての関係者）"
+    },
+    {
+      "id": 115,
+      "level": 650,
+      "cat": "reading",
+      "q": "'The company is pivoting to a subscription model.' What does 'pivoting' mean?",
+      "opts": [
+        "Changing strategic direction",
+        "Cancelling operations",
+        "Merging with another company",
+        "Reducing costs"
+      ],
+      "ans": 0,
+      "exp": "pivot = 方向転換する"
+    },
+    {
+      "id": 116,
+      "level": 650,
+      "cat": "reading",
+      "q": "'We should conduct due diligence before the acquisition.' What is due diligence?",
+      "opts": [
+        "Careful investigation and verification",
+        "A legal requirement",
+        "A type of contract",
+        "A financial penalty"
+      ],
+      "ans": 0,
+      "exp": "due diligence = 適正調査"
+    },
+    {
+      "id": 117,
+      "level": 650,
+      "cat": "reading",
+      "q": "'The project hit a bottleneck.' What does 'bottleneck' mean?",
+      "opts": [
+        "A point that slows progress",
+        "A type of meeting",
+        "A financial problem",
+        "A technical error"
+      ],
+      "ans": 0,
+      "exp": "bottleneck = 障害、ボトルネック"
+    },
+    {
+      "id": 118,
+      "level": 650,
+      "cat": "reading",
+      "q": "'We need to monetize our user base.' What does 'monetize' mean?",
+      "opts": [
+        "Generate revenue from",
+        "Count the number of",
+        "Analyze the behavior of",
+        "Reduce the size of"
+      ],
+      "ans": 0,
+      "exp": "monetize = 収益化する"
+    },
+    {
+      "id": 119,
+      "level": 650,
+      "cat": "reading",
+      "q": "'The team needs to be more agile in their approach.' What does 'agile' mean here?",
+      "opts": [
+        "Flexible and quick to adapt",
+        "Physically fit",
+        "Technically skilled",
+        "Financially efficient"
+      ],
+      "ans": 0,
+      "exp": "agile = 柔軟で迅速に適応できる"
+    },
+    {
+      "id": 120,
+      "level": 650,
+      "cat": "reading",
+      "q": "'Let's take this offline.' In a business context, what does this mean?",
+      "opts": [
+        "Discuss this privately after the meeting",
+        "Disconnect from the internet",
+        "Cancel the video call",
+        "Work without computers"
+      ],
+      "ans": 0,
+      "exp": "take offline = 別途（プライベートに）話し合う"
+    },
+    {
+      "id": 121,
+      "level": 730,
+      "cat": "reading",
+      "q": "'The company is looking to divest its non-core assets.' What does 'divest' mean?",
+      "opts": [
+        "Sell off",
+        "Buy additional",
+        "Improve",
+        "Manage better"
+      ],
+      "ans": 0,
+      "exp": "divest = 売却する、手放す"
+    },
+    {
+      "id": 122,
+      "level": 730,
+      "cat": "reading",
+      "q": "'The board is concerned about the company's liquidity.' What is liquidity?",
+      "opts": [
+        "Ability to meet short-term financial obligations",
+        "Amount of water used",
+        "Employee satisfaction",
+        "Market expansion rate"
+      ],
+      "ans": 0,
+      "exp": "liquidity = 流動性（短期的な支払い能力）"
+    },
+    {
+      "id": 123,
+      "level": 730,
+      "cat": "reading",
+      "q": "'The firm needs to mitigate its exposure to currency risk.' What does 'mitigate' mean?",
+      "opts": [
+        "Reduce or lessen",
+        "Increase",
+        "Transfer",
+        "Eliminate completely"
+      ],
+      "ans": 0,
+      "exp": "mitigate = 軽減する"
+    },
+    {
+      "id": 124,
+      "level": 730,
+      "cat": "reading",
+      "q": "'The company reported strong EBITDA this quarter.' What does EBITDA stand for?",
+      "opts": [
+        "Earnings Before Interest, Taxes, Depreciation, and Amortization",
+        "Employee Benefits Including Tax and Dividend Allowances",
+        "Estimated Budget for Investment and Total Development Allocation",
+        "External Business Income Tax Deduction Amount"
+      ],
+      "ans": 0,
+      "exp": "EBITDA = 利払い・税引き・償却前利益"
+    },
+    {
+      "id": 125,
+      "level": 730,
+      "cat": "reading",
+      "q": "'The CEO issued a profit warning.' What is a profit warning?",
+      "opts": [
+        "An announcement that profits will be lower than expected",
+        "A warning about dangerous financial behavior",
+        "A notice to pay taxes",
+        "A forecast of future profits"
+      ],
+      "ans": 0,
+      "exp": "profit warning = 業績下方修正の警告"
+    },
+    {
+      "id": 126,
+      "level": 860,
+      "cat": "reading",
+      "q": "'The company's capex budget was significantly curtailed.' What does 'capex' refer to?",
+      "opts": [
+        "Capital expenditures for long-term assets",
+        "Cash payments to executives",
+        "Company advertising expenses",
+        "Customer acquisition programs"
+      ],
+      "ans": 0,
+      "exp": "capex = capital expenditure（設備投資）"
+    },
+    {
+      "id": 127,
+      "level": 860,
+      "cat": "reading",
+      "q": "'The firm is exploring accretive acquisitions.' What does 'accretive' mean in M&A?",
+      "opts": [
+        "Adding value to earnings per share",
+        "Decreasing in value",
+        "Requiring court approval",
+        "Involving government entities"
+      ],
+      "ans": 0,
+      "exp": "accretive = 1株当たり利益を増加させる"
+    },
+    {
+      "id": 128,
+      "level": 860,
+      "cat": "reading",
+      "q": "'The board approved a share buyback program.' What is the primary effect of a buyback?",
+      "opts": [
+        "Reduces shares outstanding, increasing EPS",
+        "Increases the company's debt",
+        "Attracts new investors",
+        "Expands the company's product line"
+      ],
+      "ans": 0,
+      "exp": "buyback = 自社株買い（発行済み株式数を減らしEPSを向上）"
+    },
+    {
+      "id": 129,
+      "level": 860,
+      "cat": "reading",
+      "q": "'The company faces headwinds from macroeconomic uncertainty.' What are 'headwinds' in business?",
+      "opts": [
+        "Challenges that slow growth",
+        "Favorable market conditions",
+        "Opportunities for expansion",
+        "Regulatory requirements"
+      ],
+      "ans": 0,
+      "exp": "headwinds = 逆風（成長を妨げる要因）"
+    },
+    {
+      "id": 130,
+      "level": 860,
+      "cat": "reading",
+      "q": "'The CFO warned about covenant breaches.' What is a covenant in finance?",
+      "opts": [
+        "A condition in a loan agreement",
+        "A type of merger",
+        "A government regulation",
+        "An employee contract"
+      ],
+      "ans": 0,
+      "exp": "covenant = 財務制限条項（融資契約の条件）"
+    },
+    {
+      "id": 131,
+      "level": 500,
+      "cat": "email",
+      "q": "Which is the most professional email opening?",
+      "opts": [
+        "Dear Mr. Johnson,",
+        "Hey Johnson!",
+        "Yo John,",
+        "To Whom It May Concern (when you know the name)"
+      ],
+      "ans": 0,
+      "exp": "既知の相手にはDear + 敬称 + 姓が最も適切"
+    },
+    {
+      "id": 132,
+      "level": 500,
+      "cat": "email",
+      "q": "How do you politely ask someone to reply quickly?",
+      "opts": [
+        "I would appreciate a prompt response.",
+        "Reply ASAP!!!",
+        "Answer me now.",
+        "When are you going to respond?"
+      ],
+      "ans": 0,
+      "exp": "I would appreciate a prompt response. = 丁寧な返信依頼"
+    },
+    {
+      "id": 133,
+      "level": 500,
+      "cat": "email",
+      "q": "Which phrase correctly ends a formal email?",
+      "opts": [
+        "Best regards,",
+        "Bye!",
+        "See ya,",
+        "Cheers mate,"
+      ],
+      "ans": 0,
+      "exp": "Best regards = ビジネスメールの丁寧な締め"
+    },
+    {
+      "id": 134,
+      "level": 500,
+      "cat": "email",
+      "q": "'Please find attached the report.' What does this phrase signal?",
+      "opts": [
+        "A file is attached to the email",
+        "The report is lost",
+        "Please search for the report",
+        "The report is in the mail"
+      ],
+      "ans": 0,
+      "exp": "Please find attached = 添付ファイルがあることを知らせる定型表現"
+    },
+    {
+      "id": 135,
+      "level": 500,
+      "cat": "email",
+      "q": "Which is the correct way to apologize in a business email?",
+      "opts": [
+        "I apologize for any inconvenience caused.",
+        "Sorry lol",
+        "My bad",
+        "Oops, my mistake!"
+      ],
+      "ans": 0,
+      "exp": "I apologize for any inconvenience caused = フォーマルなお詫び"
+    },
+    {
+      "id": 136,
+      "level": 650,
+      "cat": "email",
+      "q": "How do you professionally request clarification?",
+      "opts": [
+        "Could you please clarify what you meant by...?",
+        "What do you mean???",
+        "I don't understand your email.",
+        "Explain that again."
+      ],
+      "ans": 0,
+      "exp": "Could you please clarify... = 丁寧な確認依頼"
+    },
+    {
+      "id": 137,
+      "level": 650,
+      "cat": "email",
+      "q": "Which phrase correctly declines a meeting request?",
+      "opts": [
+        "I regret that I am unable to attend due to a prior commitment.",
+        "I can't come, I'm busy.",
+        "No thanks.",
+        "Don't schedule me for that."
+      ],
+      "ans": 0,
+      "exp": "I regret that I am unable to attend due to... = 丁寧な欠席連絡"
+    },
+    {
+      "id": 138,
+      "level": 650,
+      "cat": "email",
+      "q": "How do you professionally follow up on an unanswered email?",
+      "opts": [
+        "I wanted to follow up on my previous email regarding...",
+        "Why haven't you replied?!",
+        "Did you see my email???",
+        "Hello? Anyone there?"
+      ],
+      "ans": 0,
+      "exp": "I wanted to follow up on... = 丁寧なフォローアップ"
+    },
+    {
+      "id": 139,
+      "level": 650,
+      "cat": "email",
+      "q": "Which phrase introduces a proposal in a business email?",
+      "opts": [
+        "I would like to propose that we...",
+        "I think we should maybe possibly...",
+        "Here's my idea, take it or leave it.",
+        "You need to do this:"
+      ],
+      "ans": 0,
+      "exp": "I would like to propose = 丁寧な提案表現"
+    },
+    {
+      "id": 140,
+      "level": 650,
+      "cat": "email",
+      "q": "How do you professionally express urgency in an email?",
+      "opts": [
+        "This matter requires your prompt attention.",
+        "URGENT!!! DO THIS NOW!!!",
+        "This is super important please hurry",
+        "You need to do this right away"
+      ],
+      "ans": 0,
+      "exp": "requires your prompt attention = プロフェッショナルな緊急表現"
+    },
+    {
+      "id": 141,
+      "level": 730,
+      "cat": "email",
+      "q": "Which phrase best conveys a conditional offer?",
+      "opts": [
+        "Subject to board approval, we are prepared to proceed.",
+        "If the board says yes, we'll do it.",
+        "We might do it if approved.",
+        "Pending approval, maybe we'll continue."
+      ],
+      "ans": 0,
+      "exp": "Subject to = 〜を条件として（フォーマル）"
+    },
+    {
+      "id": 142,
+      "level": 730,
+      "cat": "email",
+      "q": "How do you professionally express disagreement with a proposal?",
+      "opts": [
+        "While I appreciate your perspective, I have some reservations about...",
+        "I disagree completely.",
+        "That won't work.",
+        "Your idea is wrong."
+      ],
+      "ans": 0,
+      "exp": "While I appreciate... I have reservations = 丁寧な反対意見"
+    },
+    {
+      "id": 143,
+      "level": 730,
+      "cat": "email",
+      "q": "Which phrase best acknowledges receipt and confirms action?",
+      "opts": [
+        "Thank you for your email. I will review the documents and revert by Thursday.",
+        "Got it.",
+        "OK will check",
+        "Received, will look at it sometime"
+      ],
+      "ans": 0,
+      "exp": "I will review and revert by [date] = 明確な行動と期限の提示"
+    },
+    {
+      "id": 144,
+      "level": 730,
+      "cat": "email",
+      "q": "How do you professionally escalate an unresolved issue?",
+      "opts": [
+        "I am writing to bring this matter to your attention as it remains unresolved after...",
+        "My colleague isn't helping me so I'm emailing you.",
+        "Nobody is fixing this problem.",
+        "FYI this is still broken"
+      ],
+      "ans": 0,
+      "exp": "bring this matter to your attention = フォーマルなエスカレーション"
+    },
+    {
+      "id": 145,
+      "level": 730,
+      "cat": "email",
+      "q": "Which phrase correctly requests a contract amendment?",
+      "opts": [
+        "We would like to request a revision to clause 3.2 of the agreement.",
+        "Can you change the contract?",
+        "Fix section 3.2 please.",
+        "We don't like part of the contract."
+      ],
+      "ans": 0,
+      "exp": "request a revision to clause = 条項の修正を正式に依頼"
+    },
+    {
+      "id": 146,
+      "level": 860,
+      "cat": "email",
+      "q": "Which phrase most appropriately conveys a firm but diplomatic refusal?",
+      "opts": [
+        "While we have given this careful consideration, we are not in a position to accommodate this request at this time.",
+        "No.",
+        "We can't do that.",
+        "I'm afraid that's not possible for us."
+      ],
+      "ans": 0,
+      "exp": "not in a position to accommodate = 外交的な断り方"
+    },
+    {
+      "id": 147,
+      "level": 860,
+      "cat": "email",
+      "q": "How do you formally request an expedited review?",
+      "opts": [
+        "Given the time-sensitive nature of this matter, we would be grateful if you could prioritize the review.",
+        "Please hurry up with the review.",
+        "This is urgent, review ASAP.",
+        "We need you to review this faster than normal."
+      ],
+      "ans": 0,
+      "exp": "time-sensitive + prioritize the review = フォーマルな迅速対応依頼"
+    },
+    {
+      "id": 148,
+      "level": 860,
+      "cat": "email",
+      "q": "Which phrase best introduces a counter-proposal?",
+      "opts": [
+        "We appreciate your proposal and would like to suggest an alternative arrangement that may better serve our mutual interests.",
+        "How about we do this instead?",
+        "We don't like your idea, here's ours.",
+        "Counter-offer: here are our terms."
+      ],
+      "ans": 0,
+      "exp": "mutual interests = 双方の利益を強調した代替案提示"
+    },
+    {
+      "id": 149,
+      "level": 860,
+      "cat": "email",
+      "q": "How do you professionally acknowledge a breach of terms?",
+      "opts": [
+        "We note with concern that the terms outlined in Section 4 of our agreement have not been adhered to.",
+        "You broke the contract.",
+        "You didn't follow the rules.",
+        "Section 4 wasn't followed."
+      ],
+      "ans": 0,
+      "exp": "note with concern + have not been adhered to = 丁寧かつ明確な違反指摘"
+    },
+    {
+      "id": 150,
+      "level": 860,
+      "cat": "email",
+      "q": "Which phrase best closes a negotiation email?",
+      "opts": [
+        "We trust that the above terms are acceptable and look forward to formalizing our agreement.",
+        "Hope this works for you.",
+        "Let us know if you agree.",
+        "Please confirm your acceptance."
+      ],
+      "ans": 0,
+      "exp": "trust that... + look forward to formalizing = 合意への期待を示す締め括り"
+    },
+    {
+      "id": 151,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The office supplies ___ ordered yesterday.",
+      "opts": [
+        "were",
+        "was",
+        "is",
+        "are"
+      ],
+      "ans": 0,
+      "exp": "supplies（複数）→ were"
+    },
+    {
+      "id": 152,
+      "level": 500,
+      "cat": "grammar",
+      "q": "She doesn't ___ to attend the conference.",
+      "opts": [
+        "have",
+        "has",
+        "having",
+        "had"
+      ],
+      "ans": 0,
+      "exp": "doesn't + 動詞原形"
+    },
+    {
+      "id": 153,
+      "level": 500,
+      "cat": "grammar",
+      "q": "___ of the employees received a bonus this year.",
+      "opts": [
+        "All",
+        "Every",
+        "Each one",
+        "Any"
+      ],
+      "ans": 0,
+      "exp": "All of the employees（複数扱い）"
+    },
+    {
+      "id": 154,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The company will ___ the old equipment with newer models.",
+      "opts": [
+        "replace",
+        "replacement",
+        "replaced",
+        "replacing"
+      ],
+      "ans": 0,
+      "exp": "will + 動詞原形; replace = 取り替える"
+    },
+    {
+      "id": 155,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Please ___ your concerns to the HR department.",
+      "opts": [
+        "address",
+        "addresses",
+        "addressed",
+        "addressing"
+      ],
+      "ans": 0,
+      "exp": "address concerns = 懸念を伝える（命令形）"
+    },
+    {
+      "id": 156,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The new software, ___ developed by our IT team, will improve efficiency.",
+      "opts": [
+        "recently",
+        "recent",
+        "recency",
+        "more recent"
+      ],
+      "ans": 0,
+      "exp": "副詞 recently が過去分詞 developed を修飾"
+    },
+    {
+      "id": 157,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company decided to ___ its focus to digital services.",
+      "opts": [
+        "shift",
+        "shifts",
+        "shifted",
+        "shifting"
+      ],
+      "ans": 0,
+      "exp": "decided to + 動詞原形; shift = 移す"
+    },
+    {
+      "id": 158,
+      "level": 650,
+      "cat": "grammar",
+      "q": "He works ___ than anyone else in the department.",
+      "opts": [
+        "harder",
+        "hardest",
+        "more hard",
+        "most hard"
+      ],
+      "ans": 0,
+      "exp": "比較級: hard → harder"
+    },
+    {
+      "id": 159,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The team was able to ___ the issue before it became a major problem.",
+      "opts": [
+        "resolve",
+        "resolution",
+        "resolved",
+        "resolving"
+      ],
+      "ans": 0,
+      "exp": "was able to + 動詞原形; resolve = 解決する"
+    },
+    {
+      "id": 160,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The company's profits have grown ___ over the past five years.",
+      "opts": [
+        "consistently",
+        "consistent",
+        "consistency",
+        "more consistent"
+      ],
+      "ans": 0,
+      "exp": "動詞を修飾するので副詞 consistently"
+    },
+    {
+      "id": 161,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The decision to outsource manufacturing was ___ by cost considerations.",
+      "opts": [
+        "driven",
+        "driving",
+        "drives",
+        "drive"
+      ],
+      "ans": 0,
+      "exp": "be driven by = 〜によって動機づけられる"
+    },
+    {
+      "id": 162,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The startup's innovative approach helped it ___ in a crowded market.",
+      "opts": [
+        "differentiate",
+        "differentiates",
+        "differentiated",
+        "differentiating"
+      ],
+      "ans": 0,
+      "exp": "helped it + 動詞原形; differentiate = 差別化する"
+    },
+    {
+      "id": 163,
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ the risks are minimized, the project can proceed to the next phase.",
+      "opts": [
+        "Provided that",
+        "Despite",
+        "Although",
+        "Whereas"
+      ],
+      "ans": 0,
+      "exp": "provided that = 〜を条件として"
+    },
+    {
+      "id": 164,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The company's growth strategy is predicated ___ expanding into emerging markets.",
+      "opts": [
+        "on",
+        "in",
+        "at",
+        "for"
+      ],
+      "ans": 0,
+      "exp": "predicated on = 〜を前提としている"
+    },
+    {
+      "id": 165,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The regulatory framework, ___ to be revised next year, will significantly impact operations.",
+      "opts": [
+        "due",
+        "owing",
+        "set",
+        "scheduled"
+      ],
+      "ans": 0,
+      "exp": "due to be = 〜する予定である（正式表現）"
+    },
+    {
+      "id": 166,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's market position has been ___ by years of consistent innovation.",
+      "opts": [
+        "entrenched",
+        "entrenching",
+        "entrench",
+        "entrenches"
+      ],
+      "ans": 0,
+      "exp": "entrenched = 確立された、定着した"
+    },
+    {
+      "id": 167,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Please ___ me with an update when the project is finished.",
+      "opts": [
+        "provide",
+        "provides",
+        "provided",
+        "providing"
+      ],
+      "ans": 0,
+      "exp": "provide + 人 + with = 〜に〜を提供する"
+    },
+    {
+      "id": 168,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The team will ___ a presentation at the conference next week.",
+      "opts": [
+        "deliver",
+        "delivers",
+        "delivered",
+        "delivering"
+      ],
+      "ans": 0,
+      "exp": "deliver a presentation = プレゼンを行う"
+    },
+    {
+      "id": 169,
+      "level": 650,
+      "cat": "vocab",
+      "q": "After the merger, the company ___ to a new headquarters in Tokyo.",
+      "opts": [
+        "relocated",
+        "relocation",
+        "relocate",
+        "relocating"
+      ],
+      "ans": 0,
+      "exp": "過去形 relocated = 移転した"
+    },
+    {
+      "id": 170,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The success of the campaign was ___ to the team's hard work.",
+      "opts": [
+        "attributed",
+        "attribute",
+        "attributing",
+        "attributable"
+      ],
+      "ans": 0,
+      "exp": "attributed to = 〜のおかげである"
+    },
+    {
+      "id": 171,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The company aims to ___ its market share by 15% by end of year.",
+      "opts": [
+        "augment",
+        "augmentation",
+        "augmented",
+        "augmenting"
+      ],
+      "ans": 0,
+      "exp": "augment = 増大させる（他動詞）"
+    },
+    {
+      "id": 172,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The leadership team must ___ a clear vision for the company's future.",
+      "opts": [
+        "articulate",
+        "articulation",
+        "articulated",
+        "articulating"
+      ],
+      "ans": 0,
+      "exp": "articulate = 明確に表現する"
+    },
+    {
+      "id": 173,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's ___ business model proved resilient even during economic downturns.",
+      "opts": [
+        "diversified",
+        "diversify",
+        "diversification",
+        "diversifying"
+      ],
+      "ans": 0,
+      "exp": "diversified = 多角化された（形容詞）"
+    },
+    {
+      "id": 174,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The analyst's report highlighted several ___ risks facing the industry.",
+      "opts": [
+        "systemic",
+        "system",
+        "systematize",
+        "systematically"
+      ],
+      "ans": 0,
+      "exp": "systemic risks = システミックリスク（構造的リスク）"
+    },
+    {
+      "id": 175,
+      "level": 500,
+      "cat": "grammar",
+      "q": "The office is ___ on the third floor.",
+      "opts": [
+        "located",
+        "locating",
+        "locate",
+        "location"
+      ],
+      "ans": 0,
+      "exp": "is located = 〜に位置している（受動態）"
+    },
+    {
+      "id": 176,
+      "level": 500,
+      "cat": "grammar",
+      "q": "We are looking forward to ___ you at the conference.",
+      "opts": [
+        "meeting",
+        "meet",
+        "met",
+        "meets"
+      ],
+      "ans": 0,
+      "exp": "look forward to + 動名詞（-ing）"
+    },
+    {
+      "id": 177,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The figures presented in the report ___ our initial projections.",
+      "opts": [
+        "exceeded",
+        "exceed",
+        "exceeding",
+        "have exceed"
+      ],
+      "ans": 0,
+      "exp": "過去の事実 → 過去形 exceeded"
+    },
+    {
+      "id": 178,
+      "level": 650,
+      "cat": "grammar",
+      "q": "Management is considering ___ the company's headquarters.",
+      "opts": [
+        "relocating",
+        "relocate",
+        "to relocate",
+        "relocated"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞（-ing）"
+    },
+    {
+      "id": 179,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The more diverse the team, ___ the range of solutions they generate.",
+      "opts": [
+        "the broader",
+        "the broad",
+        "broader",
+        "broad"
+      ],
+      "ans": 0,
+      "exp": "The more..., the + 比較級構文"
+    },
+    {
+      "id": 180,
+      "level": 730,
+      "cat": "grammar",
+      "q": "The strategy proved ___ in markets where competitors had already established dominance.",
+      "opts": [
+        "ineffective",
+        "ineffectively",
+        "ineffectiveness",
+        "ineffected"
+      ],
+      "ans": 0,
+      "exp": "proved + 形容詞 = 〜であることがわかった"
+    },
+    {
+      "id": 181,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The committee's decision, however well-intentioned, ___ be seen as overreaching its mandate.",
+      "opts": [
+        "could",
+        "can",
+        "will",
+        "should"
+      ],
+      "ans": 0,
+      "exp": "could be seen as = 〜と見なされうる（可能性）"
+    },
+    {
+      "id": 182,
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ unprecedented, the company's recovery within six months impressed analysts worldwide.",
+      "opts": [
+        "While not entirely",
+        "While not entire",
+        "Although not entirely",
+        "Both while and not entirely"
+      ],
+      "ans": 0,
+      "exp": "While not entirely + 形容詞 = 完全に〜ではないが"
+    },
+    {
+      "id": 183,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The sales team exceeded its ___ for the quarter.",
+      "opts": [
+        "targets",
+        "target's",
+        "targeting",
+        "targeted"
+      ],
+      "ans": 0,
+      "exp": "targets = 目標（複数名詞）"
+    },
+    {
+      "id": 184,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Could you please ___ the meeting to 3 PM?",
+      "opts": [
+        "reschedule",
+        "rescheduling",
+        "rescheduled",
+        "reschedules"
+      ],
+      "ans": 0,
+      "exp": "reschedule = 日程を変更する"
+    },
+    {
+      "id": 185,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The executive team will ___ the new policy at tomorrow's all-hands meeting.",
+      "opts": [
+        "unveil",
+        "unveils",
+        "unveiled",
+        "unveiling"
+      ],
+      "ans": 0,
+      "exp": "will + 動詞原形; unveil = 発表する"
+    },
+    {
+      "id": 186,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The project manager worked to ___ the expectations of all stakeholders.",
+      "opts": [
+        "align",
+        "aligns",
+        "aligned",
+        "aligning"
+      ],
+      "ans": 0,
+      "exp": "align expectations = 期待を一致させる"
+    },
+    {
+      "id": 187,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The firm's competitive advantage lies in its ability to ___ quickly to market changes.",
+      "opts": [
+        "adapt",
+        "adapts",
+        "adapted",
+        "adapting"
+      ],
+      "ans": 0,
+      "exp": "ability to + 動詞原形; adapt = 適応する"
+    },
+    {
+      "id": 188,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The board voted to ___ the dividend by 10% given the strong performance.",
+      "opts": [
+        "increase",
+        "increasing",
+        "increased",
+        "increases"
+      ],
+      "ans": 0,
+      "exp": "voted to + 動詞原形; increase the dividend = 配当を増やす"
+    },
+    {
+      "id": 189,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The company's flagship product has become ___ with quality in the consumer electronics sector.",
+      "opts": [
+        "synonymous",
+        "synonymy",
+        "synonym",
+        "synonymously"
+      ],
+      "ans": 0,
+      "exp": "synonymous with = 〜と同義の（形容詞）"
+    },
+    {
+      "id": 190,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The proposed restructuring is intended to ___ the company's core operations.",
+      "opts": [
+        "rationalize",
+        "rational",
+        "rationale",
+        "rationally"
+      ],
+      "ans": 0,
+      "exp": "rationalize = 合理化する（他動詞）"
+    },
+    {
+      "id": 191,
+      "level": 500,
+      "cat": "grammar",
+      "q": "___ it rain tomorrow, the outdoor event will be moved indoors.",
+      "opts": [
+        "Should",
+        "Would",
+        "Could",
+        "Will"
+      ],
+      "ans": 0,
+      "exp": "Should it rain = If it should rain（仮定法の倒置）"
+    },
+    {
+      "id": 192,
+      "level": 650,
+      "cat": "grammar",
+      "q": "The team worked diligently to ensure that all deliverables ___ on time.",
+      "opts": [
+        "were submitted",
+        "submitted",
+        "submit",
+        "have submitted"
+      ],
+      "ans": 0,
+      "exp": "ensure that + 受動態（were submitted）"
+    },
+    {
+      "id": 193,
+      "level": 730,
+      "cat": "grammar",
+      "q": "It was not until the audit was completed ___ the discrepancies came to light.",
+      "opts": [
+        "that",
+        "when",
+        "which",
+        "then"
+      ],
+      "ans": 0,
+      "exp": "It was not until... that 〜 の強調構文"
+    },
+    {
+      "id": 194,
+      "level": 860,
+      "cat": "grammar",
+      "q": "The merger talks, ___ at length by both legal teams, were ultimately concluded successfully.",
+      "opts": [
+        "negotiated",
+        "negotiating",
+        "having negotiated",
+        "being negotiated"
+      ],
+      "ans": 0,
+      "exp": "過去分詞の分詞構文（受動の意味）"
+    },
+    {
+      "id": 195,
+      "level": 500,
+      "cat": "vocab",
+      "q": "The HR team will conduct annual ___ for all employees.",
+      "opts": [
+        "reviews",
+        "review's",
+        "reviewing",
+        "reviewed"
+      ],
+      "ans": 0,
+      "exp": "annual reviews = 年次評価（複数名詞）"
+    },
+    {
+      "id": 196,
+      "level": 650,
+      "cat": "vocab",
+      "q": "The company's ___ to quality has earned it numerous industry awards.",
+      "opts": [
+        "commitment",
+        "commit",
+        "committed",
+        "committing"
+      ],
+      "ans": 0,
+      "exp": "commitment to quality = 品質へのコミットメント"
+    },
+    {
+      "id": 197,
+      "level": 730,
+      "cat": "vocab",
+      "q": "The new initiative was designed to foster a culture of ___ within the organization.",
+      "opts": [
+        "accountability",
+        "accountable",
+        "account",
+        "accountably"
+      ],
+      "ans": 0,
+      "exp": "accountability = 説明責任（名詞）"
+    },
+    {
+      "id": 198,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The report identified several areas where the company could enhance its operational ___.",
+      "opts": [
+        "agility",
+        "agile",
+        "agilely",
+        "agileness"
+      ],
+      "ans": 0,
+      "exp": "operational agility = 業務の俊敏性（名詞が自然）"
+    },
+    {
+      "id": 199,
+      "level": 500,
+      "cat": "vocab",
+      "q": "Please ___ all participants of the schedule change.",
+      "opts": [
+        "notify",
+        "notifies",
+        "notified",
+        "notifying"
+      ],
+      "ans": 0,
+      "exp": "notify = 通知する（命令形）"
+    },
+    {
+      "id": 200,
+      "level": 860,
+      "cat": "vocab",
+      "q": "The firm's ability to ___ talent from around the world is a key competitive advantage.",
+      "opts": [
+        "attract",
+        "attraction",
+        "attracted",
+        "attracting"
+      ],
+      "ans": 0,
+      "exp": "ability to + 動詞原形; attract = 引きつける"
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 201
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 202
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 203
+    }
   ]
 }
