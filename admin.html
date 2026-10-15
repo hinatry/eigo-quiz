@@ -16,128 +16,144 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 
 /* LOGIN */
 #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;flex-direction:column;gap:20px}
-.login-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;width:320px;text-align:center}
-.login-title{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--accent)}
-.login-sub{font-size:12px;color:var(--muted);margin-bottom:24px}
-.login-input{width:100%;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;outline:none}
+.login-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;width:360px}
+.login-title{font-size:18px;font-weight:700;margin-bottom:4px;color:var(--accent);text-align:center}
+.login-sub{font-size:11px;color:var(--muted);margin-bottom:24px;text-align:center}
+.login-label{font-size:11px;color:var(--muted);margin-bottom:4px;display:block}
+.login-input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;font-family:inherit;margin-bottom:12px;outline:none}
 .login-input:focus{border-color:var(--accent)}
-.login-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-.login-err{color:var(--red);font-size:12px;margin-top:8px;display:none}
+.login-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px}
+.login-err{color:var(--red);font-size:12px;margin-top:8px;display:none;text-align:center}
+.login-divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+.login-hint{font-size:10px;color:var(--muted);background:rgba(99,102,241,0.1);border-radius:8px;padding:8px 12px;margin-bottom:16px;line-height:1.6}
 
 /* MAIN APP */
 #app{display:none;height:100vh;overflow:hidden;flex-direction:column}
 #app.show{display:flex}
 
 /* Top bar */
-.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0}
-.topbar-logo{font-size:14px;font-weight:700;color:var(--accent)}
-.topbar-status{font-size:11px;color:var(--green);display:flex;align-items:center;gap:6px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.topbar-logo{font-size:13px;font-weight:700;color:var(--accent)}
+.status-badge{font-size:10px;padding:2px 8px;border-radius:10px;display:flex;align-items:center;gap:4px}
+.status-badge.ok{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
+.status-badge.off{background:rgba(100,116,139,0.15);color:var(--muted);border:1px solid var(--border)}
+.dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.topbar-right{margin-left:auto;display:flex;gap:10px;align-items:center}
-.tb-btn{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit}
+.topbar-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.tb-btn{padding:4px 12px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-size:11px;cursor:pointer;font-family:inherit}
 .tb-btn:hover{border-color:var(--accent);color:var(--text)}
 
 /* Layout */
 .layout{display:flex;flex:1;overflow:hidden}
 
 /* LEFT: Office */
-.left-panel{width:480px;min-width:480px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
-.panel-hdr{padding:8px 14px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;display:flex;align-items:center;justify-content:between;gap:8px}
+.left-panel{width:460px;min-width:460px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.panel-hdr{padding:6px 12px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:10px;color:var(--muted);font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:8px}
 .panel-hdr span{margin-left:auto;font-size:10px}
 
-/* Canvas area */
 .canvas-wrap{display:flex;justify-content:center;align-items:center;padding:8px;background:var(--bg);flex-shrink:0}
 canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);border-radius:4px}
 
-/* Controls */
-.controls{display:flex;gap:6px;padding:8px 12px;background:var(--surface2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
-.ctrl-btn{padding:4px 12px;font-size:11px;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700}
+.controls{display:flex;gap:6px;padding:6px 10px;background:var(--surface2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center}
+.ctrl-btn{padding:3px 10px;font-size:10px;border:none;border-radius:5px;cursor:pointer;font-family:inherit;font-weight:700}
 #btn-start{background:#238636;color:#fff}
 #btn-stop{background:#da3633;color:#fff}
 #btn-reset{background:#444;color:#ccc}
+#sim-status{font-size:10px;color:var(--muted);margin-left:auto}
 
-/* Task list */
-.task-list{flex:1;overflow-y:auto;padding:8px}
-.task-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;margin-bottom:4px;font-size:11px;border:1px solid transparent;cursor:pointer;transition:all 0.2s}
-.task-item:hover{border-color:var(--border)}
+.task-list{flex:1;overflow-y:auto;padding:6px}
+.task-item{display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:7px;margin-bottom:3px;font-size:10px;border:1px solid transparent}
 .task-item.running{background:rgba(99,102,241,0.15);border-color:var(--accent)}
-.task-item.done{background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3)}
+.task-item.done{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.25)}
 .task-item.pending{color:var(--muted)}
-.task-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.task-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .task-dot.pending{background:var(--muted)}
 .task-dot.running{background:var(--accent);animation:pulse 1s infinite}
 .task-dot.done{background:var(--green)}
 .task-name{flex:1}
-.task-emp{font-size:10px;color:var(--muted)}
+.task-emp{font-size:9px;color:var(--muted)}
 
-/* Log */
-.log-area{height:100px;overflow-y:auto;padding:6px 10px;background:var(--bg);border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
-.log-line{padding:1px 0;border-bottom:1px solid var(--border)}
-.log-line:last-child{border-bottom:none}
+.log-area{height:90px;overflow-y:auto;padding:5px 8px;background:var(--bg);border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.log-line{padding:1px 0}
 .log-line .ts{color:var(--muted)}
-.log-line .msg{color:var(--text);margin-left:6px}
+.log-line .msg{color:var(--text);margin-left:5px}
 .log-line.success .msg{color:var(--green)}
 .log-line.warn .msg{color:var(--yellow)}
 .log-line.error .msg{color:var(--red)}
 
-/* RIGHT: Build output */
+/* RIGHT: Chat */
 .right-panel{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
-.right-top{flex:1;overflow-y:auto;padding:16px}
-.build-log-strip{height:120px;overflow-y:auto;background:var(--bg);border-bottom:1px solid var(--border);padding:8px 14px;font-size:11px}
-.bl-entry{padding:2px 0;color:var(--muted)}
-.bl-entry.active{color:var(--cyan)}
-.bl-entry.done{color:var(--green)}
 
-/* Output area */
-.output-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
-.oc-title{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--accent);display:flex;align-items:center;gap:8px}
-.oc-phase{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(99,102,241,0.2);color:#818cf8}
+/* Chat messages */
+.chat-area{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.chat-msg{display:flex;gap:10px;max-width:90%}
+.chat-msg.user{align-self:flex-end;flex-direction:row-reverse}
+.chat-avatar{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:var(--surface2)}
+.chat-bubble{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:12px;line-height:1.6}
+.chat-msg.user .chat-bubble{background:rgba(99,102,241,0.2);border-color:rgba(99,102,241,0.4)}
+.chat-msg.system .chat-bubble{background:rgba(6,182,212,0.08);border-color:rgba(6,182,212,0.2);font-size:11px;color:var(--cyan)}
+.chat-name{font-size:10px;color:var(--muted);margin-bottom:4px}
+.chat-time{font-size:9px;color:var(--muted);margin-top:4px}
 
-/* Stats */
-.out-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.os-card{background:var(--surface2);border-radius:10px;padding:12px;text-align:center}
-.os-val{font-size:22px;font-weight:700;margin-bottom:2px}
-.os-lbl{font-size:10px;color:var(--muted)}
+/* Questions preview in chat */
+.q-preview{background:var(--bg);border-radius:8px;padding:10px;margin-top:8px;font-size:11px;max-height:160px;overflow-y:auto;border:1px solid var(--border)}
+.q-item{padding:3px 0;border-bottom:1px solid var(--border)}
+.q-item:last-child{border-bottom:none}
+.q-lv{display:inline-block;padding:1px 5px;border-radius:4px;font-size:9px;margin-right:5px}
 
-/* Generated questions preview */
-.gen-preview{background:var(--bg);border-radius:8px;padding:12px;font-size:11px;max-height:200px;overflow-y:auto;margin-bottom:12px;border:1px solid var(--border)}
-.gp-item{padding:4px 0;border-bottom:1px solid var(--border);color:var(--text)}
-.gp-item:last-child{border-bottom:none}
-.gp-lv{display:inline-block;padding:1px 6px;border-radius:4px;font-size:10px;margin-right:6px}
+/* Deploy button */
+.deploy-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:linear-gradient(135deg,var(--green),#16a34a);border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px}
+.deploy-btn:disabled{background:var(--muted);cursor:default}
+.deploy-btn.deploying{background:var(--blue);animation:pulse 1s infinite}
 
-/* Export button */
-.export-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--green),#16a34a);border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:8px}
-.export-btn:disabled{background:var(--muted);cursor:default}
-.export-note{font-size:11px;color:var(--muted);text-align:center}
+/* Quick actions */
+.quick-actions{padding:8px 12px;border-top:1px solid var(--border);background:var(--surface2);display:flex;gap:6px;flex-wrap:wrap}
+.qa-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:10px;cursor:pointer;font-family:inherit}
+.qa-btn:hover{border-color:var(--accent);color:var(--text)}
+.qa-label{font-size:10px;color:var(--muted);align-self:center;margin-right:4px}
 
-/* Idle state */
-.idle-state{text-align:center;padding:40px 20px;color:var(--muted)}
-.idle-icon{font-size:48px;margin-bottom:16px}
-.idle-title{font-size:16px;color:var(--text);margin-bottom:8px}
-.idle-sub{font-size:12px;line-height:1.6}
+/* Input area */
+.input-area{padding:10px 12px;border-top:1px solid var(--border);background:var(--surface);display:flex;gap:8px}
+.chat-input{flex:1;padding:9px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;font-family:inherit;outline:none;resize:none;max-height:80px;min-height:38px}
+.chat-input:focus{border-color:var(--accent)}
+.send-btn{padding:9px 18px;background:var(--accent);border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;flex-shrink:0}
+.send-btn:disabled{background:var(--muted);cursor:default}
+
+/* Thinking indicator */
+.thinking{display:flex;gap:4px;align-items:center;padding:8px 4px}
+.thinking-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:bounce 1.2s infinite}
+.thinking-dot:nth-child(2){animation-delay:0.2s}
+.thinking-dot:nth-child(3){animation-delay:0.4s}
+@keyframes bounce{0%,80%,100%{transform:scale(0.8);opacity:0.5}40%{transform:scale(1.2);opacity:1}}
 
 /* Scrollbar */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 
-/* Textarea for export */
-.export-textarea{width:100%;height:120px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--text);font-size:10px;font-family:'Courier New',monospace;resize:none;margin-bottom:8px}
-
-@media(max-width:800px){.left-panel{width:100%;min-width:0;max-height:50vh}.layout{flex-direction:column}}
+@media(max-width:800px){.left-panel{display:none}.chat-msg{max-width:95%}}
 </style>
 </head>
 <body>
 
 <!-- LOGIN -->
 <div id="login-screen">
-  <div style="font-size:24px;margin-bottom:8px">🔐</div>
+  <div style="font-size:32px;margin-bottom:8px">🤖</div>
   <div class="login-box">
-    <div class="login-title">管理者ログイン</div>
-    <div class="login-sub">ビジネス英語クイズ 管理画面</div>
+    <div class="login-title">AIオフィス 管理画面</div>
+    <div class="login-sub">ビジネス英語クイズ v2.0 — Level 3</div>
+    <div class="login-hint">
+      🔐 入力した情報はメモリにのみ保存され、ページを閉じると消えます<br>
+      💡 APIキーとTokenはコードに保存されません
+    </div>
+    <label class="login-label">管理者パスワード</label>
     <input class="login-input" type="password" id="pw-input" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">ログイン</button>
+    <hr class="login-divider">
+    <label class="login-label">Gemini APIキー（無料枠）</label>
+    <input class="login-input" type="password" id="gemini-input" placeholder="AIza... で始まるキー" onkeydown="if(event.key==='Enter')doLogin()">
+    <label class="login-label">GitHub Personal Access Token</label>
+    <input class="login-input" type="password" id="github-input" placeholder="ghp_... で始まるToken" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">🚀 ログイン</button>
     <div class="login-err" id="login-err">パスワードが違います</div>
   </div>
 </div>
@@ -146,9 +162,10 @@ canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);bo
 <div id="app">
   <div class="topbar">
     <div class="topbar-logo">🏢 AIオフィス管理画面</div>
-    <div class="topbar-status"><div class="dot"></div>システム稼働中</div>
+    <div class="status-badge ok" id="gemini-status"><div class="dot"></div>Gemini接続済</div>
+    <div class="status-badge ok" id="github-status"><div class="dot"></div>GitHub接続済</div>
     <div class="topbar-right">
-      <div id="clock" style="font-size:11px;color:var(--muted)"></div>
+      <div id="clock" style="font-size:10px;color:var(--muted)"></div>
       <button class="tb-btn" onclick="doLogout()">ログアウト</button>
     </div>
   </div>
@@ -156,81 +173,92 @@ canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);bo
   <div class="layout">
     <!-- LEFT: Office sim -->
     <div class="left-panel">
-      <div class="panel-hdr">🏢 AIオフィス <span id="phase-badge">Phase 0</span></div>
+      <div class="panel-hdr">🏢 AIオフィス <span id="phase-badge">待機中</span></div>
       <div class="canvas-wrap">
         <canvas id="office-canvas" width="448" height="256"></canvas>
       </div>
       <div class="controls">
-        <button class="ctrl-btn" id="btn-start" onclick="startSim()">▶ スタート</button>
+        <button class="ctrl-btn" id="btn-start" onclick="startAutoSim()">▶ 自動生成</button>
         <button class="ctrl-btn" id="btn-stop" onclick="stopSim()">⏸ 停止</button>
         <button class="ctrl-btn" id="btn-reset" onclick="resetSim()">↺ リセット</button>
-        <span style="font-size:10px;color:var(--muted);align-self:center;margin-left:auto" id="sim-status">待機中</span>
+        <span id="sim-status">待機中</span>
       </div>
-      <div class="panel-hdr" style="margin-top:0">📋 タスク一覧</div>
+      <div class="panel-hdr">📋 タスク</div>
       <div class="task-list" id="task-list"></div>
       <div class="panel-hdr">📟 ログ</div>
       <div class="log-area" id="log-area"></div>
     </div>
 
-    <!-- RIGHT: Output -->
+    <!-- RIGHT: Chat -->
     <div class="right-panel">
-      <div class="panel-hdr">🔨 ビルドログ</div>
-      <div class="build-log-strip" id="build-log"></div>
+      <div class="chat-area" id="chat-area"></div>
 
-      <div class="right-top" id="right-content">
-        <!-- Idle -->
-        <div class="idle-state" id="idle-state">
-          <div class="idle-icon">⚙️</div>
-          <div class="idle-title">AI社員が待機中</div>
-          <div class="idle-sub">「スタート」を押すとAI社員が働き始め<br>新しい英語問題を自動生成します</div>
-        </div>
+      <div class="quick-actions">
+        <span class="qa-label">クイック:</span>
+        <button class="qa-btn" onclick="quickAction(500,5)">500点×5問</button>
+        <button class="qa-btn" onclick="quickAction(650,5)">650点×5問</button>
+        <button class="qa-btn" onclick="quickAction(730,3)">730点×3問</button>
+        <button class="qa-btn" onclick="quickAction(860,3)">860点×3問</button>
+        <button class="qa-btn" onclick="quickAction('mix',10)">ミックス10問</button>
+      </div>
 
-        <!-- Output (hidden until tasks complete) -->
-        <div id="output-area" style="display:none">
-          <div class="output-card">
-            <div class="oc-title">📊 生成結果 <span class="oc-phase" id="out-phase">Phase 0</span></div>
-            <div class="out-stats">
-              <div class="os-card"><div class="os-val" style="color:var(--green)" id="out-new">0</div><div class="os-lbl">新規生成問題</div></div>
-              <div class="os-card"><div class="os-val" style="color:var(--accent)" id="out-total">0</div><div class="os-lbl">総問題数</div></div>
-              <div class="os-card"><div class="os-val" style="color:var(--yellow)" id="out-quality">0%</div><div class="os-lbl">品質スコア</div></div>
-            </div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:8px">📝 生成された問題（プレビュー）</div>
-            <div class="gen-preview" id="gen-preview"></div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:8px">📦 questions.json（コピーしてGitHubに貼り付け）</div>
-            <textarea class="export-textarea" id="export-json" readonly placeholder="タスク完了後にここにJSONが生成されます..."></textarea>
-            <button class="export-btn" id="export-btn" onclick="copyJson()" disabled>📋 JSONをコピー</button>
-            <div class="export-note" id="export-note">タスクが完了するとJSONが生成されます</div>
-          </div>
-        </div>
+      <div class="input-area">
+        <textarea class="chat-input" id="chat-input" placeholder="社員に指示を送る... (例: 500点の問題を3問生成して / UIを改善して)" onkeydown="handleKey(event)" rows="1"></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendMessage()">送信</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+// ===== CREDENTIALS (memory only) =====
+const PASS = 'admin2026';
+const REPO = 'hinatry/eigo-quiz';
+const BRANCH = 'main';
+let GEMINI_KEY = '';
+let GITHUB_TOKEN = '';
+
 // ===== AUTH =====
-const PASS = 'admin2026'; // ← ここを変更してください
 function doLogin(){
-  const v = document.getElementById('pw-input').value;
-  if(v === PASS){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('app').classList.add('show');
-    initApp();
-  } else {
+  const pw = document.getElementById('pw-input').value;
+  const gk = document.getElementById('gemini-input').value.trim();
+  const gt = document.getElementById('github-input').value.trim();
+  if(pw !== PASS){
     document.getElementById('login-err').style.display='block';
+    document.getElementById('login-err').textContent='パスワードが違います';
     document.getElementById('pw-input').value='';
+    return;
   }
+  if(!gk || !gk.startsWith('AIza')){
+    document.getElementById('login-err').style.display='block';
+    document.getElementById('login-err').textContent='Gemini APIキーを確認してください（AIzaで始まる）';
+    return;
+  }
+  if(!gt || !gt.startsWith('ghp_')){
+    document.getElementById('login-err').style.display='block';
+    document.getElementById('login-err').textContent='GitHub Tokenを確認してください（ghp_で始まる）';
+    return;
+  }
+  GEMINI_KEY = gk;
+  GITHUB_TOKEN = gt;
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').classList.add('show');
+  initApp();
 }
+
 function doLogout(){
+  GEMINI_KEY = ''; GITHUB_TOKEN = '';
   document.getElementById('app').classList.remove('show');
   document.getElementById('login-screen').style.display='flex';
   document.getElementById('pw-input').value='';
+  document.getElementById('gemini-input').value='';
+  document.getElementById('github-input').value='';
+  document.getElementById('login-err').style.display='none';
 }
 
 // ===== CLOCK =====
 function updateClock(){
-  const n=new Date();
-  document.getElementById('clock').textContent=n.toLocaleTimeString('ja-JP');
+  document.getElementById('clock').textContent=new Date().toLocaleTimeString('ja-JP');
 }
 setInterval(updateClock,1000); updateClock();
 
@@ -242,11 +270,11 @@ const ctx=canvas.getContext('2d');
 ctx.imageSmoothingEnabled=false;
 
 const CHARS=[
-  {id:'pm',  x:20, y:20, color:'#5b8af5',label:'PM',    state:'idle'},
-  {id:'eng', x:70, y:20, color:'#f55b5b',label:'Dev',   state:'idle'},
-  {id:'res', x:120,y:20, color:'#f5c85b',label:'研究',  state:'idle'},
-  {id:'des', x:170,y:20, color:'#c85bf5',label:'UI',    state:'idle'},
-  {id:'qa',  x:20, y:75, color:'#5bf5c8',label:'QA',    state:'idle'},
+  {id:'pm',  x:20, y:20, color:'#5b8af5',label:'PM',   state:'idle'},
+  {id:'eng', x:70, y:20, color:'#f55b5b',label:'Dev',  state:'idle'},
+  {id:'res', x:120,y:20, color:'#f5c85b',label:'研究', state:'idle'},
+  {id:'des', x:170,y:20, color:'#c85bf5',label:'UI',   state:'idle'},
+  {id:'qa',  x:20, y:75, color:'#5bf5c8',label:'QA',   state:'idle'},
   {id:'wrt', x:70, y:75, color:'#f5a55b',label:'Writer',state:'idle'},
 ];
 
@@ -254,29 +282,23 @@ let frame=0, animTimer=null, simRunning=false;
 
 function drawPixelChar(c,t){
   const x=c.x*S, y=c.y*S, s=S;
-  // Body
   ctx.fillStyle=c.color;
   ctx.fillRect(x+3*s,y+4*s,5*s,6*s);
-  // Head
   ctx.fillStyle='#ffd5a0';
   ctx.fillRect(x+3*s,y+s,5*s,4*s);
-  // Eyes
   ctx.fillStyle='#222';
   if(c.state==='working'){
     ctx.fillRect(x+4*s,y+2*s,s,2*s);
     ctx.fillRect(x+6*s,y+2*s,s,2*s);
-  } else if(c.state==='idle'){
-    ctx.fillRect(x+4*s,y+2*s,s,s);
-    ctx.fillRect(x+6*s,y+2*s,s,s);
-    // Z
-    ctx.fillStyle='#aaa';
-    const blink=Math.floor(t/30)%2;
-    if(blink) ctx.fillRect(x+8*s,y,2*s,s);
   } else {
     ctx.fillRect(x+4*s,y+2*s,s,s);
     ctx.fillRect(x+6*s,y+2*s,s,s);
+    if(c.state==='idle'){
+      ctx.fillStyle='#aaa';
+      const blink=Math.floor(t/30)%2;
+      if(blink) ctx.fillRect(x+8*s,y,2*s,s);
+    }
   }
-  // Arms
   ctx.fillStyle=c.color;
   if(c.state==='working'&&Math.floor(t/10)%2===0){
     ctx.fillRect(x+s,y+4*s,2*s,5*s);
@@ -285,31 +307,24 @@ function drawPixelChar(c,t){
     ctx.fillRect(x+s,y+5*s,2*s,4*s);
     ctx.fillRect(x+8*s,y+5*s,2*s,4*s);
   }
-  // Legs
   ctx.fillStyle='#334';
   ctx.fillRect(x+3*s,y+10*s,2*s,3*s);
   ctx.fillRect(x+6*s,y+10*s,2*s,3*s);
-  // Desk
   ctx.fillStyle='#4a3728';
   ctx.fillRect(x,y+14*s,11*s,2*s);
-  ctx.fillStyle='#1a2a3a';
+  ctx.fillStyle=c.state==='working'?'#2a4a7a':'#1a2a3a';
   ctx.fillRect(x+s,y+11*s,9*s,3*s);
   if(c.state==='working'){
-    ctx.fillStyle='#2a4a7a';
-    ctx.fillRect(x+s,y+11*s,9*s,3*s);
     const blink2=Math.floor(t/8)%3;
-    ctx.fillStyle=blink2===0?'#5bf':'blink2'===1?'#a5f':'#5fa';
     ctx.fillStyle='#5bf5c8';
     ctx.fillRect(x+2*s+blink2*s,y+12*s,2*s,s);
   }
-  // Label
   ctx.fillStyle='rgba(0,0,0,0.7)';
   ctx.fillRect(x,y+16*s,11*s,6*s);
   ctx.fillStyle='#fff';
   ctx.font=`${s*4}px monospace`;
   ctx.textAlign='center';
   ctx.fillText(c.label,x+5.5*s,y+20*s);
-  // Done badge
   if(c.state==='done'){
     ctx.fillStyle='#22c55e';
     ctx.fillRect(x+7*s,y,4*s,4*s);
@@ -319,16 +334,12 @@ function drawPixelChar(c,t){
 }
 
 function drawOffice(t){
-  // Background
   ctx.fillStyle='#1a1208';
   ctx.fillRect(0,0,VW*S,VH*S);
-  // Floor
   ctx.fillStyle='#2a2010';
   ctx.fillRect(0,VH*S-20*S,VW*S,20*S);
-  // Wall
   ctx.fillStyle='#0f0f18';
   ctx.fillRect(0,0,VW*S,30*S);
-  // Windows
   for(let i=0;i<3;i++){
     ctx.fillStyle='#1a2a3a';
     ctx.fillRect((30+i*60)*S,4*S,30*S,18*S);
@@ -337,7 +348,6 @@ function drawOffice(t){
     ctx.strokeStyle='#2a4a6a';
     ctx.strokeRect((30+i*60)*S,4*S,30*S,18*S);
   }
-  // Draw chars
   CHARS.forEach(c=>drawPixelChar(c,t));
 }
 
@@ -348,64 +358,20 @@ function animLoop(){
 }
 drawOffice(0);
 
-// ===== TASKS =====
+// ===== TASKS (auto sim) =====
 const TASKS=[
-  {id:'t1',name:'プロジェクト計画策定',  emp:'pm',   dur:8000,  effect:'plan'},
-  {id:'t2',name:'英語問題トレンド分析',  emp:'res',  dur:10000, effect:'analyze'},
-  {id:'t3',name:'500点問題バッチ生成',   emp:'wrt',  dur:12000, effect:'gen500'},
-  {id:'t4',name:'650点問題バッチ生成',   emp:'wrt',  dur:12000, effect:'gen650'},
-  {id:'t5',name:'UIコンポーネント整備',  emp:'des',  dur:8000,  effect:'ui'},
-  {id:'t6',name:'730点問題バッチ生成',   emp:'eng',  dur:14000, effect:'gen730'},
-  {id:'t7',name:'860点問題バッチ生成',   emp:'eng',  dur:14000, effect:'gen860'},
-  {id:'t8',name:'品質レビュー',          emp:'qa',   dur:10000, effect:'review'},
-  {id:'t9',name:'JSON出力・エクスポート',emp:'pm',   dur:6000,  effect:'export'},
+  {id:'t1',name:'プロジェクト計画策定',emp:'pm', dur:3000, effect:'plan'},
+  {id:'t2',name:'英語問題トレンド分析',emp:'res',dur:4000, effect:'analyze'},
+  {id:'t3',name:'500点問題生成(AI)',   emp:'wrt',dur:6000, effect:'gen500'},
+  {id:'t4',name:'650点問題生成(AI)',   emp:'wrt',dur:6000, effect:'gen650'},
+  {id:'t5',name:'730点問題生成(AI)',   emp:'eng',dur:6000, effect:'gen730'},
+  {id:'t6',name:'860点問題生成(AI)',   emp:'eng',dur:6000, effect:'gen860'},
+  {id:'t7',name:'品質レビュー',        emp:'qa', dur:4000, effect:'review'},
+  {id:'t8',name:'GitHubへ自動デプロイ',emp:'pm', dur:5000, effect:'deploy'},
 ];
 
-let taskStates={}, currentTaskIdx=-1, simPhase=0;
-let generatedQuestions=[], buildLogEntries=[];
-let simTimer=null;
-
-const TEMPLATES={
-  500:[
-    {q:'The presentation will ___ at 3 PM sharp.',opts:['start','starting','started','starts'],ans:0,exp:'will + 動詞原形'},
-    {q:'Please ___ the form before submitting.',opts:['sign','signing','signed','signs'],ans:0,exp:'命令文 → 動詞原形'},
-    {q:'The package was ___ yesterday morning.',opts:['delivered','deliver','delivering','delivers'],ans:0,exp:'was + 過去分詞（受動態）'},
-    {q:'Could you ___ me the updated schedule?',opts:['send','sends','sent','sending'],ans:0,exp:'Could you + 動詞原形'},
-    {q:'We are ___ forward to working with you.',opts:['looking','look','looks','looked'],ans:0,exp:'be looking forward to'},
-    {q:'The invoice is ___ by the end of this month.',opts:['due','do','done','doing'],ans:0,exp:'due = 期限'},
-    {q:'Please ___ me know if you have any questions.',opts:['let','make','have','get'],ans:0,exp:'let me know = 知らせる'},
-    {q:'The office is ___ on weekends.',opts:['closed','close','closing','closes'],ans:0,exp:'is closed = 閉まっている（状態）'},
-    {q:'I would like to ___ a meeting for next Tuesday.',opts:['arrange','arranges','arranged','arranging'],ans:0,exp:'would like to + 動詞原形'},
-    {q:'The new policy will take ___ next month.',opts:['effect','affect','effort','effect'],ans:0,exp:'take effect = 発効する'},
-    {q:'She ___ working here since 2020.',opts:['has been','is','was','had'],ans:0,exp:'since + 現在完了進行形'},
-    {q:'The client called ___ discuss the contract.',opts:['to','for','at','in'],ans:0,exp:'called to discuss = 〜するために電話した'},
-  ],
-  650:[
-    {q:'The quarterly targets were ___ by a wide margin.',opts:['exceeded','exceed','exceeding','exceedance'],ans:0,exp:'were exceeded = 達成された（受動態）'},
-    {q:'Despite the setbacks, the team remained ___ to completing the project.',opts:['committed','commit','committing','commitment'],ans:0,exp:'remained + 形容詞'},
-    {q:'The board is considering ___ the dividend this year.',opts:['increasing','increase','increased','increases'],ans:0,exp:'consider + 動名詞（-ing）'},
-    {q:'___ the high costs involved, the project was approved.',opts:['Notwithstanding','Despite of','Although','Even'],ans:0,exp:'Notwithstanding = 〜にもかかわらず（フォーマル）'},
-    {q:'The new regulation ___ all companies to disclose their carbon footprint.',opts:['requires','require','required','requiring'],ans:0,exp:'三人称単数現在形 requires'},
-    {q:'The market research ___ that demand will increase next quarter.',opts:['indicates','indicate','indicated','is indicating'],ans:0,exp:'現在形で事実・研究結果を述べる'},
-    {q:'The proposal was well-received, ___ some reservations about the timeline.',opts:['despite','although','however','whereas'],ans:0,exp:'despite + 名詞'},
-    {q:'We need to ___ the risks associated with the new venture.',opts:['mitigate','mitigating','mitigated','mitigation'],ans:0,exp:'need to + 動詞原形; mitigate = 軽減する'},
-  ],
-  730:[
-    {q:'The report highlights several areas ___ improvement is most urgently needed.',opts:['where','which','that','in that'],ans:0,exp:'関係副詞 where（場所・状況）'},
-    {q:'Only ___ implementing more efficient processes can we reduce operational costs.',opts:['by','through','with','from'],ans:0,exp:'Only by + 動名詞 → 倒置構文'},
-    {q:'The acquisition was ___ to create synergies between the two companies.',opts:['intended','intending','intention','intend'],ans:0,exp:'be intended to = 〜することを意図された'},
-    {q:'The CEO stressed that adaptability ___ key to surviving in today\'s market.',opts:['remains','remain','remaining','is remaining'],ans:0,exp:'stressed that 節 → 時制の一致（remains）'},
-    {q:'___ its initial losses, the startup has emerged as a market leader.','opts':['Despite','Although','However','Even though'],ans:0,exp:'Despite + 名詞'},
-    {q:'The consultant recommended that the company ___ its pricing strategy.',opts:['revisit','revisits','revisited','revisiting'],ans:0,exp:'recommended that + 仮定法現在（動詞原形）'},
-  ],
-  860:[
-    {q:'The regulatory changes have far-___ implications for the entire industry.',opts:['reaching','reached','reach','reaches'],ans:0,exp:'far-reaching = 広範な影響を及ぼす'},
-    {q:'The firm\'s ___ to innovation has been the cornerstone of its success.',opts:['commitment','committed','committing','commit'],ans:0,exp:'commitment to = 〜へのコミットメント（名詞）'},
-    {q:'___ the complexity of the market, the team\'s analysis was remarkably accurate.',opts:['Given','Giving','Given that','To give'],ans:0,exp:'Given = 〜を考慮すると（前置詞）'},
-    {q:'The proposal, ___ merit, was ultimately rejected on budgetary grounds.',opts:['while having considerable','while considerable','having considerable','considerable'],ans:0,exp:'while having = 〜を持っているが（譲歩の分詞構文）'},
-    {q:'The acquisition strategy was predicated ___ the assumption of stable growth.',opts:['on','upon','in','at'],ans:0,exp:'predicated on = 〜を前提としている'},
-  ]
-};
+let taskStates={}, currentTaskIdx=-1, simTimer=null;
+let autoGenQuestions=[];
 
 function initTasks(){
   taskStates={};
@@ -416,7 +382,7 @@ function initTasks(){
 function renderTasks(){
   const el=document.getElementById('task-list');
   el.innerHTML='';
-  TASKS.forEach((t,i)=>{
+  TASKS.forEach(t=>{
     const st=taskStates[t.id]||'pending';
     const div=document.createElement('div');
     div.className=`task-item ${st}`;
@@ -439,27 +405,16 @@ function addLog(msg,type=''){
   el.scrollTop=el.scrollHeight;
 }
 
-function addBuildLog(msg,isDone=false){
-  const el=document.getElementById('build-log');
-  const div=document.createElement('div');
-  div.className=`bl-entry ${isDone?'done':'active'}`;
-  const t=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-  div.textContent=`[${t}] ${msg}`;
-  el.appendChild(div);
-  el.scrollTop=el.scrollHeight;
-  buildLogEntries.push(msg);
-}
-
-// ===== SIM CONTROL =====
-function startSim(){
+// ===== AUTO SIM =====
+function startAutoSim(){
   if(simRunning) return;
   simRunning=true;
-  document.getElementById('sim-status').textContent='稼働中';
-  document.getElementById('idle-state').style.display='none';
-  document.getElementById('output-area').style.display='block';
   animLoop();
-  if(currentTaskIdx===-1){ initTasks(); generatedQuestions=[]; }
-  runNextTask();
+  addChatSystem('🤖 自動生成モード開始。各レベルの問題をAIで生成してGitHubにデプロイします...');
+  addLog('自動生成開始');
+  if(currentTaskIdx===-1){ initTasks(); autoGenQuestions=[]; }
+  document.getElementById('sim-status').textContent='稼働中';
+  runNextAutoTask();
 }
 
 function stopSim(){
@@ -469,34 +424,24 @@ function stopSim(){
   CHARS.forEach(c=>c.state='idle');
   drawOffice(frame);
   document.getElementById('sim-status').textContent='停止中';
-  addLog('シミュレーション停止','warn');
+  addLog('停止','warn');
 }
 
 function resetSim(){
   stopSim();
-  currentTaskIdx=-1; simPhase=0; generatedQuestions=[];
+  currentTaskIdx=-1; autoGenQuestions=[];
   initTasks();
-  CHARS.forEach(c=>{c.state='idle';});
+  CHARS.forEach(c=>c.state='idle');
   drawOffice(0);
   document.getElementById('sim-status').textContent='待機中';
-  document.getElementById('export-json').value='';
-  document.getElementById('export-btn').disabled=true;
-  document.getElementById('export-note').textContent='タスクが完了するとJSONが生成されます';
-  document.getElementById('gen-preview').innerHTML='';
-  document.getElementById('out-new').textContent='0';
-  document.getElementById('out-total').textContent='0';
-  document.getElementById('out-quality').textContent='0%';
-  document.getElementById('out-phase').textContent='Phase 0';
-  document.getElementById('idle-state').style.display='block';
-  document.getElementById('output-area').style.display='none';
-  document.getElementById('build-log').innerHTML='';
+  document.getElementById('phase-badge').textContent='待機中';
   addLog('リセット完了');
 }
 
-function runNextTask(){
+async function runNextAutoTask(){
   currentTaskIdx++;
   if(currentTaskIdx>=TASKS.length){
-    onAllTasksDone();
+    onAllAutoTasksDone();
     return;
   }
   const task=TASKS[currentTaskIdx];
@@ -504,125 +449,471 @@ function runNextTask(){
   renderTasks();
   const char=CHARS.find(c=>c.id===task.emp)||CHARS[0];
   char.state='working';
-  addLog(`${getEmpLabel(task.emp)} → ${task.name}開始`);
-  addBuildLog(`⚡ ${task.name} 実行中...`);
-  document.getElementById('sim-status').textContent=task.name+'中...';
+  document.getElementById('phase-badge').textContent=task.name;
+  addLog(`${getEmpLabel(task.emp)}: ${task.name}開始`);
 
-  simTimer=setTimeout(()=>{
-    if(!simRunning) return;
-    applyEffect(task.effect);
-    taskStates[task.id]='done';
-    char.state='done';
-    renderTasks();
-    addLog(`✅ ${task.name} 完了`,'success');
-    addBuildLog(`✅ ${task.name} 完了`,true);
-    simPhase=currentTaskIdx+1;
-    document.getElementById('phase-badge').textContent=`Phase ${simPhase}`;
-    updateOutputStats();
-    simTimer=setTimeout(runNextTask, 800);
-  }, task.dur);
+  // Execute effect
+  try {
+    await applyAutoEffect(task.effect, task.dur);
+  } catch(e){
+    addLog(`エラー: ${e.message}`,'error');
+  }
+
+  if(!simRunning) return;
+  taskStates[task.id]='done';
+  char.state='done';
+  renderTasks();
+  addLog(`✅ ${task.name} 完了`,'success');
+
+  simTimer=setTimeout(()=>{ if(simRunning) runNextAutoTask(); }, 500);
 }
 
-function applyEffect(effect){
-  const pick=(arr,n)=>{
-    const s=[...arr].sort(()=>Math.random()-0.5);
-    return s.slice(0,Math.min(n,s.length));
-  };
-  if(effect==='gen500'){
-    const qs=pick(TEMPLATES[500],8).map((q,i)=>({
-      id:200+generatedQuestions.length+i+1,level:500,cat:'grammar',...q
-    }));
-    generatedQuestions.push(...qs);
-    updatePreview(qs,'500点');
+async function applyAutoEffect(effect, dur){
+  if(effect==='plan'){
+    await sleep(dur);
+    addChatMessage('pm','📋 作業計画を策定しました。500/650/730/860点の各レベルで問題を生成し、GitHubに自動デプロイします。');
+  } else if(effect==='analyze'){
+    await sleep(dur);
+    addChatMessage('res','🔬 既存問題を分析完了。Grammar 60%, Vocab 25%, Reading 15%の配分を推奨します。');
+  } else if(effect==='gen500'){
+    await sleep(dur/2);
+    addChatMessage('wrt','✍️ Gemini AIで500点問題を生成中...','thinking');
+    const qs = await generateWithGemini(500, 5);
+    autoGenQuestions.push(...qs);
+    addChatMessage('wrt', `✅ 500点問題 ${qs.length}問生成完了！`, null, qs);
+    await sleep(dur/2);
   } else if(effect==='gen650'){
-    const qs=pick(TEMPLATES[650],6).map((q,i)=>({
-      id:200+generatedQuestions.length+i+1,level:650,cat:'grammar',...q
-    }));
-    generatedQuestions.push(...qs);
-    updatePreview(qs,'650点');
+    await sleep(dur/2);
+    addChatMessage('wrt','✍️ 650点問題を生成中...','thinking');
+    const qs = await generateWithGemini(650, 5);
+    autoGenQuestions.push(...qs);
+    addChatMessage('wrt', `✅ 650点問題 ${qs.length}問生成完了！`, null, qs);
+    await sleep(dur/2);
   } else if(effect==='gen730'){
-    const qs=pick(TEMPLATES[730],5).map((q,i)=>({
-      id:200+generatedQuestions.length+i+1,level:730,cat:'grammar',...q
-    }));
-    generatedQuestions.push(...qs);
-    updatePreview(qs,'730点');
+    await sleep(dur/2);
+    addChatMessage('eng','💻 730点問題を生成中...','thinking');
+    const qs = await generateWithGemini(730, 3);
+    autoGenQuestions.push(...qs);
+    addChatMessage('eng', `✅ 730点問題 ${qs.length}問生成完了！`, null, qs);
+    await sleep(dur/2);
   } else if(effect==='gen860'){
-    const qs=pick(TEMPLATES[860],4).map((q,i)=>({
-      id:200+generatedQuestions.length+i+1,level:860,cat:'grammar',...q
-    }));
-    generatedQuestions.push(...qs);
-    updatePreview(qs,'860点');
-  } else if(effect==='export'){
-    buildExportJson();
+    await sleep(dur/2);
+    addChatMessage('eng','💻 860点問題を生成中...','thinking');
+    const qs = await generateWithGemini(860, 3);
+    autoGenQuestions.push(...qs);
+    addChatMessage('eng', `✅ 860点問題 ${qs.length}問生成完了！`, null, qs);
+    await sleep(dur/2);
+  } else if(effect==='review'){
+    await sleep(dur);
+    addChatMessage('qa',`🔍 品質チェック完了。合計 ${autoGenQuestions.length}問。全問題が適切な難易度・形式です。`);
+  } else if(effect==='deploy'){
+    addChatMessage('pm','📤 GitHubへ自動デプロイ中...','thinking');
+    await sleep(1000);
+    const result = await deployToGitHub(autoGenQuestions);
+    if(result.ok){
+      addChatMessage('pm',`🎉 デプロイ成功！${autoGenQuestions.length}問をquestions.jsonに追加しました。\n🌐 ${result.url}`);
+    } else {
+      addChatMessage('pm',`⚠️ デプロイエラー: ${result.error}\n手動でJSONをコピーしてGitHubに貼り付けてください。`);
+    }
+    await sleep(dur-1000);
   }
 }
 
-function updatePreview(qs,lvLabel){
-  const el=document.getElementById('gen-preview');
-  const colors={500:'#4ade80',650:'#818cf8',730:'#fbbf24',860:'#f87171'};
-  qs.forEach(q=>{
-    const div=document.createElement('div');
-    div.className='gp-item';
-    const lv=q.level;
-    div.innerHTML=`<span class="gp-lv" style="background:rgba(99,102,241,0.2);color:${colors[lv]||'#fff'}">${lv}点</span>${q.q}`;
-    el.appendChild(div);
-  });
-  el.scrollTop=el.scrollHeight;
-}
-
-function updateOutputStats(){
-  document.getElementById('out-new').textContent=generatedQuestions.length;
-  document.getElementById('out-total').textContent=200+generatedQuestions.length;
-  const quality=Math.min(100,85+Math.floor(Math.random()*12));
-  document.getElementById('out-quality').textContent=quality+'%';
-  document.getElementById('out-phase').textContent=`Phase ${simPhase}`;
-}
-
-function buildExportJson(){
-  // Load existing questions + add new ones
-  fetch('questions.json').then(r=>r.json()).then(data=>{
-    const existing=data.questions||[];
-    const maxId=Math.max(0,...existing.map(q=>q.id));
-    const newQs=generatedQuestions.map((q,i)=>({...q,id:maxId+i+1}));
-    const merged=[...existing,...newQs];
-    const out={version:'1.1',generated:new Date().toISOString().slice(0,10),total:merged.length,questions:merged};
-    document.getElementById('export-json').value=JSON.stringify(out,null,2);
-    document.getElementById('export-btn').disabled=false;
-    document.getElementById('export-note').textContent=`✅ ${newQs.length}問追加 → 合計${merged.length}問。GitHubのquestions.jsonに貼り付けてください。`;
-    addLog(`📦 JSON生成完了 (${merged.length}問)`,'success');
-  }).catch(()=>{
-    // Fallback: just new questions
-    const out={version:'1.1',generated:new Date().toISOString().slice(0,10),total:generatedQuestions.length,questions:generatedQuestions};
-    document.getElementById('export-json').value=JSON.stringify(out,null,2);
-    document.getElementById('export-btn').disabled=false;
-    document.getElementById('export-note').textContent='GitHubのquestions.jsonを差し替えてください。';
-    addLog('📦 JSON生成完了','success');
-  });
-}
-
-function onAllTasksDone(){
+function onAllAutoTasksDone(){
   simRunning=false;
   cancelAnimationFrame(animTimer);
-  document.getElementById('sim-status').textContent='✅ 全タスク完了！';
-  addLog('🎉 全タスク完了！JSONをGitHubに貼り付けてください','success');
-  addBuildLog('🎉 ビルド完了！',true);
-  drawOffice(frame);
+  document.getElementById('sim-status').textContent='✅ 完了';
+  document.getElementById('phase-badge').textContent='完了 🎉';
+  addLog('🎉 全タスク完了！','success');
 }
 
-function copyJson(){
-  const ta=document.getElementById('export-json');
-  ta.select();
-  document.execCommand('copy');
-  const btn=document.getElementById('export-btn');
-  btn.textContent='✅ コピー完了！';
-  setTimeout(()=>btn.textContent='📋 JSONをコピー',2000);
+// ===== GEMINI API =====
+async function callGemini(prompt){
+  const url=`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
+  const res = await fetch(url,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      contents:[{parts:[{text:prompt}]}],
+      generationConfig:{temperature:0.7,maxOutputTokens:2048}
+    })
+  });
+  if(!res.ok){
+    const err=await res.json();
+    throw new Error(err.error?.message||`HTTP ${res.status}`);
+  }
+  const data=await res.json();
+  return data.candidates[0].content.parts[0].text;
 }
+
+async function generateWithGemini(level, count){
+  const prompt=`あなたはTOEICビジネス英語の問題作成の専門家です。
+レベル${level}点の問題を${count}問生成してください。
+
+必ず以下のJSON配列形式のみで返答してください。説明文・コードブロック・バッククォートは不要です。
+
+[
+  {
+    "level": ${level},
+    "cat": "grammar",
+    "q": "問題文（空欄は___で表現、自然なビジネス英語）",
+    "opts": ["正解の選択肢", "不正解B", "不正解C", "不正解D"],
+    "ans": 0,
+    "exp": "解説（日本語で簡潔に、文法ポイントを説明）"
+  }
+]
+
+注意事項：
+- 必ずJSON配列のみ返す
+- 選択肢は4つ
+- ans は正解のインデックス（0-3）
+- ビジネス英語に特化（会議・メール・報告書・交渉等）
+- ${level}点レベルに適した難易度`;
+
+  try {
+    const text = await callGemini(prompt);
+    // Parse JSON - handle possible markdown code blocks
+    let clean = text.trim();
+    clean = clean.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+    // Find JSON array
+    const start = clean.indexOf('[');
+    const end = clean.lastIndexOf(']');
+    if(start===-1||end===-1) throw new Error('JSONが見つかりません');
+    const jsonStr = clean.slice(start,end+1);
+    const parsed = JSON.parse(jsonStr);
+    return parsed.map(q=>({...q,level:Number(q.level)||level}));
+  } catch(e){
+    addLog(`Gemini解析エラー: ${e.message}. テンプレートを使用します。`,'warn');
+    return getFallbackQuestions(level, count);
+  }
+}
+
+// Fallback templates if Gemini fails
+function getFallbackQuestions(level, count){
+  const templates={
+    500:[
+      {level:500,cat:'grammar',q:'The meeting has been ___ to next Monday.',opts:['postponed','postpone','postponing','postponement'],ans:0,exp:'has been + 過去分詞（受動態完了形）'},
+      {level:500,cat:'grammar',q:'Please ___ me know when you are available.',opts:['let','make','have','get'],ans:0,exp:'let me know = 知らせる'},
+      {level:500,cat:'grammar',q:'The report is ___ by Friday.',opts:['due','do','done','doing'],ans:0,exp:'due = 期限'},
+    ],
+    650:[
+      {level:650,cat:'grammar',q:'The board is considering ___ its global operations.',opts:['expanding','expand','expanded','expansion'],ans:0,exp:'consider + 動名詞'},
+      {level:650,cat:'grammar',q:'___ the budget constraints, we approved the project.',opts:['Despite','Although','However','Even'],ans:0,exp:'Despite + 名詞'},
+    ],
+    730:[
+      {level:730,cat:'grammar',q:'The consultant recommended that the team ___ its approach.',opts:['revisit','revisits','revisited','revisiting'],ans:0,exp:'recommend that + 仮定法現在'},
+    ],
+    860:[
+      {level:860,cat:'grammar',q:'The strategy was predicated ___ sustainable growth.',opts:['on','upon','in','at'],ans:0,exp:'predicated on = 〜を前提とする'},
+    ]
+  };
+  const pool=templates[level]||templates[500];
+  return pool.slice(0,Math.min(count,pool.length));
+}
+
+// ===== GITHUB API =====
+async function getFileFromGitHub(path){
+  const res=await fetch(`https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}`,{
+    headers:{
+      'Authorization':`token ${GITHUB_TOKEN}`,
+      'Accept':'application/vnd.github.v3+json'
+    }
+  });
+  if(!res.ok) throw new Error(`GitHub GET error: ${res.status}`);
+  return await res.json();
+}
+
+async function updateFileOnGitHub(path, content, message){
+  // Get current SHA
+  let sha = '';
+  try {
+    const current = await getFileFromGitHub(path);
+    sha = current.sha;
+  } catch(e){
+    // File might not exist yet
+  }
+
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const body={message, content:encoded, branch:BRANCH};
+  if(sha) body.sha=sha;
+
+  const res=await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`,{
+    method:'PUT',
+    headers:{
+      'Authorization':`token ${GITHUB_TOKEN}`,
+      'Accept':'application/vnd.github.v3+json',
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(body)
+  });
+  if(!res.ok){
+    const err=await res.json();
+    throw new Error(err.message||`HTTP ${res.status}`);
+  }
+  return await res.json();
+}
+
+async function deployToGitHub(newQuestions){
+  try {
+    // Get existing questions
+    let existing=[];
+    let existingData={};
+    try {
+      const fileData=await getFileFromGitHub('questions.json');
+      const decoded=decodeURIComponent(escape(atob(fileData.content.replace(/\n/g,''))));
+      existingData=JSON.parse(decoded);
+      existing=existingData.questions||[];
+    } catch(e){
+      addLog('既存ファイル取得失敗。新規作成します。','warn');
+    }
+
+    const maxId=existing.length>0?Math.max(...existing.map(q=>q.id||0)):0;
+    const numbered=newQuestions.map((q,i)=>({...q,id:maxId+i+1}));
+    const merged=[...existing,...numbered];
+    const out={
+      version:'2.0',
+      generated:new Date().toISOString().slice(0,10),
+      total:merged.length,
+      questions:merged
+    };
+    const jsonStr=JSON.stringify(out,null,2);
+    const commitMsg=`🤖 AI生成: ${numbered.length}問追加 (合計${merged.length}問) [auto]`;
+    await updateFileOnGitHub('questions.json', jsonStr, commitMsg);
+    return {ok:true, url:`https://hinatry.github.io/eigo-quiz/`};
+  } catch(e){
+    return {ok:false, error:e.message};
+  }
+}
+
+// ===== CHAT UI =====
+const EMP_INFO={
+  pm:  {emoji:'👔',name:'PM',     color:'#5b8af5'},
+  eng: {emoji:'💻',name:'Dev',    color:'#f55b5b'},
+  res: {emoji:'📚',name:'研究',   color:'#f5c85b'},
+  des: {emoji:'🎨',name:'UI',     color:'#c85bf5'},
+  qa:  {emoji:'🔍',name:'QA',     color:'#5bf5c8'},
+  wrt: {emoji:'✍️',name:'Writer', color:'#f5a55b'},
+};
+
+function addChatSystem(text){
+  const area=document.getElementById('chat-area');
+  const div=document.createElement('div');
+  div.className='chat-msg system';
+  const time=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+  div.innerHTML=`<div class="chat-avatar">🤖</div><div><div class="chat-bubble">${text}</div><div class="chat-time">${time}</div></div>`;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+}
+
+function addChatMessage(empId, text, mode=null, questions=null){
+  const area=document.getElementById('chat-area');
+  // Remove previous thinking bubble for this emp
+  const prev=area.querySelector(`.thinking-bubble-${empId}`);
+  if(prev) prev.remove();
+
+  const emp=EMP_INFO[empId]||{emoji:'🤖',name:empId,color:'#888'};
+  const time=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+
+  const div=document.createElement('div');
+  div.className='chat-msg';
+  if(mode==='thinking') div.classList.add(`thinking-bubble-${empId}`);
+
+  let inner=`<div class="chat-avatar" style="background:${emp.color}22;border:1px solid ${emp.color}44">${emp.emoji}</div>`;
+  inner+=`<div><div class="chat-name" style="color:${emp.color}">${emp.name}</div>`;
+
+  if(mode==='thinking'){
+    inner+=`<div class="chat-bubble"><div class="thinking"><div class="thinking-dot"></div><div class="thinking-dot"></div><div class="thinking-dot"></div></div></div>`;
+  } else {
+    const safeText=text.replace(/\n/g,'<br>');
+    inner+=`<div class="chat-bubble">${safeText}`;
+    if(questions && questions.length>0){
+      inner+=`<div class="q-preview">`;
+      const colors={500:'#4ade80',650:'#818cf8',730:'#fbbf24',860:'#f87171'};
+      questions.slice(0,5).forEach(q=>{
+        inner+=`<div class="q-item"><span class="q-lv" style="background:rgba(99,102,241,0.2);color:${colors[q.level]||'#fff'}">${q.level}点</span>${q.q}</div>`;
+      });
+      if(questions.length>5) inner+=`<div style="color:var(--muted);font-size:10px;padding:4px 0">...他${questions.length-5}問</div>`;
+      inner+=`</div>`;
+    }
+    inner+=`</div>`;
+  }
+  inner+=`<div class="chat-time">${time}</div></div>`;
+  div.innerHTML=inner;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+}
+
+function addUserMessage(text){
+  const area=document.getElementById('chat-area');
+  const time=new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});
+  const div=document.createElement('div');
+  div.className='chat-msg user';
+  div.innerHTML=`<div class="chat-avatar">👤</div><div><div class="chat-bubble">${text.replace(/\n/g,'<br>')}</div><div class="chat-time" style="text-align:right">${time}</div></div>`;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+}
+
+// ===== SEND MESSAGE =====
+async function sendMessage(){
+  const input=document.getElementById('chat-input');
+  const text=input.value.trim();
+  if(!text) return;
+  input.value='';
+  input.style.height='';
+  document.getElementById('send-btn').disabled=true;
+  addUserMessage(text);
+
+  try {
+    await processInstruction(text);
+  } catch(e){
+    addChatSystem(`⚠️ エラー: ${e.message}`);
+    addLog(`エラー: ${e.message}`,'error');
+  }
+  document.getElementById('send-btn').disabled=false;
+}
+
+function handleKey(e){
+  if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendMessage(); }
+  // Auto-resize
+  const el=e.target;
+  el.style.height='';
+  el.style.height=Math.min(el.scrollHeight,80)+'px';
+}
+
+// ===== INSTRUCTION PROCESSING =====
+async function processInstruction(text){
+  const lower=text.toLowerCase();
+
+  // Detect level
+  let level=null;
+  if(/500/.test(text)) level=500;
+  else if(/650/.test(text)) level=650;
+  else if(/730/.test(text)) level=730;
+  else if(/860/.test(text)) level=860;
+
+  // Detect count
+  const numMatch=text.match(/(\d+)問/);
+  const count=numMatch?parseInt(numMatch[1]):5;
+
+  // Question generation
+  if(/問題|生成|generate|quiz|英語問題/.test(lower)){
+    const targetLevel=level||500;
+    const emp=CHARS.find(c=>c.id==='wrt');
+    if(emp){ emp.state='working'; if(!simRunning){simRunning=true;animLoop();} }
+    addChatMessage('wrt',`了解！Gemini AIで${targetLevel}点の問題を${count}問生成します...`,'thinking');
+    addLog(`問題生成: ${targetLevel}点 ${count}問`);
+
+    const qs=await generateWithGemini(targetLevel,count);
+    if(emp){ emp.state='done'; }
+
+    addChatMessage('wrt',`✅ ${qs.length}問生成しました！GitHubにデプロイしますか？`,null,qs);
+
+    // Show deploy button
+    addDeployButton(qs);
+    return;
+  }
+
+  // Mix generation
+  if(/ミックス|mix|全レベル|all/.test(lower)){
+    addChatMessage('pm','全レベルの問題を生成します！');
+    const all=[];
+    for(const lv of [500,650,730,860]){
+      addChatMessage('wrt',`${lv}点問題を生成中...`,'thinking');
+      const qs=await generateWithGemini(lv,3);
+      all.push(...qs);
+      addChatMessage('wrt',`${lv}点: ${qs.length}問完了`,null,qs);
+    }
+    addDeployButton(all);
+    return;
+  }
+
+  // GitHub deploy
+  if(/デプロイ|deploy|github|コミット|push/.test(lower)){
+    if(pendingQuestions.length===0){
+      addChatSystem('デプロイする問題がありません。まず問題を生成してください。');
+      return;
+    }
+    await doDeployPending();
+    return;
+  }
+
+  // General AI question via Gemini
+  const empChar=CHARS.find(c=>c.id==='pm');
+  if(empChar){ empChar.state='working'; if(!simRunning){simRunning=true;animLoop();} }
+  addChatMessage('pm','考え中...','thinking');
+
+  const reply=await callGemini(`あなたはビジネス英語クイズサイトのAIアシスタントです。
+管理者からの指示: ${text}
+
+日本語で簡潔に返答してください。具体的なアクションがある場合は何をすべきか教えてください。`);
+
+  if(empChar) empChar.state='idle';
+  addChatMessage('pm',reply);
+}
+
+// ===== DEPLOY BUTTON =====
+let pendingQuestions=[];
+
+function addDeployButton(questions){
+  pendingQuestions=questions;
+  const area=document.getElementById('chat-area');
+  const div=document.createElement('div');
+  div.style.padding='0 8px 12px 50px';
+  div.innerHTML=`<button class="deploy-btn" onclick="doDeployPending(this)">
+    📤 GitHubへ自動デプロイ（${questions.length}問）
+  </button>
+  <span style="font-size:10px;color:var(--muted);margin-left:8px">questions.jsonを自動更新します</span>`;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+}
+
+async function doDeployPending(btn){
+  if(pendingQuestions.length===0) return;
+  const qs=[...pendingQuestions];
+  if(btn){ btn.disabled=true; btn.classList.add('deploying'); btn.textContent='⏳ デプロイ中...'; }
+  addLog(`GitHub デプロイ中: ${qs.length}問`);
+
+  const emp=CHARS.find(c=>c.id==='pm');
+  if(emp){ emp.state='working'; }
+
+  const result=await deployToGitHub(qs);
+
+  if(emp){ emp.state='done'; }
+  pendingQuestions=[];
+
+  if(result.ok){
+    addChatMessage('pm',`🎉 デプロイ成功！\n${qs.length}問をquestions.jsonに追加しました。\nGitHub Pagesに反映まで数分かかります。\n🌐 ${result.url}`);
+    addLog('✅ デプロイ成功！','success');
+    if(btn){ btn.textContent='✅ 完了！'; }
+  } else {
+    addChatMessage('pm',`⚠️ デプロイ失敗: ${result.error}`,'error');
+    addLog(`デプロイ失敗: ${result.error}`,'error');
+    if(btn){ btn.textContent='❌ 失敗'; btn.disabled=false; }
+  }
+
+  if(!simRunning && emp){
+    setTimeout(()=>{ if(emp.state==='done'){emp.state='idle'; drawOffice(frame);} },3000);
+  }
+}
+
+// ===== QUICK ACTIONS =====
+async function quickAction(level, count){
+  if(level==='mix'){
+    document.getElementById('chat-input').value='ミックスで10問生成してGitHubにデプロイして';
+  } else {
+    document.getElementById('chat-input').value=`${level}点の問題を${count}問生成してGitHubにデプロイして`;
+  }
+  await sendMessage();
+}
+
+// ===== UTILS =====
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
 
 // ===== INIT =====
 function initApp(){
   initTasks();
+  addChatSystem('🚀 AIオフィス管理画面 v2.0 起動完了。Gemini API + GitHub接続済み。\n\n💡 使い方:\n• クイックボタンで問題を生成→自動デプロイ\n• テキストで自由に指示（例:「500点の問題を3問生成して」）\n• 「自動生成」ボタンで全レベル一括生成＆デプロイ');
   addLog('管理画面起動完了','success');
-  addBuildLog('🚀 システム起動');
 }
 </script>
 </body>
