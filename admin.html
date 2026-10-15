@@ -194,12 +194,18 @@ canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);bo
       <div class="chat-area" id="chat-area"></div>
 
       <div class="quick-actions">
-        <span class="qa-label">クイック:</span>
+        <span class="qa-label">生成:</span>
         <button class="qa-btn" onclick="quickAction(500,5)">500点×5問</button>
         <button class="qa-btn" onclick="quickAction(650,5)">650点×5問</button>
         <button class="qa-btn" onclick="quickAction(730,3)">730点×3問</button>
         <button class="qa-btn" onclick="quickAction(860,3)">860点×3問</button>
         <button class="qa-btn" onclick="quickAction('mix',10)">ミックス10問</button>
+      </div>
+      <div class="quick-actions" style="border-top:none;padding-top:2px">
+        <span class="qa-label">調査:</span>
+        <button class="qa-btn" style="border-color:#06b6d4;color:#06b6d4" onclick="quickSearch('最近のTOEIC出題傾向と頻出テーマを調べて、このサイトで次に作るべき問題を提案して')">📰 TOEIC最新傾向</button>
+        <button class="qa-btn" style="border-color:#f59e0b;color:#f59e0b" onclick="quickSearch('このTOEICビジネス英語クイズサイトの収益化方法を具体的に教えて')">💰 収益化相談</button>
+        <button class="qa-btn" style="border-color:#22c55e;color:#22c55e" onclick="quickSearch('ビジネス英語学習の最新トレンドとユーザーが求めているコンテンツを調べて')">🌐 市場調査</button>
       </div>
 
       <div class="input-area">
@@ -528,22 +534,28 @@ function onAllAutoTasksDone(){
 }
 
 // ===== GEMINI API =====
-async function callGemini(prompt){
+async function callGemini(prompt, useSearch=false){
   const url=`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
+  const body = {
+    contents:[{parts:[{text:prompt}]}],
+    generationConfig:{temperature:0.7,maxOutputTokens:4096}
+  };
+  if(useSearch){
+    body.tools=[{google_search:{}}];
+  }
   const res = await fetch(url,{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      contents:[{parts:[{text:prompt}]}],
-      generationConfig:{temperature:0.7,maxOutputTokens:2048}
-    })
+    body:JSON.stringify(body)
   });
   if(!res.ok){
     const err=await res.json();
     throw new Error(err.error?.message||`HTTP ${res.status}`);
   }
   const data=await res.json();
-  return data.candidates[0].content.parts[0].text;
+  // Extract text (grounding response may have different structure)
+  const parts = data.candidates[0].content.parts;
+  return parts.map(p=>p.text||'').join('');
 }
 
 async function generateWithGemini(level, count){
@@ -837,6 +849,60 @@ async function processInstruction(text){
     return;
   }
 
+  // Web search / trend analysis
+  const isWebSearch = /傾向|トレンド|最近|調べ|検索|web|ニュース|情報収集|出題|動向/.test(lower);
+  // Monetization / business consultation
+  const isBusiness = /稼|収益|マネタイズ|ビジネス|お金|収入|販売|売上|課金|有料|広告/.test(lower);
+
+  if(isWebSearch){
+    const empChar=CHARS.find(c=>c.id==='res');
+    if(empChar){ empChar.state='working'; if(!simRunning){simRunning=true;animLoop();} }
+    addChatMessage('res','🔍 Webを検索しながら調査中...','thinking');
+    addLog('Web検索グラウンディング使用中');
+
+    const prompt=`あなたはTOEIC・ビジネス英語の専門研究者です。
+以下の質問に対して、最新のWeb情報を参照しながら日本語で詳しく回答してください。
+
+質問: ${text}
+
+回答には以下を含めてください：
+- 具体的な最新データや傾向
+- このビジネス英語クイズサイトへの活用提案
+- 次に生成すべき問題カテゴリの提案`;
+
+    const reply = await callGemini(prompt, true); // useSearch=true
+    if(empChar) empChar.state='done';
+    addChatMessage('res', reply);
+    addLog('Web検索完了','success');
+    return;
+  }
+
+  if(isBusiness){
+    const empChar=CHARS.find(c=>c.id==='pm');
+    if(empChar){ empChar.state='working'; if(!simRunning){simRunning=true;animLoop();} }
+    addChatMessage('pm','💰 収益化戦略を検討中...','thinking');
+
+    const prompt=`あなたはEdTech（教育テック）スタートアップのビジネスコンサルタントです。
+以下のサービスについて収益化アドバイスをしてください。
+
+サービス概要:
+- TOEICビジネス英語クイズサイト（無料）
+- URL: https://hinatry.github.io/eigo-quiz/
+- GitHub Pages（静的サイト）でホスティング
+- Gemini AIで問題を自動生成
+- 現在は完全無料、ユーザー登録なし
+
+相談内容: ${text}
+
+日本語で、具体的で実現可能な収益化案を3〜5個提案してください。
+各案について：難易度・初期コスト・月収見込みも教えてください。`;
+
+    const reply = await callGemini(prompt, true);
+    if(empChar) empChar.state='idle';
+    addChatMessage('pm', reply);
+    return;
+  }
+
   // General AI question via Gemini
   const empChar=CHARS.find(c=>c.id==='pm');
   if(empChar){ empChar.state='working'; if(!simRunning){simRunning=true;animLoop();} }
@@ -858,13 +924,25 @@ function addDeployButton(questions){
   pendingQuestions=questions;
   const area=document.getElementById('chat-area');
   const div=document.createElement('div');
+  div.id='deploy-action-row';
   div.style.padding='0 8px 12px 50px';
-  div.innerHTML=`<button class="deploy-btn" onclick="doDeployPending(this)">
-    📤 GitHubへ自動デプロイ（${questions.length}問）
+  div.innerHTML=`<button class="deploy-btn" onclick="doDeployPending(this)" id="deploy-btn-main">
+    📤 GitHubへデプロイ（${questions.length}問）
   </button>
-  <span style="font-size:10px;color:var(--muted);margin-left:8px">questions.jsonを自動更新します</span>`;
+  <button onclick="discardQuestions()" style="margin-left:8px;padding:7px 14px;background:transparent;border:1px solid var(--red);border-radius:8px;color:var(--red);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">
+    🗑 破棄
+  </button>
+  <div style="font-size:10px;color:var(--muted);margin-top:4px">生成内容を確認してからデプロイできます</div>`;
   area.appendChild(div);
   area.scrollTop=area.scrollHeight;
+}
+
+function discardQuestions(){
+  pendingQuestions=[];
+  const row=document.getElementById('deploy-action-row');
+  if(row) row.remove();
+  addChatSystem('🗑 生成した問題を破棄しました。再度生成できます。');
+  addLog('問題を破棄','warn');
 }
 
 async function doDeployPending(btn){
@@ -897,12 +975,20 @@ async function doDeployPending(btn){
   }
 }
 
+// ===== QUICK SEARCH =====
+async function quickSearch(query){
+  document.getElementById('chat-input').value = query;
+  await sendMessage();
+}
+
 // ===== QUICK ACTIONS =====
 async function quickAction(level, count){
+  const label = level==='mix' ? `全レベルミックス ${count}問` : `${level}点 ${count}問`;
+  if(!confirm(`${label}を生成しますか？\n（生成後、内容を確認してからデプロイできます）`)) return;
   if(level==='mix'){
-    document.getElementById('chat-input').value='ミックスで10問生成してGitHubにデプロイして';
+    document.getElementById('chat-input').value='ミックスで10問生成して';
   } else {
-    document.getElementById('chat-input').value=`${level}点の問題を${count}問生成してGitHubにデプロイして`;
+    document.getElementById('chat-input').value=`${level}点の問題を${count}問生成して`;
   }
   await sendMessage();
 }
