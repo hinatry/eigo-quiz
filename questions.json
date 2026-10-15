@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "generated": "2026-10-15",
-  "total": 203,
+  "total": 206,
   "questions": [
     {
       "id": 1,
@@ -2844,6 +2844,48 @@
       "ans": 0,
       "exp": "due = 期限",
       "id": 203
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 204
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 205
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 206
     }
   ]
 }
