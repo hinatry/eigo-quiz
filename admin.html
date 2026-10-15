@@ -229,9 +229,9 @@ function doLogin(){
     document.getElementById('pw-input').value='';
     return;
   }
-  if(!gk || !gk.startsWith('AIza')){
+  if(!gk || gk.length < 10){
     document.getElementById('login-err').style.display='block';
-    document.getElementById('login-err').textContent='Gemini APIキーを確認してください（AIzaで始まる）';
+    document.getElementById('login-err').textContent='Gemini APIキーを入力してください';
     return;
   }
   if(!gt || !gt.startsWith('ghp_')){
