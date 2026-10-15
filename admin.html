@@ -869,6 +869,7 @@ function addDeployButton(questions){
 
 async function doDeployPending(btn){
   if(pendingQuestions.length===0) return;
+  if(!confirm(`${pendingQuestions.length}問をGitHubにデプロイしますか？\nquestions.jsonが自動更新されます。`)) return;
   const qs=[...pendingQuestions];
   if(btn){ btn.disabled=true; btn.classList.add('deploying'); btn.textContent='⏳ デプロイ中...'; }
   addLog(`GitHub デプロイ中: ${qs.length}問`);
