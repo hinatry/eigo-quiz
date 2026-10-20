@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "generated": "2026-10-15",
-  "total": 206,
+  "generated": "2026-10-20",
+  "total": 292,
   "questions": [
     {
       "id": 1,
@@ -2886,6 +2886,1210 @@
       "ans": 0,
       "exp": "due = 期限",
       "id": 206
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Ms. Davis ___ reviewed the financial report before submitting it to the director.",
+      "opts": [
+        "careful",
+        "carefully",
+        "caring",
+        "carefulness"
+      ],
+      "ans": 1,
+      "exp": "動詞 reviewed を修飾するには副詞が必要です。形容詞 careful の副詞形である carefully（慎重に）が正解です。",
+      "id": 207
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees are requested to submit ___ weekly timesheets by Friday afternoon.",
+      "opts": [
+        "their",
+        "them",
+        "they",
+        "theirs"
+      ],
+      "ans": 0,
+      "exp": "名詞句 weekly timesheets（週次勤務表）の前には所有格が入ります。したがって their（彼らの）が正解です。",
+      "id": 208
+    },
+    {
+      "level": 500,
+      "cat": "vocabulary",
+      "q": "The marketing team decided to ___ the new product launch until next month.",
+      "opts": [
+        "cancel",
+        "postpone",
+        "arrive",
+        "refuse"
+      ],
+      "ans": 1,
+      "exp": "「来月まで新製品の発売を〜することを決定した」という文脈から、「延期する」という意味の postpone が最も適切です。",
+      "id": 209
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Mr. Tanaka could not attend the conference ___ he had an urgent client meeting.",
+      "opts": [
+        "because",
+        "although",
+        "during",
+        "despite"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに節（主語＋動詞）が続いており、会議に出席できなかった「理由」を表しているため、接続詞の because が正解です。",
+      "id": 210
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The updated safety guidelines will be ___ to all staff members tomorrow.",
+      "opts": [
+        "distributed",
+        "distribute",
+        "distributing",
+        "distribution"
+      ],
+      "ans": 0,
+      "exp": "助動詞 will と be動詞の後ろで受動態（配布される予定である）を完成させるため、過去分詞の distributed が正解です。",
+      "id": 211
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Mr. Tanaka will ___ review the quarterly sales report before the meeting.",
+      "opts": [
+        "prompt",
+        "promptly",
+        "promptness",
+        "prompted"
+      ],
+      "ans": 1,
+      "exp": "助動詞 will と動詞の原形 review の間には、動詞を修飾する副詞が入ります。正解は「迅速に」を意味する副詞の promptly です。",
+      "id": 212
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees must submit ___ travel expense forms by Friday afternoon.",
+      "opts": [
+        "they",
+        "them",
+        "their",
+        "theirs"
+      ],
+      "ans": 2,
+      "exp": "空欄の後ろにある名詞 travel expense forms（出張経費申請書）を修飾するため、所有格代名詞の their（彼らの）が正解です。",
+      "id": 213
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The final proposal must be delivered to the client ___ 5:00 P.M. tomorrow.",
+      "opts": [
+        "by",
+        "until",
+        "for",
+        "during"
+      ],
+      "ans": 0,
+      "exp": "「〜までに（完了する）」という期限を表すには前置詞 by を用います。until は「〜までずっと（継続する）」という意味になるため文脈に合いません。",
+      "id": 214
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The annual marketing conference will be ___ in Chicago next month.",
+      "opts": [
+        "holds",
+        "holding",
+        "hold",
+        "held"
+      ],
+      "ans": 3,
+      "exp": "主語の conference（会議）は「開催される」対象なので受動態（will be + 過去分詞）にします。hold の過去分詞形である held が正解です。",
+      "id": 215
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The shipment was delayed ___ heavy snow in the northern region.",
+      "opts": [
+        "because",
+        "because of",
+        "although",
+        "even though"
+      ],
+      "ans": 1,
+      "exp": "空欄の後に heavy snow（大雪）という名詞句が続いているため、前置詞が必要です。「〜が原因で」という意味の前置詞句 because of が正解です（because は接続詞なので後ろに節が続きます）。",
+      "id": 216
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Mr. Tanaka ___ reviewed the quarterly sales report before the morning meeting.",
+      "opts": [
+        "carefully",
+        "careful",
+        "care",
+        "caring"
+      ],
+      "ans": 0,
+      "exp": "動詞 reviewed を修飾するためには副詞が必要です。選択肢の中で副詞は carefully（慎重に）のみです。",
+      "id": 217
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees must submit ___ travel expense reports by Friday afternoon.",
+      "opts": [
+        "them",
+        "their",
+        "they",
+        "theirs"
+      ],
+      "ans": 1,
+      "exp": "後ろの名詞句 travel expense reports（出張経費報告書）を修飾する所有格代名詞 their（彼らの）が正解です。",
+      "id": 218
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The presentation was delayed ___ technical issues in the main conference room.",
+      "opts": [
+        "although",
+        "because",
+        "because of",
+        "even though"
+      ],
+      "ans": 2,
+      "exp": "空欄の後ろに名詞句 technical issues が続いているため、前置詞の働きをする because of（〜が原因で）が適切です。",
+      "id": 219
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The new security system was successfully ___ in the office building yesterday.",
+      "opts": [
+        "installing",
+        "installation",
+        "installed",
+        "install"
+      ],
+      "ans": 2,
+      "exp": "be動詞 was と副詞 successfully に続く受動態の文を作るため、過去分詞の installed（設置された）が正解です。",
+      "id": 220
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please send a confirmation email to the client upon ___ of the signed contract.",
+      "opts": [
+        "receipt",
+        "reception",
+        "receive",
+        "receivingly"
+      ],
+      "ans": 0,
+      "exp": "前置詞 upon の後ろには名詞が来ます。「〜の受領次第」を意味する定型表現 upon receipt が適切です。",
+      "id": 221
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees should read the safety guidelines ___ before operating the new machinery.",
+      "opts": [
+        "carefully",
+        "careful",
+        "care",
+        "caring"
+      ],
+      "ans": 0,
+      "exp": "動詞 read を修飾するためには副詞が必要です。選択肢の中で副詞は carefully（注意深く）となります。",
+      "id": 222
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Mr. Tanaka submitted ___ quarterly sales report to the branch manager yesterday morning.",
+      "opts": [
+        "him",
+        "his",
+        "himself",
+        "he"
+      ],
+      "ans": 1,
+      "exp": "名詞句 quarterly sales report の前で所有格として名詞を修飾する代名詞が必要です。したがって his（彼の）が正解です。",
+      "id": 223
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The marketing department will ___ a new promotional campaign next Monday.",
+      "opts": [
+        "launch",
+        "launched",
+        "launching",
+        "launches"
+      ],
+      "ans": 0,
+      "exp": "助動詞 will の後には動詞の原形が続きます。したがって原形の launch（開始する）が正解です。",
+      "id": 224
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The main conference room is reserved for the client presentation ___ 2:00 PM to 4:00 PM.",
+      "opts": [
+        "between",
+        "from",
+        "at",
+        "during"
+      ],
+      "ans": 1,
+      "exp": "「AからBまで」を表す定番の前置詞の相関表現「from A to B」の形を作ります。to と呼応する from が正解です。",
+      "id": 225
+    },
+    {
+      "level": 500,
+      "cat": "vocabulary",
+      "q": "Please contact customer support immediately if you do not ___ your order within five business days.",
+      "opts": [
+        "receive",
+        "attend",
+        "inform",
+        "decide"
+      ],
+      "ans": 0,
+      "exp": "文脈上、「5営業日以内に注文の品を『受け取らない』場合」となるため、receive（受け取る）が最も自然で適切です。",
+      "id": 226
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees are requested to submit ___ travel expense reports by Friday.",
+      "opts": [
+        "their",
+        "them",
+        "theirs",
+        "they"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろにある名詞句「travel expense reports（出張経費報告書）」を修飾する所有格の代名詞が必要です。したがって、their（彼らの）が正解です。",
+      "id": 227
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The marketing director will review the proposal ___ before making a final decision.",
+      "opts": [
+        "careful",
+        "carefully",
+        "carefulness",
+        "caring"
+      ],
+      "ans": 1,
+      "exp": "動詞句「review the proposal（提案書を検討する）」を修飾するためには副詞が必要です。形容詞 careful に -ly がついた副詞 carefully（慎重に）が正解です。",
+      "id": 228
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The annual sales conference was ___ in Chicago last month.",
+      "opts": [
+        "held",
+        "hold",
+        "holding",
+        "holds"
+      ],
+      "ans": 0,
+      "exp": "主語である「年次営業会議」は開催される側なので受動態（be動詞 ＋ 過去分詞）にします。was に続く hold の過去分詞 held が正解です。",
+      "id": 229
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Ms. Davis sent a written ___ of the meeting schedule to all department heads.",
+      "opts": [
+        "confirmation",
+        "confirm",
+        "confirmed",
+        "confirming"
+      ],
+      "ans": 0,
+      "exp": "冠詞「a」と形容詞「written」の直後には名詞が置かれます。選択肢の中で名詞は confirmation（確認、確認書）のみなのでこれが正解です。",
+      "id": 230
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please turn off all lights ___ leaving the conference room.",
+      "opts": [
+        "before",
+        "during",
+        "between",
+        "already"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに動名詞 leaving が続いており、「会議室を出る前に」という時間的順序を表す前置詞 before が適切です。during は後ろに動名詞を取ることができません。",
+      "id": 231
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The maintenance team worked ___ to restore the factory's power supply before the morning shift began.",
+      "opts": [
+        "efficient",
+        "efficiently",
+        "efficiency",
+        "efficiencies"
+      ],
+      "ans": 1,
+      "exp": "動詞 worked を修飾する副詞が必要です。選択肢の中で副詞は (B) efficiently（効率的に）のみです。efficiency は名詞、efficient は形容詞です。",
+      "id": 232
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the unexpected delay in shipping, all customer orders were delivered by the end of the week.",
+      "opts": [
+        "Despite",
+        "Although",
+        "Even though",
+        "Whereas"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに名詞句 the unexpected delay in shipping が続いているため、前置詞が必要です。Despite（〜にもかかわらず）が前置詞として正解です。Although、Even though、Whereas は接続詞のため後ろに節（主語＋動詞）が続きます。",
+      "id": 233
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "Ms. Tanaka requested that all department managers submit ___ quarterly expense reports by Friday.",
+      "opts": [
+        "them",
+        "theirs",
+        "their",
+        "they"
+      ],
+      "ans": 2,
+      "exp": "空欄の後ろにある名詞句 quarterly expense reports を修飾する所有格の代名詞が必要です。したがって、(C) their（彼らの）が正解です。",
+      "id": 234
+    },
+    {
+      "level": 650,
+      "cat": "vocabulary",
+      "q": "Due to a sudden increase in demand, the manufacturer plans to ___ its production capacity next month.",
+      "opts": [
+        "postpone",
+        "reserve",
+        "cancel",
+        "expand"
+      ],
+      "ans": 3,
+      "exp": "「需要の急増により、製造業者は来月、生産能力を拡大する計画である」という文脈が自然です。expand（〜を拡大する）が正解です。postpone は「延期する」、reserve は「予約する」、cancel は「中止する」の意。",
+      "id": 235
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "Employees interested in attending the leadership seminar must register ___ next Wednesday.",
+      "opts": [
+        "until",
+        "by",
+        "for",
+        "during"
+      ],
+      "ans": 1,
+      "exp": "「来週の水曜日までに登録しなければならない」という期限（締め切り）を表すため、前置詞 by が適切です。until は「〜までずっと（継続）」を表すため、一度の動作である register（登録する）と組み合わせることはできません。",
+      "id": 236
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The quarterly financial report was ___ reviewed by the external auditing team before being submitted to the board.",
+      "opts": [
+        "thoroughly",
+        "thorough",
+        "thoroughness",
+        "more thorough"
+      ],
+      "ans": 0,
+      "exp": "受動態「was ___ reviewed」の間に入り、動詞 reviewed を修飾できるのは副詞です。したがって、副詞の thoroughly（徹底的に）が正解です。",
+      "id": 237
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the unexpected flight delay, Ms. Jenkins arrived at the client's headquarters in time for the product demonstration.",
+      "opts": [
+        "Although",
+        "Despite",
+        "Even though",
+        "However"
+      ],
+      "ans": 1,
+      "exp": "空欄の後には名詞句「the unexpected flight delay」が続いています。譲歩の意味を持ち、名詞句を伴う前置詞の Despite（〜にもかかわらず）が正解です。Although と Even though は接続詞のため後ろに主語＋動詞が続きます。",
+      "id": 238
+    },
+    {
+      "level": 650,
+      "cat": "vocabulary",
+      "q": "Employees are reminded to submit all travel expense receipts ___ two weeks of returning from a business trip.",
+      "opts": [
+        "between",
+        "within",
+        "during",
+        "among"
+      ],
+      "ans": 1,
+      "exp": "「〜以内に」という期間の制限を表す前置詞は within です。during は「〜の間（特定の期間）」を表し、two weeks のような明確な数値表現と直接組み合わせるのには適しません。",
+      "id": 239
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The new marketing strategy is designed to increase customer ___ in the company's eco-friendly products.",
+      "opts": [
+        "confident",
+        "confidential",
+        "confidence",
+        "confidently"
+      ],
+      "ans": 2,
+      "exp": "動詞 increase の目的語となる名詞が必要です。customer confidence で「顧客の信頼・信頼感」という自然な複合名詞を作ることができるため、名詞の confidence が正解です。",
+      "id": 240
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "Mr. Tanaka will finalize the supplier contract ___ he receives the signed agreement from the legal department.",
+      "opts": [
+        "as soon as",
+        "so that",
+        "in order to",
+        "as well as"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに節（主語＋動詞）が続いており、文脈として「法務部から署名入り合意書を受け取り次第、契約を完了させる」となるため、時を表す接続詞 as soon as（〜するとすぐに）が正解です。",
+      "id": 241
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The updated safety regulations must be ___ implemented across all manufacturing facilities by the end of this month.",
+      "opts": [
+        "strict",
+        "strictly",
+        "strictness",
+        "stricter"
+      ],
+      "ans": 1,
+      "exp": "助動詞 must be と過去分詞 implemented の間に位置し、動詞を修飾する副詞を選ぶ問題です。副詞の strictly（厳格に）が文法的に適切です。",
+      "id": 242
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the severe weather conditions, the logistics team successfully delivered all shipments on schedule.",
+      "opts": [
+        "Even though",
+        "Although",
+        "Despite",
+        "In spite"
+      ],
+      "ans": 2,
+      "exp": "空欄の後に名詞句 the severe weather conditions が続いているため、前置詞が必要です。Despite は名詞句を従えて「〜にもかかわらず」という意味を表します（In spite は of が必要）。",
+      "id": 243
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "All employees planning to attend the annual conference are requested to submit ___ registration forms by Friday.",
+      "opts": [
+        "theirs",
+        "their",
+        "them",
+        "they"
+      ],
+      "ans": 1,
+      "exp": "空欄直後の名詞 registration forms（登録用紙）を修飾する所有格代名詞を選ぶ問題です。「彼らの」を意味する their が適切です。",
+      "id": 244
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The proposal submitted by the design team was ___ evaluated before the final contract was signed.",
+      "opts": [
+        "careful",
+        "carefulness",
+        "care",
+        "carefully"
+      ],
+      "ans": 3,
+      "exp": "受動態 was evaluated（評価された）の間に割り込み、過去分詞を修飾する副詞を選ぶ問題です。副詞 carefully（慎重に、入念に）が正解となります。",
+      "id": 245
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "If the product ___ all quality assurance tests, it will be released to the market next quarter.",
+      "opts": [
+        "passes",
+        "passed",
+        "will pass",
+        "passing"
+      ],
+      "ans": 0,
+      "exp": "条件を表す副詞節（If節）の中では、未来の事柄であっても現在形を用います。主語 the product が三人称単数であるため、三単現の passes が適切です。",
+      "id": 246
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The new inventory management software was ___ beneficial to the logistics team, saving them several hours each week.",
+      "opts": [
+        "immensely",
+        "immense",
+        "immensity",
+        "immenseness"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろにある形容詞「beneficial（有益な）」を修飾するためには副詞が必要です。選択肢の中で副詞は (A) immensely（非常に、大いに）のみです。",
+      "id": 247
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the severe weather conditions, the delivery of the electronic components arrived ahead of schedule.",
+      "opts": [
+        "Although",
+        "Despite",
+        "Even though",
+        "However"
+      ],
+      "ans": 1,
+      "exp": "空欄の後ろには名詞句「the severe weather conditions」が続いているため、前置詞が必要です。(B) Despiteは「〜にもかかわらず」という意味の前置詞で文意も通ります。(A)(C)は接続詞、(D)は接続副詞のため不可です。",
+      "id": 248
+    },
+    {
+      "level": 650,
+      "cat": "vocabulary",
+      "q": "All newly hired personnel must ___ the mandatory compliance training program before the end of the month.",
+      "opts": [
+        "complete",
+        "reserve",
+        "expire",
+        "hesitate"
+      ],
+      "ans": 0,
+      "exp": "文脈上、「すべての新入社員は月末までに義務付けられたコンプライアンストレーニング研修を完了しなければならない」となるため、(A) complete（完了する、修了する）が適切です。",
+      "id": 249
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The final budget proposal for the next fiscal year ___ by the board of directors during yesterday's meeting.",
+      "opts": [
+        "approves",
+        "was approved",
+        "is approving",
+        "has approved"
+      ],
+      "ans": 1,
+      "exp": "主語「The final budget proposal」は承認される側（受動態）であり、文末に「yesterday's meeting」と過去を表す表現があるため、過去の受動態である (B) was approved が正解です。",
+      "id": 250
+    },
+    {
+      "level": 650,
+      "cat": "vocabulary",
+      "q": "Candidates interested in the marketing director position should submit their applications ___ November 15.",
+      "opts": [
+        "prior to",
+        "among",
+        "alongside",
+        "between"
+      ],
+      "ans": 0,
+      "exp": "特定の日付（11月15日）の前に提出するという文脈から、「〜より前に」を意味する複合前置詞 (A) prior to が正解です。amongは3つ以上の間、betweenは2つの間を表します。",
+      "id": 251
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 252
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 253
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 254
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 255
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 256
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 257
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The marketing director announced that sales of the new software had increased ___ following the nationwide promotional campaign.",
+      "opts": [
+        "substantial",
+        "substance",
+        "substantially",
+        "substantiate"
+      ],
+      "ans": 2,
+      "exp": "動詞句「had increased」を修飾するためには副詞が必要です。選択肢の中で副詞は「substantially（大幅に）」のみです。",
+      "id": 258
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ the unexpected delay in raw material shipments, the production team managed to fulfill the client's order ahead of schedule.",
+      "opts": [
+        "Even though",
+        "Despite",
+        "Regardless",
+        "In order to"
+      ],
+      "ans": 1,
+      "exp": "空欄の後ろに名詞句「the unexpected delay...」が続いているため前置詞が必要です。「Despite（〜にもかかわらず）」が文意・文法ともに適切です。Even thoughは接続詞のため節が続きます。",
+      "id": 259
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The compliance officer recommended that every branch manager ___ the revised workplace safety protocols immediately.",
+      "opts": [
+        "implements",
+        "implemented",
+        "implementing",
+        "implement"
+      ],
+      "ans": 3,
+      "exp": "提案・要求を表す動詞「recommend」に続くthat節内では、主語に関わらず「(should +) 動詞の原形」が用いられる仮定法現在の語法です。正解は「implement」です。",
+      "id": 260
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "Mr. Vance scheduled a briefing with the overseas suppliers, ___ cooperation is considered vital to the upcoming expansion project.",
+      "opts": [
+        "whose",
+        "whom",
+        "which",
+        "what"
+      ],
+      "ans": 0,
+      "exp": "先行詞「the overseas suppliers」と名詞「cooperation」をつなぎ、「そのサプライヤーたちの協力」という所有関係を表す関係代名詞「whose」が正解です。",
+      "id": 261
+    },
+    {
+      "level": 730,
+      "cat": "vocabulary",
+      "q": "All financial records submitted for the internal audit must be kept ___ confidential until the final review is complete.",
+      "opts": [
+        "solidly",
+        "narrowly",
+        "strictly",
+        "roughly"
+      ],
+      "ans": 2,
+      "exp": "ビジネス英語で「厳重に極秘で」を表す定型コロケーションは「strictly confidential」です。「solidly（強固に）」「narrowly（かろうじて）」などは不適切です。",
+      "id": 262
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ severe budget constraints, the marketing team managed to launch a highly successful promotional campaign.",
+      "opts": [
+        "Although",
+        "Despite",
+        "Even though",
+        "Nevertheless"
+      ],
+      "ans": 1,
+      "exp": "空欄の後に名詞句（severe budget constraints）が続いているため、逆接を表す前置詞が必要です。Despiteは前置詞で「〜にもかかわらず」を意味します。AlthoughとEven thoughは接続詞、Neverthelessは副詞のため不可です。",
+      "id": 263
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "Please review the ___ contract carefully before sending it to the client for final signature.",
+      "opts": [
+        "revision",
+        "revise",
+        "revised",
+        "revising"
+      ],
+      "ans": 2,
+      "exp": "名詞contractを修飾する分詞を選ぶ問題です。文脈上「修正された契約書」という受動の意味になるため、過去分詞のrevisedが適切です。",
+      "id": 264
+    },
+    {
+      "level": 730,
+      "cat": "vocabulary",
+      "q": "Management organized an all-hands meeting to ___ the concerns raised by employees regarding the upcoming restructuring.",
+      "opts": [
+        "address",
+        "refuse",
+        "cancel",
+        "postpone"
+      ],
+      "ans": 0,
+      "exp": "「懸念に対処する」というビジネスで頻出のコロケーション（address concerns）です。addressには「（問題・懸念などに）取り組む、対処する」という意味があります。",
+      "id": 265
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The human resources director interviewed three candidates, none of ___ had the required certifications for the technical position.",
+      "opts": [
+        "who",
+        "whom",
+        "which",
+        "whose"
+      ],
+      "ans": 1,
+      "exp": "人を先行詞（three candidates）とし、前置詞ofの目的語となる関係代名詞には目的格のwhomを用います。「none of whom」で「彼らのうち誰も〜ない」という意味を成します。",
+      "id": 266
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The expansion into the European market will proceed as scheduled, ___ the necessary funding is approved by the board.",
+      "opts": [
+        "in spite of",
+        "as well as",
+        "prior to",
+        "provided that"
+      ],
+      "ans": 3,
+      "exp": "空欄の後ろに節（S+V）が続いているため接続詞が必要です。provided thatは「〜という条件で、もし〜ならば（if）」を意味する接続詞で、条件を表す文脈に合致します。他の選択肢はすべて前置詞句です。",
+      "id": 267
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The marketing director recommended that all regional sales managers ___ their quarterly reports before the upcoming board meeting.",
+      "opts": [
+        "submit",
+        "submitted",
+        "submits",
+        "will submit"
+      ],
+      "ans": 0,
+      "exp": "提案・要求を表す動詞recommendに続くthat節内では、主語にかかわらず動詞の原形（仮定法現在／shouldの省略）を用います。",
+      "id": 268
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "___ the unforeseen delay in shipping raw materials, the production facility managed to fulfill the client's order ahead of schedule.",
+      "opts": [
+        "Although",
+        "Despite",
+        "Because",
+        "In case"
+      ],
+      "ans": 1,
+      "exp": "空欄の後には名詞句（the unforeseen delay...）が続いており、譲歩（〜にもかかわらず）を表す前置詞が必要です。Althoughは接続詞のため後ろに主語＋動詞が必要となり不可です。",
+      "id": 269
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "Apex Solutions has hired an external consultant to evaluate ___ the current inventory system can be upgraded cost-effectively.",
+      "opts": [
+        "that",
+        "which",
+        "whether",
+        "what"
+      ],
+      "ans": 2,
+      "exp": "evaluateの目的語となる名詞節を導き、「〜かどうか」という意味を作る接続詞whetherが適切です。後ろの文は完全な構造のため、関係代名詞whichやwhatは不適です。",
+      "id": 270
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "All employees traveling overseas on company business are required to retain their receipts ___ to receiving reimbursement.",
+      "opts": [
+        "ahead",
+        "prior",
+        "before",
+        "earlier"
+      ],
+      "ans": 1,
+      "exp": "「〜に先立って、〜の前に」という意味の成句「prior to + 名詞/動名詞」を問う問題です。空欄直後のtoと結びつくpriorが正解です。",
+      "id": 271
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "Dr. Peterson is widely recognized as a leading economist ___ research on market volatility has influenced monetary policy decisions.",
+      "opts": [
+        "who",
+        "whom",
+        "which",
+        "whose"
+      ],
+      "ans": 3,
+      "exp": "先行詞（a leading economist）と直後の名詞（research）が「その経済学者の研究」という所有関係にあるため、所有格の関係代名詞whoseが適切です。",
+      "id": 272
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Had the board of directors ___ informed of the overseas market fluctuations earlier, they would have postponed the acquisition.",
+      "opts": [
+        "been",
+        "be",
+        "being",
+        "were"
+      ],
+      "ans": 0,
+      "exp": "仮定法過去完了の条件節「If the board ... had been informed」から If が省略されて倒置が起きた形（Had + 主語 + 過去分詞）です。受動態の文脈であるため been が正解となります。",
+      "id": 273
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Mr. Henderson requested that all expense reports for the regional conference ___ submitted to the accounting department by Friday.",
+      "opts": [
+        "are",
+        "be",
+        "will be",
+        "have been"
+      ],
+      "ans": 1,
+      "exp": "要求・提案を表す動詞 requested に続く that 節内では、助動詞 should が省略されて動詞の原形が用いられます（仮定法現在）。受動態であるため be submitted が正解です。",
+      "id": 274
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ the fierce competition in the cloud computing sector, Omnitech managed to achieve record-breaking quarterly profits.",
+      "opts": [
+        "Despite",
+        "Although",
+        "Whereas",
+        "Even so"
+      ],
+      "ans": 0,
+      "exp": "空欄の後に名詞句「the fierce competition ...」が続いているため、譲歩を表す前置詞 Despite（〜にもかかわらず）が適切です。Although や Whereas は接続詞、Even so は接続副詞のため名詞句を直接導けません。",
+      "id": 275
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The merger agreement contains several complex stipulations, the most critical of ___ concerns intellectual property rights transfer.",
+      "opts": [
+        "which",
+        "whom",
+        "what",
+        "them"
+      ],
+      "ans": 0,
+      "exp": "2つの節をつなぐ接続詞と代名詞の役割を同時に果たす関係代名詞が必要です。先行詞が人以外の名詞 stipulations（規定）であるため、「前置詞 + which」の形をとる which が正解です。them だと節を連結できません。",
+      "id": 276
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Ms. Patel is capable of handling the negotiation independently, but should any complications arise, she ___ her supervisor immediately.",
+      "opts": [
+        "will contact",
+        "contacted",
+        "contacts",
+        "had contacted"
+      ],
+      "ans": 0,
+      "exp": "「should any complications arise」は「if any complications should arise」の If が省略された倒置表現（万が一〜が起これば）です。未来の仮定を表すため、主節の述語動詞には will contact が適切です。",
+      "id": 277
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ all travel and accommodation expenses are properly documented with receipts, employees will be fully reimbursed within five business days.",
+      "opts": [
+        "Providing that",
+        "In spite of",
+        "As well as",
+        "In accordance"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに完全な文（節）が続いているため接続詞が必要です。「Providing that 〜」は「〜という条件で／〜でありさえすれば」という意味の接続詞で、文脈（経費が領収書で適切に記録されていれば払い戻される）に適合します。In spite of は前置詞、As well as は前置詞句/相関接続詞、In accordance は with を伴う前置詞句のため不適切です。",
+      "id": 278
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Should any discrepancies ___ between the invoice and the purchase order, please notify the procurement department immediately.",
+      "opts": [
+        "arise",
+        "arises",
+        "arose",
+        "have arisen"
+      ],
+      "ans": 0,
+      "exp": "仮定法未来の条件節において If が省略され、助動詞 Should が文頭に出る倒置構文（If any discrepancies should arise... → Should any discrepancies arise...）です。助動詞 Should の直後であるため、主語の単複や時制に関わらず動詞の原形 arise が正解となります。",
+      "id": 279
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Mr. Tanaka was commended by the board for having devised an innovative logistics strategy, the implementation of ___ reduced delivery overheads by 15 percent.",
+      "opts": [
+        "which",
+        "what",
+        "whom",
+        "whose"
+      ],
+      "ans": 0,
+      "exp": "コンマ以降の節において、先行詞「an innovative logistics strategy（革新的な物流戦略）」を修飾する関係代名詞が必要です。「前置詞 + which」の発展形で「名詞 + of which」の構造になっており、「その戦略の実行が〜」という意味関係を作ります。what は先行詞を含んでしまうため不可、whom は人を先行詞とするため不可、whose は whose implementation の順で用いるため不適切です。",
+      "id": 280
+    },
+    {
+      "level": 860,
+      "cat": "vocabulary",
+      "q": "The senior vice president emphasized that adhering strictly to international data protection standards is ___ to maintaining consumer trust.",
+      "opts": [
+        "integral",
+        "reluctant",
+        "tentative",
+        "consecutive"
+      ],
+      "ans": 0,
+      "exp": "文脈は「副社長は、国際的なデータ保護基準に厳格に従うことが消費者の信頼を維持するために不可欠であると強調した」となります。「be integral to 〜」で「〜にとって不可欠である・肝要である」という頻出コロケーションを形成する integral が正解です。reluctant（気の進まない）、tentative（暫定的な）、consecutive（連続した）は文意に合いません。",
+      "id": 281
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The corporate compliance committee insisted that every regional branch manager ___ an independent audit before the end of the second quarter.",
+      "opts": [
+        "conduct",
+        "conducts",
+        "conducted",
+        "is conducting"
+      ],
+      "ans": 0,
+      "exp": "要求・提案・主張を表す動詞 insist の後ろに続く that 節内では、イギリス英語や口語を除き、動詞は「(should +) 動詞の原形」を用いる仮定法現在のルールが適用されます。主語が every regional branch manager（三人称単数）であっても、三単現の -s は付かず原形の conduct が正解です。",
+      "id": 282
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Had the board of directors been informed of the projected deficit earlier, they ___ different cost-cutting measures during the initial phase.",
+      "opts": [
+        "would have implemented",
+        "will implement",
+        "had implemented",
+        "would implement"
+      ],
+      "ans": 0,
+      "exp": "仮定法過去完了のifが省略されて倒置が起きた文（Had the board... been informed = If the board... had been informed）です。過去の事実に反する仮定を表すため、主節は〈would have + 過去分詞〉の形をとる (A) が正解です。",
+      "id": 283
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The senior auditor recommended that the accounting team ___ a thorough review of the cross-border transactions before the end of the fiscal quarter.",
+      "opts": [
+        "conducts",
+        "conduct",
+        "conducted",
+        "will conduct"
+      ],
+      "ans": 1,
+      "exp": "提案・要求を表す動詞 recommend に続く that 節内では、主語に関わらず動詞の原形（仮定法現在、または should + 原形）が用いられます。主語 the accounting team が単数であっても、原形の (B) conduct が正解です。",
+      "id": 284
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ the regulatory approval takes longer than anticipated, the product launch will proceed strictly according to the marketing schedule.",
+      "opts": [
+        "Unless",
+        "Despite",
+        "Except",
+        "Without"
+      ],
+      "ans": 0,
+      "exp": "空欄の後ろに主語 (the regulatory approval) と動詞 (takes) を伴う節が続いているため、接続詞が必要です。選択肢の中で接続詞として節を導けるのは「〜でない限り」を意味する (A) Unless のみです（Despite, Except, Without は前置詞）。",
+      "id": 285
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Ms. Tanaka proved to be an invaluable asset to the logistics division, skillfully resolving disputes ___ arose among international suppliers.",
+      "opts": [
+        "whomever",
+        "whatever",
+        "that",
+        "what"
+      ],
+      "ans": 2,
+      "exp": "先行詞 disputes（名詞）を修飾し、後ろの不完全文（動詞 arose の主語が欠けている）を繋ぐ関係代名詞の主格が必要です。先行詞を含まない関係代名詞 that (C) が正解です。what は先行詞を含んでしまうため不可。",
+      "id": 286
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "With the overseas merger virtually finalized, the executive committee is ___ considering expanding manufacturing operations into Southeast Asia.",
+      "opts": [
+        "serious",
+        "seriousness",
+        "seriously",
+        "more serious"
+      ],
+      "ans": 2,
+      "exp": "空欄は現在進行形の be動詞 (is) と現在分詞 (considering) の間に位置しており、動詞句を修飾する副詞が入る必要があります。したがって副詞の (C) seriously（真剣に、本格的に）が正解です。",
+      "id": 287
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "It is imperative that the lead auditor ___ all financial disclosures before the quarterly shareholder meeting commences.",
+      "opts": [
+        "inspects",
+        "inspect",
+        "inspected",
+        "is inspecting"
+      ],
+      "ans": 1,
+      "exp": "imperative（不可欠な）のように提案・要求・必要性を表す形容詞に続く that 節内では、動詞は「(should +) 原形」となります。主語が the lead auditor（三人称単数）であっても、原形の inspect が正解です。",
+      "id": 288
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ the chief financial officer anticipated the sudden currency fluctuation, the company would have hedged its foreign exchange exposure.",
+      "opts": [
+        "If",
+        "Should",
+        "Had",
+        "Were"
+      ],
+      "ans": 2,
+      "exp": "主節が「would have + 過去分詞」であることから仮定法過去完了の文です。条件節の if が省略されると助動詞 Had が文頭に出て倒置が起こるため、Had the chief financial officer anticipated が正しい形です。",
+      "id": 289
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The human resources director requested that a confidential evaluation report be forwarded to ___ will be conducting the executive interviews.",
+      "opts": [
+        "whoever",
+        "whomever",
+        "whichever",
+        "everyone"
+      ],
+      "ans": 0,
+      "exp": "前置詞 to の目的語となる名詞節を導き、かつ節内の述語動詞 will be conducting に対する主語が必要なため、主格の複合関係代名詞 whoever（〜する人は誰でも）が正解です。whomever は目的格のため不可です。",
+      "id": 290
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "___ all the rigorous safety and compliance requirements, the newly developed medical device received expedited clearance from the regulatory agency.",
+      "opts": [
+        "Satisfied",
+        "Satisfaction",
+        "To satisfy",
+        "Having satisfied"
+      ],
+      "ans": 3,
+      "exp": "主節の主語 the newly developed medical device が基準を「満たした」という能動の関係であり、認可を受けた時点より前に完了していた事象を表すため、完了形の分詞構文 Having satisfied が適切です。",
+      "id": 291
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "Despite severe supply chain disruptions, the logistics division managed to complete the shipment well ___ of the revised schedule.",
+      "opts": [
+        "prior",
+        "ahead",
+        "advance",
+        "before"
+      ],
+      "ans": 1,
+      "exp": "「〜より（かなり）早く、前もって」を意味するイディオムは ahead of です。well ahead of で「〜より大幅に早く」となります。prior を用いる場合は prior to、advance は in advance of とする形が必要です。",
+      "id": 292
     }
   ]
 }
