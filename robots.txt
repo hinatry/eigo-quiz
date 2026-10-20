@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hinatry.github.io/eigo-quiz/sitemap.xml
