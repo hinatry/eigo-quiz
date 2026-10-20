@@ -200,6 +200,7 @@ canvas{image-rendering:pixelated;display:block;border:1px solid var(--border);bo
         <button class="qa-btn" onclick="quickAction(730,3)">730点×3問</button>
         <button class="qa-btn" onclick="quickAction(860,3)">860点×3問</button>
         <button class="qa-btn" onclick="quickAction('mix',10)">ミックス10問</button>
+        <button class="qa-btn" style="border-color:#6366f1;color:#6366f1;font-weight:700" onclick="startBulkGeneration()">🚀 バルク100問</button>
       </div>
       <div class="quick-actions" style="border-top:none;padding-top:2px">
         <span class="qa-label">調査:</span>
@@ -1001,6 +1002,110 @@ async function doDeployPending(btn){
 
   if(!simRunning && emp){
     setTimeout(()=>{ if(emp.state==='done'){emp.state='idle'; drawOffice(frame);} },3000);
+  }
+}
+
+// ===== BULK GENERATION =====
+const BULK_PLAN = [
+  {level:500, count:5, batches:5},  // 25問
+  {level:650, count:5, batches:6},  // 30問
+  {level:730, count:5, batches:5},  // 25問
+  {level:860, count:5, batches:4},  // 20問
+]; // 合計100問
+
+async function startBulkGeneration(){
+  if(isGenerating) return;
+  if(!confirm('🚀 バルク生成を開始しますか？\n\n500点×25問、650点×30問、730点×25問、860点×20問\n合計100問を自動生成します。\n\n約2〜3分かかります。生成後にまとめてデプロイできます。')) return;
+
+  isGenerating = true;
+  setGeneratingUI(true);
+
+  const allQuestions = [];
+  let totalBatches = BULK_PLAN.reduce((s,p)=>s+p.batches, 0);
+  let doneBatches = 0;
+
+  addChatSystem(`🚀 バルク生成開始！合計${totalBatches}バッチ（約100問）を順番に生成します...`);
+  addLog('バルク生成開始');
+
+  // Progress message element
+  const progressId = 'bulk-progress-' + Date.now();
+  addBulkProgressMsg(progressId, 0, totalBatches, 0);
+
+  for(const plan of BULK_PLAN){
+    if(!isGenerating) break; // aborted
+
+    addChatMessage('wrt', `📝 ${plan.level}点問題を生成中... (${plan.batches}バッチ × ${plan.count}問)`, 'thinking');
+
+    let levelQuestions = [];
+    for(let b = 0; b < plan.batches; b++){
+      if(!isGenerating) break;
+
+      try {
+        const qs = await generateWithGemini(plan.level, plan.count);
+        levelQuestions.push(...qs);
+        allQuestions.push(...qs);
+        doneBatches++;
+        updateBulkProgressMsg(progressId, doneBatches, totalBatches, allQuestions.length);
+        addLog(`✅ ${plan.level}点 バッチ${b+1}/${plan.batches} (${qs.length}問)`,'success');
+      } catch(e) {
+        if(e.name==='AbortError') break;
+        addLog(`⚠️ ${plan.level}点 バッチ${b+1} エラー: ${e.message}. スキップします。`,'warn');
+      }
+
+      // Rate limit対策: バッチ間に3秒待機
+      if(b < plan.batches - 1 && isGenerating){
+        await sleep(3000);
+      }
+    }
+
+    if(levelQuestions.length > 0){
+      addChatMessage('wrt', `✅ ${plan.level}点: ${levelQuestions.length}問生成完了！`, null, levelQuestions.slice(0,3));
+    }
+
+    // レベル間は5秒待機
+    if(isGenerating) await sleep(5000);
+  }
+
+  isGenerating = false;
+  setGeneratingUI(false);
+
+  if(allQuestions.length > 0){
+    addChatMessage('pm', `🎉 バルク生成完了！\n合計 ${allQuestions.length}問 が生成されました。\n内容を確認してGitHubにデプロイしてください。`);
+    addLog(`バルク生成完了: ${allQuestions.length}問`,'success');
+    addDeployButton(allQuestions);
+  }
+}
+
+function addBulkProgressMsg(id, done, total, qCount){
+  const area = document.getElementById('chat-area');
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  const div = document.createElement('div');
+  div.id = id;
+  div.style.cssText = 'padding:8px 16px;margin:4px 0';
+  div.innerHTML = `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:11px">
+      <span style="color:var(--accent)">⚡ 生成中...</span>
+      <span style="color:var(--muted)">${done}/${total} バッチ完了 · ${qCount}問</span>
+    </div>
+    <div style="background:var(--border);border-radius:4px;height:6px;overflow:hidden">
+      <div id="${id}-bar" style="height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:${pct}%;transition:width 0.5s"></div>
+    </div>
+    <div id="${id}-pct" style="text-align:right;font-size:10px;color:var(--muted);margin-top:4px">${pct}%</div>
+  </div>`;
+  area.appendChild(div);
+  area.scrollTop = area.scrollHeight;
+}
+
+function updateBulkProgressMsg(id, done, total, qCount){
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  const bar = document.getElementById(`${id}-bar`);
+  const pctEl = document.getElementById(`${id}-pct`);
+  const el = document.getElementById(id);
+  if(bar) bar.style.width = pct + '%';
+  if(pctEl) pctEl.textContent = pct + '%';
+  if(el){
+    const info = el.querySelector('span:last-child');
+    if(info) info.textContent = `${done}/${total} バッチ完了 · ${qCount}問`;
   }
 }
 
