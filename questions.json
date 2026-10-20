@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "generated": "2026-10-20",
-  "total": 292,
+  "total": 330,
   "questions": [
     {
       "id": 1,
@@ -4090,6 +4090,538 @@
       "ans": 1,
       "exp": "「〜より（かなり）早く、前もって」を意味するイディオムは ahead of です。well ahead of で「〜より大幅に早く」となります。prior を用いる場合は prior to、advance は in advance of とする形が必要です。",
       "id": 292
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Mr. Gomez ___ reviewed the quarterly sales report before the team meeting.",
+      "opts": [
+        "carefully",
+        "careful",
+        "caring",
+        "care"
+      ],
+      "ans": 0,
+      "exp": "動詞reviewedを修飾するためには副詞が必要です。選択肢の中で副詞は(A) carefully（慎重に、入念に）のみです。",
+      "id": 293
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "All employees must submit ___ travel expense reports by Friday afternoon.",
+      "opts": [
+        "them",
+        "their",
+        "theirs",
+        "they"
+      ],
+      "ans": 1,
+      "exp": "名詞句travel expense reportsを修飾する所有格の代名詞が必要です。したがって、(B) their（彼らの）が正解です。",
+      "id": 294
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The new marketing strategy will be ___ at the international conference next month.",
+      "opts": [
+        "present",
+        "presentation",
+        "presented",
+        "presenting"
+      ],
+      "ans": 2,
+      "exp": "助動詞will beの後に続き、「発表される予定である」という受動態（be動詞 + 過去分詞）を作るため、過去分詞の(C) presentedが適切です。",
+      "id": 295
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Ms. Tanaka has worked as a senior accountant at this firm ___ five years.",
+      "opts": [
+        "since",
+        "during",
+        "while",
+        "for"
+      ],
+      "ans": 3,
+      "exp": "現在完了形と共に用いられ、five years（5年間）という期間を表す前置詞は(D) forです。sinceは起点を表す語（例：2020年など）とともに用います。",
+      "id": 296
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please contact the IT support desk ___ you experience any issues with the new software.",
+      "opts": [
+        "despite",
+        "if",
+        "during",
+        "because of"
+      ],
+      "ans": 1,
+      "exp": "空欄の後ろに主語(you)と動詞(experience)を含む節が続いているため接続詞が必要です。文脈上「もし〜ならば」という条件を表す(B) ifが正解です。",
+      "id": 297
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 298
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 299
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 300
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 301
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 302
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 303
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 304
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 305
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 306
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The meeting has been ___ to next Monday.",
+      "opts": [
+        "postponed",
+        "postpone",
+        "postponing",
+        "postponement"
+      ],
+      "ans": 0,
+      "exp": "has been + 過去分詞（受動態完了形）",
+      "id": 307
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "Please ___ me know when you are available.",
+      "opts": [
+        "let",
+        "make",
+        "have",
+        "get"
+      ],
+      "ans": 0,
+      "exp": "let me know = 知らせる",
+      "id": 308
+    },
+    {
+      "level": 500,
+      "cat": "grammar",
+      "q": "The report is ___ by Friday.",
+      "opts": [
+        "due",
+        "do",
+        "done",
+        "doing"
+      ],
+      "ans": 0,
+      "exp": "due = 期限",
+      "id": 309
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 310
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 311
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 312
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 313
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 314
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 315
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 316
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 317
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 318
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 319
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "The board is considering ___ its global operations.",
+      "opts": [
+        "expanding",
+        "expand",
+        "expanded",
+        "expansion"
+      ],
+      "ans": 0,
+      "exp": "consider + 動名詞",
+      "id": 320
+    },
+    {
+      "level": 650,
+      "cat": "grammar",
+      "q": "___ the budget constraints, we approved the project.",
+      "opts": [
+        "Despite",
+        "Although",
+        "However",
+        "Even"
+      ],
+      "ans": 0,
+      "exp": "Despite + 名詞",
+      "id": 321
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 322
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 323
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 324
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 325
+    },
+    {
+      "level": 730,
+      "cat": "grammar",
+      "q": "The consultant recommended that the team ___ its approach.",
+      "opts": [
+        "revisit",
+        "revisits",
+        "revisited",
+        "revisiting"
+      ],
+      "ans": 0,
+      "exp": "recommend that + 仮定法現在",
+      "id": 326
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The strategy was predicated ___ sustainable growth.",
+      "opts": [
+        "on",
+        "upon",
+        "in",
+        "at"
+      ],
+      "ans": 0,
+      "exp": "predicated on = 〜を前提とする",
+      "id": 327
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The strategy was predicated ___ sustainable growth.",
+      "opts": [
+        "on",
+        "upon",
+        "in",
+        "at"
+      ],
+      "ans": 0,
+      "exp": "predicated on = 〜を前提とする",
+      "id": 328
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The strategy was predicated ___ sustainable growth.",
+      "opts": [
+        "on",
+        "upon",
+        "in",
+        "at"
+      ],
+      "ans": 0,
+      "exp": "predicated on = 〜を前提とする",
+      "id": 329
+    },
+    {
+      "level": 860,
+      "cat": "grammar",
+      "q": "The strategy was predicated ___ sustainable growth.",
+      "opts": [
+        "on",
+        "upon",
+        "in",
+        "at"
+      ],
+      "ans": 0,
+      "exp": "predicated on = 〜を前提とする",
+      "id": 330
     }
   ]
 }
